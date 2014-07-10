@@ -1,0 +1,50 @@
+[
+  {
+    "foodTypeName" : "根菜类",
+    "ftid" : "19",
+    "foodTypeCode" : "04-1",
+    "parentID" : "18"
+  },
+  {
+    "foodTypeName" : "鲜豆类",
+    "ftid" : "20",
+    "foodTypeCode" : "04-2",
+    "parentID" : "18"
+  },
+  {
+    "foodTypeName" : "茄果、瓜菜类",
+    "ftid" : "21",
+    "foodTypeCode" : "04-3",
+    "parentID" : "18"
+  },
+  {
+    "foodTypeName" : "葱蒜类",
+    "ftid" : "22",
+    "foodTypeCode" : "04-4",
+    "parentID" : "18"
+  },
+  {
+    "foodTypeName" : "嫩茎、叶、花菜类",
+    "ftid" : "23",
+    "foodTypeCode" : "04-5",
+    "parentID" : "18"
+  },
+  {
+    "foodTypeName" : "水生蔬菜类",
+    "ftid" : "24",
+    "foodTypeCode" : "04-6",
+    "parentID" : "18"
+  },
+  {
+    "foodTypeName" : "薯芋类",
+    "ftid" : "25",
+    "foodTypeCode" : "04-7",
+    "parentID" : "18"
+  },
+  {
+    "foodTypeName" : "野生蔬菜类",
+    "ftid" : "26",
+    "foodTypeCode" : "04-8",
+    "parentID" : "18"
+  }
+]

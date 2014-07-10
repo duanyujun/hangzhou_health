@@ -1,0 +1,20 @@
+[
+  {
+    "foodTypeName" : "快餐食品",
+    "ftid" : "79",
+    "foodTypeCode" : "15-1",
+    "parentID" : "78"
+  },
+  {
+    "foodTypeName" : "方便食品",
+    "ftid" : "80",
+    "foodTypeCode" : "15-2",
+    "parentID" : "78"
+  },
+  {
+    "foodTypeName" : "休闲食品",
+    "ftid" : "81",
+    "foodTypeCode" : "15-3",
+    "parentID" : "78"
+  }
+]
