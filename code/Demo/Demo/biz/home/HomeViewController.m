@@ -24,7 +24,6 @@
 #import "MBIIRequest.h"
 #import "XMLDictionary.h"
 #import "MBAlertView.h"
-#import "ShengTableViewController.h"
 #import "NSDateUtilities.h"
 @interface HomeViewController ()<UIAlertViewDelegate>
 {
@@ -94,7 +93,7 @@
 {
     
     NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
-    NSString *organName=MBNonEmptyStringNo_([[NSUserDefaults standardUserDefaults]valueForKey:@"organName"]);
+    NSString *organName=MBNonEmptyStringNo_(ORGANIZATIONNAME);
     
     NSMutableArray *arr=[NSMutableArray array];
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"UserID"]),@"organ_id", nil]];
@@ -286,13 +285,7 @@
 //系统消息
 -(void)showSysteMesage
 {
-//    if (_webAddress.length<1) {
-//        
-//        ShengTableViewController *sheng=[[ShengTableViewController alloc]init];
-//        sheng.isFromKuai=YES;
-//        [self.navigationController pushViewController:sheng animated:YES];
-//        
-//    }else{
+
         BOOL isLogin =[[[NSUserDefaults standardUserDefaults]valueForKey:LOGINSTATUS] boolValue];
         
         if (!isLogin) {
@@ -305,7 +298,6 @@
             UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:tijian];
             [self presentViewController:nav animated:YES completion:nil];
         }
-//    }
 }
 -(void)loadViewAboutUserLuccessView
 {
@@ -334,16 +326,10 @@
 -(void)rightBarItemBtnPressed:(UIBarButtonItem*)rightBtn
 {
     
-    if (_webAddress.length<1||_phoneNum.length<1) {
-        
-        ShengTableViewController *sheng=[[ShengTableViewController alloc]init];
-        sheng.isFromKuai=YES;
-        [self.navigationController pushViewController:sheng animated:YES];
-        
-    }else{
+    
         MBAlertView *show=[[MBAlertView alloc]initWithTitle:nil message:[NSString stringWithFormat:@"确定呼叫%@吗?",_phoneNum] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
         [show show];
-    }
+
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -437,12 +423,9 @@
 -(void)btnThreeBressed
 {
     
-    if (_webAddress.length<2) {
-        
-        ShengTableViewController *sheng=[[ShengTableViewController alloc]init];
-        sheng.isFromKuai=YES;
-        [self.navigationController pushViewController:sheng animated:YES];
-        
+    BOOL isLogin =[[[NSUserDefaults standardUserDefaults]valueForKey:LOGINSTATUS] boolValue];
+    if (!isLogin) {
+        [self goToLoginViewAbout];
     }else{
         [self getSendLogbtnThre];
 

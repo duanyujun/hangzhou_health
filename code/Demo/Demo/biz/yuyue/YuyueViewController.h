@@ -8,6 +8,10 @@
 
 @interface YuyueViewController : UIViewController
 {
+    NSDictionary *_sendDataInfo;
+
     NSArray *_getDataArray;
+    NSString *_detailPrice;
+    NSString *_detailName;
 }
 @end

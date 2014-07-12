@@ -13,7 +13,6 @@
 #import "DBHelper.h"
 #import "MBNotLogViewController.h"
 #import "YuyueViewController.h"
-#import "ShengTableViewController.h"
 @interface PartTableViewController ()
 
 @end

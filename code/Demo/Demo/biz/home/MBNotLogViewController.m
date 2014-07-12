@@ -18,7 +18,6 @@
 #import "XMLParser.h"
 #import "MBSelectView.h"
 #import "MBGlobalUICommon.h"
-#import "ShengTableViewController.h"
 #define kCheckBoxSelectImage [UIImage imageNamed:@"gouxuan_yes.png"]
 #define kCheckBoxUnSelectImage [UIImage imageNamed:@"gouxuan_no.png"]
 @interface MBNotLogViewController ()<UITextFieldDelegate,NSXMLParserDelegate,NSXMLParserDelegate>
@@ -46,11 +45,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
--(void)selectButtonPressed
-{
-    ShengTableViewController *sheng=[[ShengTableViewController alloc]init];
-    [self.navigationController pushViewController:sheng animated:YES];
-}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self name:MBGETJIGOUINFO object:nil];

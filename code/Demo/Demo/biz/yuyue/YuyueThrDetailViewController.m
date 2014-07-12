@@ -42,6 +42,7 @@
     }
     
     NSLog(@"%@",_dataArray);
+    
     NSMutableArray *allData =[NSMutableArray arrayWithCapacity:2];
     for (int i=0; i<_dataArray.count; i++) {
         NSMutableArray *oneArray =[NSMutableArray arrayWithCapacity:2];
@@ -65,6 +66,8 @@
         RADataObject *phone = [RADataObject dataObjectWithName:_dataArray[i][@"departmentsName"] children:oneArray];
         [allData addObject:phone];
     }
+    
+    
     _dataArrayTree=[[NSMutableArray alloc]initWithArray:allData];
     RATreeView *treeView = [[RATreeView alloc] initWithFrame:CGRectMake(0, 0, 320, kContentViewHeight+49)];
     

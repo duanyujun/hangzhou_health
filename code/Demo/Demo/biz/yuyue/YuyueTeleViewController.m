@@ -67,14 +67,14 @@
             NSLog(@"%@",_infoAbout);
             UILabel *value=[[UILabel alloc]initWithFrame:CGRectMake(150, 10+i*40, 170, 35)];
             value.textAlignment=NSTextAlignmentLeft;
-            value.text=MBNonEmptyStringNo_(_infoAbout[@"templateName"][@"content"]);
+            value.text=MBNonEmptyStringNo_(_infoAbout[@"PackageName"]);
             value.font=kNormalTextFont;
             [self.view addSubview:value];
         }
         if (i==1) {
             UILabel *value=[[UILabel alloc]initWithFrame:CGRectMake(150, 10+i*40, 170, 35)];
             value.textAlignment=NSTextAlignmentLeft;
-            value.text=[NSString stringWithFormat:@"￥%@",MBNonEmptyStringNo_(_infoAbout[@"price"][@"content"])];
+            value.text=[NSString stringWithFormat:@"￥%@",MBNonEmptyStringNo_(_infoAbout[@"PackagePrice"])];
             value.font=kNormalTextFont;
             [self.view addSubview:value];
         }
@@ -145,16 +145,29 @@
     }
     
     NSMutableArray *arr=[NSMutableArray array];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(_infoAbout[@"templateID"][@"content"]),@"appointmentPackageId", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(_nameTF.text),@"name", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(_telTF.text),@"telphone", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([_timeSele.dateValue dateString]),@"reservationDate", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(_noteTF.text),@"reservationExplain", nil]];
+
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSLog(@"%@",allUserDic);
+    
+    NSString *recodePO = [NSString stringWithFormat:@"<PackageName>%@</PackageName><PackagePrice>%@</PackagePrice><PackageSex>%@</PackageSex><PackageExplain>%@</PackageExplain><YuYueDate>%@</YuYueDate><Name>%@</Name><Sex>%@</Sex><Mobile>%@</Mobile><CardNo>1</CardNo><Persons>1</Persons><Company></Company><Remark>%@</Remark><Source>3</Source>",MBNonEmptyStringNo_(_infoAbout[@"PackageName"]),MBNonEmptyStringNo_(_infoAbout[@"PackagePrice"]),MBNonEmptyStringNo_(_infoAbout[@"PackageSex"]),MBNonEmptyStringNo_(_infoAbout[@"PackageExplain"]),MBNonEmptyStringNo_([_timeSele.dateValue dateString]),MBNonEmptyStringNo_(_nameTF.text),MBNonEmptyStringNo_([allUserDic allValues][0][@"Sex"]),MBNonEmptyStringNo_(_telTF.text),MBNonEmptyStringNo_(_noteTF.text)];
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(recodePO),@"recordPO", nil]];
 
     
+    NSString *YYDetail;
+    for (int i=0; i<_dataAllArray.count; i++) {
+        NSDictionary *dicOnf =_dataAllArray[i];
+        if (!YYDetail) {
+            YYDetail =[NSString stringWithFormat:@"<YYDetail><TJ_Code>%@</TJ_Code><TJ_Name>%@</TJ_Name><TJ_Price>%@</TJ_Price><TJ_Explain>%@</TJ_Explain><TJ_OrderID>%@</TJ_OrderID></YYDetail>",MBNonEmptyStringNo_(dicOnf[@"TJ_Code"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Name"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Price"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Explain"]),MBNonEmptyStringNo_(dicOnf[@"TJ_OrderID"])];
+        }else
+        {
+             YYDetail =[NSString stringWithFormat:@"%@<YYDetail><TJ_Code>%@</TJ_Code><TJ_Name>%@</TJ_Name><TJ_Price>%@</TJ_Price><TJ_Explain>%@</TJ_Explain><TJ_OrderID>%@</TJ_OrderID></YYDetail>",YYDetail,MBNonEmptyStringNo_(dicOnf[@"TJ_Code"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Name"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Price"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Explain"]),MBNonEmptyStringNo_(dicOnf[@"TJ_OrderID"])];
+        }
+    }
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(YYDetail),@"details", nil]];
+
     NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"AddReservationBodycheck"];
     NSLog(@"%@",soapMsg);
-    NSLog(@"%@",_infoAbout);
     __block YuyueTeleViewController *blockSelf = self;
     
     MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddReservationBodycheck" params:@{@"soapMessag":soapMsg}];

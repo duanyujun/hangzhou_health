@@ -14,6 +14,7 @@
 #import "MBIIRequest.h"
 #import "SoapHelper.h"
 //#import <GHUnitIOS/GHUnit.h>
+#import "NSDateUtilities.h"
 #import "XMLParser.h"
 #import "MBGlobalUICommon.h"
 #import "TiJianReprotCell.h"
@@ -22,6 +23,7 @@
 #import "RATreeView.h"
 #import "RADataObject.h"
 #import "MBLabel.h"
+#import "MBAlertView.h"
 #import "TijianDetialViewController.h"
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -155,7 +157,7 @@
     [self.view addSubview:treeView];
     
 
-    
+    [self CheckReportExists];
 }
 
 #pragma mark TreeView Delegate methods
@@ -438,5 +440,153 @@
         NSLog(@"22222222222");//建议
 
     }
+    if ([((RADataObject *)item).name isEqualToString:@"本次体检异常"]) {
+        
+        [self CheckReportExists];
+        
+    }
+}
+
+
+
+-(void)CheckReportExists
+{
+    
+
+    
+    NSMutableArray *arr=[NSMutableArray array];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(_reportID),@"ReportNO", nil]];
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
+    
+    
+    NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"CheckReportExists"];
+    
+    NSLog(@"%@",soapMsg);
+    
+    __block TijianReportAllViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"CheckReportExists" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestSendLogWinXinXMLWithItems:@[item] success:^(id JSON) {
+        
+        
+        [blockSelf GetNewHealthDataAndResultSuccessphone:[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]];
+        
+    } failure:^(NSError *error, id JSON) {
+        
+    }];
+    
+    
+}
+-(void)GetNewHealthDataAndResultSuccessphone:(NSString*)string
+{
+    NSDictionary *xmlDoc = [NSDictionary dictionaryWithXMLString:string];
+    NSLog(@"%@",xmlDoc);
+    NSString *array=MBNonEmptyStringNo_(xmlDoc[@"soap:Body"][@"CheckReportExistsResponse"][@"CheckReportExistsResult"]);
+    if (![array isEqualToString:@""]) {
+        if ([array isEqualToString:@"2"]) {
+            MBAlertView *show=[[MBAlertView alloc]initWithTitle:nil message:@"是否要备份这份体检报告" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+            [show show];
+            
+        }
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+        [self AddOrganReport];
+    }
+}
+-(void)AddOrganReport
+{
+    
+    
+    
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSString *report = [NSString stringWithFormat:@"<ORGAN_NAME>%@</ORGAN_NAME><CLIENT_NO>%@</CLIENT_NO><CLIENT_NAME>%@</CLIENT_NAME><MOBILE>%@</MOBILE><SEX>%@</SEX><REPORT_NO>%@</REPORT_NO><REPORT_TIME>%@</REPORT_TIME><REPORT_SUMMARY>%@</REPORT_SUMMARY><REPORT_ADVICE>%@</REPORT_ADVICE><DATA_SOURCE>%@</DATA_SOURCE>",ORGANIZATIONNAME,[allUserDic allValues][0][@"UserName"],[allUserDic allValues][0][@"Name"],[allUserDic allValues][0][@"MobileNO"],[allUserDic allValues][0][@"Sex"],_reportID,[[NSDate date]dateString],_summarize,_advice,@""]
+    ;
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:report,@"report", nil]];
+    
+    NSString *AbnormalList;
+    NSArray *hearNorArray =_healthAbnoramlsDic[@"abnoraml"];
+    for (int i=0; i<hearNorArray.count; i++) {
+        NSDictionary *dicInfo = hearNorArray[i];
+        if (!AbnormalList) {
+            AbnormalList = [NSString stringWithFormat:@"<ReportAbnormal><ABNORMAL_NO>%@</ABNORMAL_NO><ABNORMAL_NAME>%@</ABNORMAL_NAME></ReportAbnormal>",MBNonEmptyStringNo_(dicInfo[@"abnoramlNo"]),MBNonEmptyStringNo_(dicInfo[@"abnoramlName"])];
+        }else
+        {
+            AbnormalList =[NSString stringWithFormat:@"%@<ReportAbnormal><ABNORMAL_NO>%@</ABNORMAL_NO><ABNORMAL_NAME>%@</ABNORMAL_NAME></ReportAbnormal>",AbnormalList,MBNonEmptyStringNo_(dicInfo[@"abnoramlNo"]),MBNonEmptyStringNo_(dicInfo[@"abnoramlName"])];
+        }
+    }
+    
+    NSLog(@"%@",AbnormalList);
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:AbnormalList,@"AbnormalList", nil]];
+
+    NSString *ConclustionList;
+    NSArray *ConclustionListArray =_allDataInfo[@"data"][@"departments"][@"department"];
+    
+    for (int i=0; i<ConclustionListArray.count; i++) {
+        NSDictionary *dicInfo = ConclustionListArray[i];
+        if (!ConclustionList) {
+            ConclustionList = [NSString stringWithFormat:@"<ReportConclustion><DEPARMENT_NAME>%@</DEPARMENT_NAME><CONTENTS>%@</CONTENTS><CHECK_USER>%@</CHECK_USER><CHECK_DATE>%@</CHECK_DATE></ReportConclustion>",MBNonEmptyStringNo_(dicInfo[@"departMentName"]),MBNonEmptyStringNo_(dicInfo[@"conclusion"]),MBNonEmptyStringNo_([allUserDic allValues][0][@"UserName"]),[[NSDate date]dateString]];
+            
+        }else
+        {
+             ConclustionList = [NSString stringWithFormat:@"%@<ReportConclustion><DEPARMENT_NAME>%@</DEPARMENT_NAME><CONTENTS>%@</CONTENTS><CHECK_USER>%@</CHECK_USER><CHECK_DATE>%@</CHECK_DATE></ReportConclustion>",ConclustionList,MBNonEmptyStringNo_(dicInfo[@"departMentName"]),MBNonEmptyStringNo_(dicInfo[@"conclusion"]),MBNonEmptyStringNo_([allUserDic allValues][0][@"UserName"]),[[NSDate date]dateString]];
+        }
+    }
+    
+    NSLog(@"%@",ConclustionList);
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ConclustionList,@"ConclustionList", nil]];
+
+    NSString *ItemList;
+    NSArray *ItemListListArray =_allDataInfo[@"data"][@"departments"][@"department"];
+    
+    for (int i=0; i<ItemListListArray.count; i++) {
+        NSDictionary *dicInfo = ItemListListArray[i];
+        NSArray *arrayOf = dicInfo[@"items"][@"item"];
+        for (int i=0; i<arrayOf.count; i++) {
+            NSDictionary *dicInfoAbout = arrayOf[i];
+            if (!ItemList) {
+                
+                ItemList = [NSString stringWithFormat:@"<ReportItem><DEPARMENT_NAME>%@</DEPARMENT_NAME><ITEM_NAME>%@</ITEM_NAME><ITEM_VALUE>%@</ITEM_VALUE><ITEM_UNIT>%@</ITEM_UNIT><ITEM_SIGN>%@</ITEM_SIGN><ITEM_REFERENCE>%@</ITEM_REFERENCE></ReportItem>",MBNonEmptyStringNo_(dicInfo[@"departMentName"]),MBNonEmptyStringNo_(dicInfoAbout[@"itemName"]),MBNonEmptyStringNo_(dicInfoAbout[@"itemValue"]),MBNonEmptyStringNo_(dicInfoAbout[@"unit"]),MBNonEmptyStringNo_(dicInfoAbout[@"sign"]),MBNonEmptyStringNo_(dicInfoAbout[@"reference"])];
+                
+            }else
+            {
+                ItemList = [NSString stringWithFormat:@"%@<ReportItem><DEPARMENT_NAME>%@</DEPARMENT_NAME><ITEM_NAME>%@</ITEM_NAME><ITEM_VALUE>%@</ITEM_VALUE><ITEM_UNIT>%@</ITEM_UNIT><ITEM_SIGN>%@</ITEM_SIGN><ITEM_REFERENCE>%@</ITEM_REFERENCE></ReportItem>",ItemList,MBNonEmptyStringNo_(dicInfo[@"departMentName"]),MBNonEmptyStringNo_(dicInfoAbout[@"itemName"]),MBNonEmptyStringNo_(dicInfoAbout[@"itemValue"]),MBNonEmptyStringNo_(dicInfoAbout[@"unit"]),MBNonEmptyStringNo_(dicInfoAbout[@"sign"]),MBNonEmptyStringNo_(dicInfoAbout[@"reference"])];
+
+            }
+        }
+       
+    }
+    
+    NSLog(@"%@",ItemList);
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ItemList,@"ItemList", nil]];
+    
+    NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"AddOrganReport"];
+    
+    NSLog(@"%@",soapMsg);
+    
+    __block TijianReportAllViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddOrganReport" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestSendLogWinXinXMLWithItems:@[item] success:^(id JSON) {
+        
+        
+        [blockSelf AddOrganReportGetNewHealthDataAndResultSuccessphone:[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]];
+        
+    } failure:^(NSError *error, id JSON) {
+        
+    }];
+    
+    
+}
+-(void)AddOrganReportGetNewHealthDataAndResultSuccessphone:(NSString*)string
+{
 }
 @end

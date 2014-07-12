@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface TijianReportViewController : UIViewController
+{
+    NSString *_reportID;
+}
 -(void)loadViewAboutUserLuccessView;
 @end

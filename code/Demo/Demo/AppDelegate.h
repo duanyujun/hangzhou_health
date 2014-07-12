@@ -10,9 +10,7 @@
 #import "MBTabBarController.h"
 #import "WeiboSDK.h"
 #import "WXApi.h"
-#import "BMKGeneralDelegate.h"
-#import "BMapKit.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,WeiboSDKDelegate,WXApiDelegate,BMKGeneralDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,WeiboSDKDelegate,WXApiDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MBTabBarController *tabBarController;

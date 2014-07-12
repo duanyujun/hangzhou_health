@@ -396,11 +396,12 @@
         [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(allUserDic[@"healthReportId"][@"content"]),@"reportID", nil]];
 
         NSLog(@"1111===");
+        _reportID = MBNonEmptyStringNo_(allUserDic[@"healthReportId"][@"content"]);
 
     }else
     {
         [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(allUserDic[@"reportInfo"][@"healthReportId"][@"content"]),@"reportID", nil]];
-
+        _reportID =MBNonEmptyStringNo_(allUserDic[@"reportInfo"][@"healthReportId"][@"content"]);
     }
 
     
@@ -439,11 +440,8 @@
             for (int i=0; i<array.count; i++) {
                 [itemArray addObject:array[i][@"departMentName"]];
             }
-            NSLog(@"%@",itemArray);
-            NSLog(@"%@",resutlDic[@"data"][@"healthAbnoramls"][@"abnoraml"]);
 
             NSArray *arrrayAboutHel =resutlDic[@"data"][@"healthAbnoramls"][@"abnoraml"];
-            NSLog(@"%@",arrrayAboutHel);
             if (arrrayAboutHel) {
                 if ([arrrayAboutHel isKindOfClass:[NSArray class]]) {
                     for (int i=0; i<arrrayAboutHel.count; i++) {
@@ -464,11 +462,11 @@
             
             all.resultArray = [[NSMutableArray alloc]initWithArray:array];
             all.itemArray = [[NSArray alloc]initWithArray:itemArray];
-            NSLog(@"%@",resutlDic);
+            all.reportID = _reportID;
+            all.allDataInfo = resutlDic;
 
             if (resutlDic[@"data"]) {
                 
-                NSLog(@"%@",resutlDic[@"data"][@"healthAbnoramls"]);
 
                 all.healthAbnoramlsDic = [[NSDictionary alloc]initWithDictionary:resutlDic[@"data"][@"healthAbnoramls"] ];
 
@@ -486,7 +484,6 @@
     @catch (NSException *exception) {
         
         NSDictionary *resutlDic =[NSDictionary dictionaryWithXMLString:string][@"soap:Body"][@"GetReportAbnoramlAndItemsResponse"][@"GetReportAbnoramlAndItemsResult"];
-        NSLog(@"%@",resutlDic);
         
         MBAlert(@"暂无相关记录");
     }

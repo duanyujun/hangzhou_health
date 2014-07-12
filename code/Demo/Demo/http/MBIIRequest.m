@@ -402,6 +402,74 @@ BOOL shouldCancelRequest(NSString *method) {
     [MBIIRequest requestXMLWithItems:items info:nil success:success failure:failure];
 
 }
++(void)requestXMLWIthSureIPWithItems:(NSArray *)items success:(void (^)(id))success failure:(void (^)(NSError *, id))failure
+{
+    [MBIIRequest requestXMLWithItemsWithSureIPAboutHost:items info:nil success:success failure:failure];
+    
+}
++(NSOperation*)requestXMLWithItemsWithSureIPAboutHost:(NSArray *)items info:(NSDictionary *)info success:(void (^)(id))success failure:(void (^)(NSError *, id))failure
+{
+    MBRequestItem *item=items[0];
+    NSString *urlstr = @"http://42.120.0.83:9008/MobileInterface.asmx";
+    
+    urlstr=[urlstr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURL *url =[NSURL URLWithString:urlstr];
+    NSString *soapActionURL = [NSString stringWithFormat:@"http://tempuri.org/%@",item.method];
+    NSString *soapMessag=item.params[@"soapMessag"];
+    NSLog(@"%@",soapMessag);
+    
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:url];
+    [request setValue:[url host] forHTTPHeaderField:@"Host"];
+    [request setValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%d",soapMessag.length] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:soapActionURL forHTTPHeaderField:@"SOAPAction"];
+    [request setHTTPBody:[soapMessag dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPMethod:@"POST"];
+    [request setTimeoutInterval:15];
+    
+    MBLoadingView *loadingView = nil;
+    loadingView = [[MBLoadingView alloc] init];
+    loadingView.canCancel = NO;
+    //GetIsOnLineChatingNew
+    if ([item.method isEqualToString:@"GetOnLineChatRecord"]||[item.method isEqualToString:@"GetIsOnLineChating"]||[item.method isEqualToString:@"UpDateChatRecordState"]||[item.method isEqualToString:@"GetIsOnLineChatingNew"]) {
+        
+    }else{
+        [loadingView show];
+        
+    }
+    __block NSInteger statusCode = -1;
+    
+    
+    AFHTTPClient * AFhttp = [AFHTTPClient clientWithBaseURL:url];
+    AFHTTPRequestOperation * operation = [AFhttp HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        
+        statusCode = [operation.response statusCode];
+        
+        if (statusCode == 200) {
+            
+            NSLog(@"%@",[[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
+            success(responseObject);
+            
+            [SoapXmlParseHelper CheckLoginInfoWithDate:responseObject andMethodName:item.method];
+        }
+        
+        [loadingView hide];
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [loadingView hide];
+        failure(error,operation);
+    }];
+    
+    [operation start];
+    
+    return operation;
+
+}
 +(void)requestSendLogXMLWithItems:(NSArray *)items success:(void (^)(id))success failure:(void (^)(NSError *, id))failure
 {
     [MBIIRequest requestSendLogXMLWithItems:items info:nil success:success failure:failure];
@@ -476,7 +544,70 @@ BOOL shouldCancelRequest(NSString *method) {
     
     return operation;
 }
++(void)requestSendLogWinXinXMLWithItems:(NSArray *)items success:(void (^)(id))success failure:(void (^)(NSError *, id))failure{
 
+    [MBIIRequest requestXMLWithItemsWeiXinAboutHost:items info:nil success:success failure:failure];
+
+}
+
++(NSOperation *)requestXMLWithItemsWeiXinAboutHost:(NSArray *)items info:(NSDictionary *)info success:(void (^)(id))success failure:(void (^)(NSError *, id))failure
+{
+    MBRequestItem *item=items[0];
+    NSString *urlstr = @"http://ekang.seehealth.net/WeiXinLog.asmx";
+    urlstr=[urlstr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url =[NSURL URLWithString:urlstr];
+    NSString *soapActionURL = [NSString stringWithFormat:@"http://tempuri.org/%@",item.method];
+    NSString *soapMessag=item.params[@"soapMessag"];
+    NSLog(@"%@",soapMessag);
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:url];
+    [request setValue:[url host] forHTTPHeaderField:@"Host"];
+    [request setValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%d",soapMessag.length] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:soapActionURL forHTTPHeaderField:@"SOAPAction"];
+    [request setHTTPBody:[soapMessag dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPMethod:@"POST"];
+    [request setTimeoutInterval:15];
+    
+    MBLoadingView *loadingView = nil;
+    loadingView = [[MBLoadingView alloc] init];
+    loadingView.canCancel = NO;
+    if ([item.method isEqualToString:@"GetOnLineChatRecord"]) {
+        
+    }else{
+        [loadingView show];
+        
+    }
+    __block NSInteger statusCode = -1;
+    
+    
+    AFHTTPClient * AFhttp = [AFHTTPClient clientWithBaseURL:url];
+    AFHTTPRequestOperation * operation = [AFhttp HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [loadingView hide];
+        
+        statusCode = [operation.response statusCode];
+        
+        if (statusCode == 200) {
+            
+            NSLog(@"%@",[[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
+            success(responseObject);
+            
+            [SoapXmlParseHelper CheckLoginInfoWithDate:responseObject andMethodName:item.method];
+        }
+        
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [loadingView hide];
+        failure(error,operation);
+    }];
+    
+    [operation start];
+    
+    return operation;
+}
 
 +(NSOperation *)requestXMLWithItemsAboutHost:(NSArray *)items info:(NSDictionary *)info success:(void (^)(id))success failure:(void (^)(NSError *, id))failure
 {

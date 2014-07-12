@@ -15,8 +15,6 @@
 #import "UIImageView+AFNetworking.h"
 #import "UIImageAdditions.h"
 #import "WXApi.h"
-#import "BMapKit.h"
-BMKMapManager* _mapManager;
 
 @implementation AppDelegate
 
@@ -29,11 +27,7 @@ BMKMapManager* _mapManager;
 //    [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:weiboAppKey];//微博注册
     [WXApi registerApp:weiXinAppKey];//微信注册
-    _mapManager = [[BMKMapManager alloc]init];//百度地图注册
-	BOOL ret = [_mapManager start:@"RpoM3ERlhD0bgTe4a9vceBT3" generalDelegate:self];
-	if (!ret) {
-		NSLog(@"manager start failed!");
-	}
+   
 #if __MB_DEBUG__
     InstallUncaughtExceptionHandler();//开发程序异常捕获
 #endif
@@ -126,25 +120,6 @@ BMKMapManager* _mapManager;
 {
     return [WXApi handleOpenURL:url delegate:self];
 }
-- (void)onGetNetworkState:(int)iError
-{
-    if (0 == iError) {
-        NSLog(@"联网成功");
-    }
-    else{
-        NSLog(@"onGetNetworkState %d",iError);
-    }
-    
-}
 
-- (void)onGetPermissionState:(int)iError
-{
-    if (0 == iError) {
-        NSLog(@"授权成功");
-    }
-    else {
-        NSLog(@"onGetPermissionState %d",iError);
-    }
-}
 
 @end

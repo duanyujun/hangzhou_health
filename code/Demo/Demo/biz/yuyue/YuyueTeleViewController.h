@@ -8,4 +8,6 @@
 
 @interface YuyueTeleViewController : UIViewController
 @property(nonatomic,strong)NSDictionary*infoAbout;
+@property(nonatomic,strong)NSArray*dataAllArray;
+
 @end

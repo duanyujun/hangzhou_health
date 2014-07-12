@@ -135,7 +135,7 @@ UINavigationControllerDelegate,MBTextFieldDelegate>
                cell=[[PersonInfoOtherCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStrAbout];
            }
            cell.leftLbl.text =@"当前机构";
-           cell.rightLbl.text =MBNonEmptyStringNo_([[NSUserDefaults standardUserDefaults]valueForKey:@"organName"]);
+           cell.rightLbl.text =MBNonEmptyStringNo_(ORGANIZATIONNAME);
            return cell;
        }
         static NSString *cellStrAbout =@"PersonInfoOtherCell";
