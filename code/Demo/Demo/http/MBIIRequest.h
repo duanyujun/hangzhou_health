@@ -75,4 +75,11 @@
 +(NSOperation *)requestXMLWithItemsAboutHost:(NSArray *)items info:(NSDictionary *)info success:(void (^)(id))success failure:(void (^)(NSError *, id))failure;
 +(void)requestXMLWithItemsPhone:(NSArray *)items success:(void (^)(id))success failure:(void (^)(NSError *, id))failure;
 +(NSOperation *)requestXMLWithItemsAboutHostPHone:(NSArray *)items info:(NSDictionary *)info success:(void (^)(id))success failure:(void (^)(NSError *, id))failure;
++(void)requestSendLogXMLWithItems:(NSArray *)items success:(void (^)(id))success failure:(void (^)(NSError *, id))failure;
+
+//requestSendLogXMLWithItems
++ (NSOperation *)requestSendLogXMLWithItems:(NSArray *)items
+                                info:(NSDictionary *)info
+                             success:(void (^)(id))success
+                             failure:(void (^)(NSError *, id))failure;
 @end

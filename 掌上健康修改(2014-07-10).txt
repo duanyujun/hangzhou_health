@@ -1,0 +1,88 @@
+http://ekang.seehealth.net/PadService.asmx
+1.通用版改独立版，去掉机构选择，机构名称写死在程序里，用此机构名称获取该机构对应的接口地址。此方法为http://ekang.seehealth.net/PadService.asmx中的GetWebServiceAddress方法。
+
+
+-------------------------------------------------------------------------------------
+
+http://ekang.seehealth.net/WeiXinLog.asmx
+2.记录用户的操作习惯。例如：用户点击了体检预约按钮，就要调用方法AddWenXinOperateLog一次。
+organName:机构名
+ClientNo:用户登录账号
+ClientName:用户姓名
+Mobile:手机号码
+ActExplain:体检预约（用户点击了饮食，参数即为健康饮食）
+Remark:ios
+
+以下为需要监听的功能：
+查询体检报告
+体检预约
+健康数据监测
+健康饮食
+健康运动
+健康问卷
+在线互动
+查看体检套餐
+
+--------------------------------------------------------------------------------------
+
+http://ekang.seehealth.net/WeiXinLog.asmx
+3.备份体检报告。点击体检报告时，跳到体检报告异常科室那个分级显示界面。先调用CheckReportExists（机构名称，登录账号）方法检查报告是否已备份。返回值1为已备份，2为未备份，3为发生异常。如果为2弹出一个提示框提示是否要备份这份体检报告，如果用户点击“是”，调用AddOrganReport方法，将体检报告上传。具体参数参照接口方法。
+
+
+4.http://42.120.0.83:9008/MobileInterface.asmx
+查询体检预约套餐的方法GetYuYuePackageJSON，返回json数据,参数organName（机构名称）
+list显示套餐名称，套餐价格，套餐介绍
+点击预约按钮直接跳转到填写预约信息界面
+点击list跳转套餐详情界面
+
+
+5.
+http://42.120.0.83:9008/MobileInterface.asmx(机构对应的接口地址，此地址为希禾销售)
+查询体检预约套餐详情的方法GetPackageDeatilJSON，返回json数据，packageID为套餐的Id（查询套餐是PackageGUID返回的值）
+点击checkbox，进行勾选套餐小项或取消勾选
+点击含多选一的套餐小项，弹出单选框
+点击向右的按钮，弹出隐藏的套餐小项介绍
+返回参数说明：
+PackageName            套餐名称
+PackagePrice           套餐价格
+PackageSex             套餐适用性别，1为男，2为女
+PackageExplain         套餐介绍
+
+TJ_Code                套餐小项编号
+TJ_Name                套餐小项名称
+TJ_Price               套餐小项价格
+TJ_Explain             套餐小项介绍
+TJ_OrderID             套餐小项预约的Id
+TJ_Type                套餐小项类型，1为单选，2为多项一
+TJ_GroupID             套餐小项组的Id，把是多选切组Id相同的归并为一项，作为下拉单选
+Sort_Name              套餐小项套餐所属健康类型
+Is_Check               套餐小项是否选中，1为选中，2为未选中
+Is_Cancel              套餐小项是否为必选，1为必选，不可取消，2为非必选，可以取消
+
+
+6.http://42.120.0.83:9008/MobileInterface.asmx
+提交体检预约信息的方法AddYuYueRecord,1.成功 2.失败 3.发生异常
+提交参数说明：
+PackageName            套餐名称
+PackagePrice           套餐价格
+PackageSex             套餐适用性别，1为男，2为女
+PackageExplain         套餐介绍
+YuYueDate              预约日期
+Name                   用户名
+Sex                    性别
+Mobile                 手机号
+CardNo                 体检人数
+Company                公司或团体，暂时可传空
+Remark                 备注
+Source                 预约来源1为微信，2为Android，3为苹果
+
+
+TJ_Code                套餐小项编号
+TJ_Name                套餐小项名称
+TJ_Price               套餐小项价格
+TJ_Explain             套餐小项介绍
+TJ_OrderID             套餐小项预约的Id
+
+
+
+

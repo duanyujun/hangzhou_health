@@ -7,4 +7,7 @@
 #import <UIKit/UIKit.h>
 
 @interface YuyueViewController : UIViewController
+{
+    NSArray *_getDataArray;
+}
 @end

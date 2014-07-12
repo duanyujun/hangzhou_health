@@ -1,0 +1,14 @@
+[
+  {
+    "foodTypeName" : "小吃",
+    "ftid" : "76",
+    "foodTypeCode" : "14-1",
+    "parentID" : "75"
+  },
+  {
+    "foodTypeName" : "蛋糕、甜点",
+    "ftid" : "77",
+    "foodTypeCode" : "14-2",
+    "parentID" : "75"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "foodTypeName" : "液态乳",
+    "ftid" : "54",
+    "foodTypeCode" : "10-1",
+    "parentID" : "53"
+  },
+  {
+    "foodTypeName" : "奶粉",
+    "ftid" : "55",
+    "foodTypeCode" : "10-2",
+    "parentID" : "53"
+  },
+  {
+    "foodTypeName" : "酸奶",
+    "ftid" : "56",
+    "foodTypeCode" : "10-3",
+    "parentID" : "53"
+  },
+  {
+    "foodTypeName" : "奶酪",
+    "ftid" : "57",
+    "foodTypeCode" : "10-4",
+    "parentID" : "53"
+  },
+  {
+    "foodTypeName" : "奶油",
+    "ftid" : "58",
+    "foodTypeCode" : "10-5",
+    "parentID" : "53"
+  },
+  {
+    "foodTypeName" : "其它",
+    "ftid" : "59",
+    "foodTypeCode" : "10-9",
+    "parentID" : "53"
+  }
+]

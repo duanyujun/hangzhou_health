@@ -250,13 +250,12 @@
         NSInteger index = [tabBar.items indexOfObject:item];
         
         if (index==0) {
-            FoodViewController *food =[[FoodViewController alloc]init];
-            UINavigationController*nav=[[UINavigationController alloc]initWithRootViewController:food];
-            [self presentViewController:nav animated:YES completion:nil];
+            [self getSendLogAboutFood];
+            
+           
         }if (index==1) {
-            SprotsViewController *food =[[SprotsViewController alloc]init];
-            UINavigationController*nav=[[UINavigationController alloc]initWithRootViewController:food];
-            [self presentViewController:nav animated:YES completion:nil];
+            [self getSendLogAboutsprots];
+
         }if (index==4) {
             
             MoreViewController *food =[[MoreViewController alloc]init];
@@ -272,8 +271,80 @@
     }
     
 }
+-(void)getSendLogAboutsprots
+{
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"健康运动",@"ActExplain", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
+    
+    
+    NSString *soapMsg=[SoapHelper arraySendLogToDefaultSoapMessage:arr methodName:@"AddWenXinOperateLog"];
+    NSLog(@"111111111111===========%@",soapMsg);
+    __block MBTabBarController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddWenXinOperateLog" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestSendLogXMLWithItems:@[item] success:^(id JSON) {
+        
+        NSLog(@"444444=====%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
+        [blockSelf goToSprotsView];
+        
+    } failure:^(NSError *error, id JSON) {
+        [blockSelf goToSprotsView];
+        
+    }];
+}
 
+-(void)goToSprotsView
+{
+    SprotsViewController *food =[[SprotsViewController alloc]init];
+    UINavigationController*nav=[[UINavigationController alloc]initWithRootViewController:food];
+    [self presentViewController:nav animated:YES completion:nil];
+}
+-(void)getSendLogAboutFood
+{
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"健康饮食",@"ActExplain", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
+    
+    
+    NSString *soapMsg=[SoapHelper arraySendLogToDefaultSoapMessage:arr methodName:@"AddWenXinOperateLog"];
+    NSLog(@"111111111111===========%@",soapMsg);
+    __block MBTabBarController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddWenXinOperateLog" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestSendLogXMLWithItems:@[item] success:^(id JSON) {
+        
+        NSLog(@"444444=====%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
+        [blockSelf goToFoodView];
+        
+    } failure:^(NSError *error, id JSON) {
+        [blockSelf goToFoodView];
+        
+    }];
+}
 
+-(void)goToFoodView
+{
+    FoodViewController *food =[[FoodViewController alloc]init];
+    UINavigationController*nav=[[UINavigationController alloc]initWithRootViewController:food];
+    [self presentViewController:nav animated:YES completion:nil];
+}
 
 
 - (void)showPopMenu{

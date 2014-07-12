@@ -297,9 +297,6 @@
         
     }];
 
-    
-    
-
 }
 -(void)getGetReportAbnoramlAndItemsSuccess:(NSString *)string
 {
@@ -317,14 +314,53 @@
             }
         }
     }
+    _getDataArray = itemArray;
+    
+    [self getSendLogbtnThre];
+    
    
-    YuyueThrDetailViewController *all =[[YuyueThrDetailViewController alloc]init];
-    all.dataArray = itemArray;
-    UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:all];
-    AppDelegate *appDele =(AppDelegate*)[UIApplication sharedApplication].delegate;
-    [appDele.tabBarController presentViewController:nav animated:YES completion:nil];
     
 
     
 }
+
+-(void)getSendLogbtnThre
+{
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"查看体检套餐",@"ActExplain", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
+    
+    
+    NSString *soapMsg=[SoapHelper arraySendLogToDefaultSoapMessage:arr methodName:@"AddWenXinOperateLog"];
+    NSLog(@"111111111111===========%@",soapMsg);
+    
+    __block YuyueViewController *blockSelf =self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddWenXinOperateLog" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestSendLogXMLWithItems:@[item] success:^(id JSON) {
+        
+        NSLog(@"444444=====%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
+        [blockSelf goToView];
+        
+    } failure:^(NSError *error, id JSON) {
+        
+    }];
+}
+-(void)goToView
+{
+    YuyueThrDetailViewController *all =[[YuyueThrDetailViewController alloc]init];
+    all.dataArray = _getDataArray;
+    UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:all];
+    AppDelegate *appDele =(AppDelegate*)[UIApplication sharedApplication].delegate;
+    [appDele.tabBarController presentViewController:nav animated:YES completion:nil];
+}
+
 @end

@@ -26,6 +26,7 @@
 #define LOGINREMPAD @"LOGINREMPAD" //记住密码
 #define LOGINREMPADPadAbout @"LOGINREMPADPadAbout" //记住密码
 
+#define ORGANIZATIONNAME @"希禾健康管理中心（销售部）"
 #define weiboAppKey @"1402281974"
 #define weiboRedirectURL @"www.baidu.com"
 

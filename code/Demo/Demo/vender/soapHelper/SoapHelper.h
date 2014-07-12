@@ -1,4 +1,5 @@
 
+
 //  HttpRequest
 //
 //  Created by rang on 12-10-27.
@@ -16,4 +17,7 @@
 //有参数soap生成
 +(NSString*)arrayToDefaultSoapMessage:(NSArray*)arr methodName:(NSString*)methodName;
 +(NSString*)arrayToNameSpaceSoapMessage:(NSString*)space params:(NSArray*)arr methodName:(NSString*)methodName;
++(NSString*)arraySendLogToDefaultSoapMessage:(NSArray*)arr methodName:(NSString*)methodName;
++(NSString*)methodSendLogSoapMessage:(NSString*)methodName;
++(NSString*)defaultSendLogSoapMesage;
 @end

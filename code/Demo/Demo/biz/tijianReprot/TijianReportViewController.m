@@ -139,22 +139,17 @@
     
 
 }
+-(void)GetReportInfoList{
 
--(void)getUserData
-{
-    BOOL isLogin =[[[NSUserDefaults standardUserDefaults]valueForKey:LOGINSTATUS] boolValue];
-    if (!isLogin) {
-        [self goToLoginViewAbout];
-    }else{
     NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
-
+    
     NSMutableArray *arr=[NSMutableArray array];
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"UserID"]),@"userID", nil]];
-
+    
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",_startIndex],@"startIndex", nil]];
-
+    
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",_startIndex+10],@"endIndex", nil]];
-
+    
     
     NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"GetReportInfoList"];
     NSLog(@"%@",soapMsg);
@@ -179,6 +174,41 @@
         
     } failure:^(NSError *error, id JSON) {
         
+    }];
+
+}
+-(void)getUserData
+{
+    BOOL isLogin =[[[NSUserDefaults standardUserDefaults]valueForKey:LOGINSTATUS] boolValue];
+    if (!isLogin) {
+        [self goToLoginViewAbout];
+    }else{
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSMutableArray *arr=[NSMutableArray array];
+
+
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"查询体检报告",@"ActExplain", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
+
+    
+    NSString *soapMsg=[SoapHelper arraySendLogToDefaultSoapMessage:arr methodName:@"AddWenXinOperateLog"];
+    NSLog(@"111111111111===========%@",soapMsg);
+    __block TijianReportViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddWenXinOperateLog" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestSendLogXMLWithItems:@[item] success:^(id JSON) {
+        
+        NSLog(@"444444=====%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
+        [blockSelf GetReportInfoList];
+        
+    } failure:^(NSError *error, id JSON) {
+        [blockSelf GetReportInfoList];
+
     }];
     }
 

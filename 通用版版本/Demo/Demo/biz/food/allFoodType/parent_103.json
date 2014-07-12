@@ -1,0 +1,44 @@
+[
+  {
+    "foodTypeName" : "酱油",
+    "ftid" : "104",
+    "foodTypeCode" : "20-1",
+    "parentID" : "103"
+  },
+  {
+    "foodTypeName" : "醋",
+    "ftid" : "105",
+    "foodTypeCode" : "20-2",
+    "parentID" : "103"
+  },
+  {
+    "foodTypeName" : "酱",
+    "ftid" : "106",
+    "foodTypeCode" : "20-3",
+    "parentID" : "103"
+  },
+  {
+    "foodTypeName" : "腐乳",
+    "ftid" : "107",
+    "foodTypeCode" : "20-4",
+    "parentID" : "103"
+  },
+  {
+    "foodTypeName" : "咸菜类",
+    "ftid" : "108",
+    "foodTypeCode" : "20-5",
+    "parentID" : "103"
+  },
+  {
+    "foodTypeName" : "香辛料",
+    "ftid" : "109",
+    "foodTypeCode" : "20-6",
+    "parentID" : "103"
+  },
+  {
+    "foodTypeName" : "盐、味精及其它",
+    "ftid" : "110",
+    "foodTypeCode" : "20-7",
+    "parentID" : "103"
+  }
+]

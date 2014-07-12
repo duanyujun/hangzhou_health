@@ -391,10 +391,47 @@
     if (!isLogin) {
         [self goToLoginViewAbout];
     }else{
-        ChartViewController *tijian=[[ChartViewController alloc]init];
-        UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:tijian];
-        [self presentViewController:nav animated:YES completion:nil];
+        [self getSendLogAboutCharts];
+        
+
     }
+}
+-(void)getSendLogAboutCharts
+{
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"在线互动",@"ActExplain", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
+    
+    
+    NSString *soapMsg=[SoapHelper arraySendLogToDefaultSoapMessage:arr methodName:@"AddWenXinOperateLog"];
+    NSLog(@"111111111111===========%@",soapMsg);
+    __block HomeViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddWenXinOperateLog" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestSendLogXMLWithItems:@[item] success:^(id JSON) {
+        
+        NSLog(@"444444=====%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
+        [blockSelf goToChartsView];
+        
+    } failure:^(NSError *error, id JSON) {
+        [blockSelf goToChartsView];
+        
+    }];
+}
+
+-(void)goToChartsView
+{
+    ChartViewController *tijian=[[ChartViewController alloc]init];
+    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:tijian];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 //体检预约
 -(void)btnThreeBressed
@@ -407,10 +444,85 @@
         [self.navigationController pushViewController:sheng animated:YES];
         
     }else{
-        YuyueViewController *tijian=[[YuyueViewController alloc]init];
-        [self.navigationController pushViewController:tijian animated:YES];
+        [self getSendLogbtnThre];
+
     }
     
+}
+-(void)getSendLogbtnThre
+{
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"体检预约",@"ActExplain", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
+    
+    
+    NSString *soapMsg=[SoapHelper arraySendLogToDefaultSoapMessage:arr methodName:@"AddWenXinOperateLog"];
+    NSLog(@"111111111111===========%@",soapMsg);
+    __block HomeViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddWenXinOperateLog" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestSendLogXMLWithItems:@[item] success:^(id JSON) {
+        
+        NSLog(@"444444=====%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
+        [blockSelf goTotijiaoResViewbtnThre];
+        
+    } failure:^(NSError *error, id JSON) {
+        [blockSelf goTotijiaoResViewbtnThre];
+        
+    }];
+}
+
+
+-(void)goTotijiaoResViewbtnThre
+{
+    YuyueViewController *tijian=[[YuyueViewController alloc]init];
+    [self.navigationController pushViewController:tijian animated:YES];
+}
+
+-(void)getSendLog
+{
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"查询体检报告",@"ActExplain", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
+    
+    
+    NSString *soapMsg=[SoapHelper arraySendLogToDefaultSoapMessage:arr methodName:@"AddWenXinOperateLog"];
+    NSLog(@"111111111111===========%@",soapMsg);
+    __block HomeViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddWenXinOperateLog" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestSendLogXMLWithItems:@[item] success:^(id JSON) {
+        
+        NSLog(@"444444=====%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
+        [blockSelf goTotijiaoResView];
+        
+    } failure:^(NSError *error, id JSON) {
+        [blockSelf goTotijiaoResView];
+        
+    }];
+}
+
+
+-(void)goTotijiaoResView
+{
+    TijianReportViewController *tijian=[[TijianReportViewController alloc]init];
+    [self.navigationController pushViewController:tijian animated:YES];
 }
 //提交报告
 - (void)tijiaoReprot
@@ -419,8 +531,7 @@
     if (!isLogin) {
         [self goToLoginViewAbout];
     }else{
-        TijianReportViewController *tijian=[[TijianReportViewController alloc]init];
-        [self.navigationController pushViewController:tijian animated:YES];
+        [self getSendLog];
     }
 }
 // 体检自测
@@ -430,8 +541,44 @@
     if (!isLogin) {
         [self goToLoginViewAbout];
     }else{
-        JianKangTestViewController *text =[[JianKangTestViewController alloc]init];
-        [self.navigationController pushViewController:text animated:YES];
+        [self getSendLogbtnThreZihce];
     }
+}
+-(void)getSendLogbtnThreZihce
+{
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"健康数据监测",@"ActExplain", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
+    
+    
+    NSString *soapMsg=[SoapHelper arraySendLogToDefaultSoapMessage:arr methodName:@"AddWenXinOperateLog"];
+    NSLog(@"111111111111===========%@",soapMsg);
+    __block HomeViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddWenXinOperateLog" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestSendLogXMLWithItems:@[item] success:^(id JSON) {
+        
+        NSLog(@"444444=====%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
+        [blockSelf goTotijiaoResViewbtnThreZhice];
+        
+    } failure:^(NSError *error, id JSON) {
+        [blockSelf goTotijiaoResViewbtnThreZhice];
+        
+    }];
+}
+
+
+-(void)goTotijiaoResViewbtnThreZhice
+{
+    JianKangTestViewController *text =[[JianKangTestViewController alloc]init];
+    [self.navigationController pushViewController:text animated:YES];
 }
 @end

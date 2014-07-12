@@ -1,0 +1,36 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+#import "MBConstant.h"
+#import "MBGlobalUICommon.h"
+#import "XMLDictionary.h"
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "MBNotLogViewController.h"
+    #import "AppDelegate.h"
+    #import "MBCorePreprocessorMacros.h"
+#endif
+
+#define LOGINSTATUS @"LOGINSTATUS" //登录状态
+#define ALLLOGINPEROPLE @"ALLLOGINPEROPLE" //所有登录人的信息
+#define LOGINREMPAD @"LOGINREMPAD" //记住密码
+#define LOGINREMPADPadAbout @"LOGINREMPADPadAbout" //记住密码
+
+#define weiboAppKey @"1402281974"
+#define weiboRedirectURL @"www.baidu.com"
+
+#define weiXinAppKey @"wxd930ea5d5a258f4f"
+#define weixinRedirectURL @"www.baidu.com"
+
+#define getKCNotific @"getKCNotific"
+#define getKCFoodNotific @"getKCFoodNotific"

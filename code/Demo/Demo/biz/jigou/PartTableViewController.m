@@ -100,6 +100,7 @@
     cell.textLabel.text=MBNonEmptyStringNo_(_dataArray[indexPath.row][@"organName"]);
     return cell;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dicOb=_dataArray[indexPath.row];

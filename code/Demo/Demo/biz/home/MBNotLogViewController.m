@@ -26,10 +26,8 @@
     UITextField *_moblieTF;
     UITextField *_pasTF;
     NSString *_userType;
-    UIButton *_button;
     NSString *_webAddress;
     BOOL _isRemPad;
-    UIButton *_btnMobleRem;
 }
 @end
 
@@ -61,11 +59,41 @@
 {
     NSDictionary *dic=(NSDictionary*)[noc object];
     NSLog(@"%@",dic);
-    [_button setTitle:MBNonEmptyStringNo_(dic[@"organName"]) forState:UIControlStateNormal];
     _webAddress=MBNonEmptyStringNo_(dic[@"webAddress"]);
     [[NSUserDefaults standardUserDefaults]setValue:MBNonEmptyStringNo_(dic[@"organName"]) forKey:@"organName"];
     [[NSUserDefaults standardUserDefaults]setValue:MBNonEmptyStringNo_(_webAddress) forKey:@"webAddress"];
     
+}
+-(void)getWebService
+{
+    
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(ORGANIZATIONNAME),@"organName", nil]];
+    
+    NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"GetWebServiceAddress"];
+    
+    __block MBNotLogViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"GetWebServiceAddress" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestAboutVisXMLWithItems:@[item] success:^(id JSON) {
+        
+        
+        NSLog(@"%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
+        [blockSelf getWebServiceResult:[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]];
+        
+    } failure:^(NSError *error, id JSON) {
+        
+    }];
+
+}
+-(void)getWebServiceResult:(NSString*)string
+{
+    NSDictionary *xmlDic = [NSDictionary dictionaryWithXMLString:string];
+    _webAddress = MBNonEmptyStringNo_(xmlDic[@"soap:Body"][@"GetWebServiceAddressResponse"][@"GetWebServiceAddressResult"]);
+    [[NSUserDefaults standardUserDefaults]setValue:MBNonEmptyStringNo_(_webAddress) forKey:@"webAddress"];
+    NSLog(@"11111=====%@",_webAddress);
 }
 - (void)viewDidLoad
 {
@@ -74,6 +102,9 @@
     if (IOS7_OR_LATER) {
         self.edgesForExtendedLayout=UIRectEdgeNone;
     }
+    
+    [self getWebService];
+    
     _webAddress=@"";
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getJigoutCiyt:) name:MBGETJIGOUINFO object:nil];
     
@@ -98,33 +129,13 @@
     self.view.backgroundColor=HEX(@"#ffffff");
     self.title=@"用户登录";
     
-    UIImageView *moble =[[UIImageView alloc]initWithFrame:CGRectMake(41, 130, 238, 40)];
+    UIImageView *moble =[[UIImageView alloc]initWithFrame:CGRectMake(41, 110, 238, 40)];
     moble.image=[UIImage imageNamed:@"loginText.png"];
     [self.view addSubview:moble];
     
 
     _webAddress=MBNonEmptyString([[NSUserDefaults standardUserDefaults]valueForKey:@"webAddress"]);
-    NSString*organName=MBNonEmptyString([[NSUserDefaults standardUserDefaults]valueForKey:@"organName"]);
-    _button = [UIButton buttonWithType:UIButtonTypeCustom];
-    _button.exclusiveTouch = YES;
-    _button.frame = CGRectMake(41, 90, 238, 40);
-    [_button setBackgroundImage:[[UIImage imageNamed:@"loginText.png"] stretchableImageWithLeftCapWidth:30 topCapHeight:0] forState:UIControlStateNormal];
-    [_button addTarget:self action:@selector(selectButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    if (organName.length>1) {
-        [_button setTitle:organName forState:UIControlStateNormal];
-
-    }else{
-    [_button setTitle:@"请选择机构" forState:UIControlStateNormal];
-    }
-    
-    [_button setTitleColor:kNormalTextColor forState:UIControlStateNormal];
-    [_button setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 22)];
-    [_button.titleLabel setFont:kNormalTextFont];
-    [_button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-    [_button addTarget:self action:@selector(selectButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_button];
-
-    
+   
     _moblieTF =[[UITextField alloc]initWithFrame:CGRectMake(55, moble.frame.origin.y, moble.frame.size.width, moble.frame.size.height)];
     _moblieTF.placeholder =@"请输入手机号码";
     NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
@@ -139,7 +150,7 @@
     _moblieTF.font=[UIFont fontWithName:@"Helvetica Neue" size:16];
     [self.view addSubview:_moblieTF];
     
-    UIImageView *moblepasd =[[UIImageView alloc]initWithFrame:CGRectMake(41, 170, 238, 40)];
+    UIImageView *moblepasd =[[UIImageView alloc]initWithFrame:CGRectMake(41, 165, 238, 40)];
     moblepasd.image=[UIImage imageNamed:@"loginText.png"];
     [self.view addSubview:moblepasd];
     
@@ -202,23 +213,6 @@
     
     _isRemPad =[[[NSUserDefaults standardUserDefaults]valueForKey:LOGINREMPAD] boolValue];
     
-    _btnMobleRem =[UIButton buttonWithType:UIButtonTypeCustom];
-    [_btnMobleRem setBackgroundImage:_isRemPad?kCheckBoxSelectImage:kCheckBoxUnSelectImage forState:UIControlStateNormal];
-    _btnMobleRem.frame = CGRectMake(41, 320, 24, 24);
-    [_btnMobleRem addTarget:self action:@selector(btnMobleTxtPressedAbout:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:_btnMobleRem];
-    
-    UIButton *btnMobleTxtRemg =[UIButton buttonWithType:UIButtonTypeCustom];
-    btnMobleTxtRemg.frame = CGRectMake(60, 320, 100, 24);
-    [btnMobleTxtRemg setTitle:@"记住密码" forState:UIControlStateNormal];
-    [btnMobleTxtRemg setTitleColor:kNormalTextColor forState:UIControlStateNormal];
-    btnMobleTxtRemg.titleLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:17];
-    [btnMobleTxtRemg addTarget:self action:@selector(btnMobleTxtPressedAbout:) forControlEvents:UIControlEventTouchUpInside];
-    [btnMobleTxtRemg setTitle:@"记住密码" forState:UIControlStateHighlighted];
-    
-    btnMobleTxtRemg.titleLabel.textColor=kNormalTextColor;
-    [self.view addSubview:btnMobleTxtRemg];
     
 
     if (!IOS7_OR_LATER) {
@@ -230,19 +224,7 @@
     }
 
 }
--(void)btnMobleTxtPressedAbout:(UIButton*)btn
-{
-    _isRemPad=!_isRemPad;
-    if (_isRemPad) {
-        [_btnMobleRem setBackgroundImage:kCheckBoxSelectImage forState:UIControlStateNormal];
 
-    }else
-    {
-        [_btnMobleRem setBackgroundImage:kCheckBoxUnSelectImage forState:UIControlStateNormal];
-
-    }
-
-}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if ([textField isEqual:_moblieTF]) {
@@ -257,8 +239,9 @@
 {
     _userType = @"2";
     _moblieTF.placeholder =@"请输入手机号码";
-
-    [self getLoad];
+    if(_pasTF.text.length>0){
+        [self getLoad];
+    }
 
 }
 //用户体验
@@ -266,14 +249,20 @@
 {
     _userType = @"1";
     _moblieTF.placeholder =@"请输入登录名";
-
-    [self getLoad];
+    if(_pasTF.text.length>0){
+       [self getLoad];
+    }
+ 
 
 }
 //用户登录
 - (void)userLoginBtnpressed:(UIButton*)btn
 {
-    [self getLoad];
+    if(_pasTF.text.length>0&&_moblieTF.text.length>0){
+        [self getLoad];
+    }else{
+        MBAlert(@"请输入用户名或密码");
+    }
 }
 
 -(void)getLoad
@@ -282,14 +271,11 @@
     [_moblieTF resignFirstResponder];
     [_pasTF resignFirstResponder];
     
-    if ([_button.titleLabel.text isEqualToString:@"请选择机构"]) {
-        MBAlert(@"请选择机构");
-        return;
-    }
-    if ([_webAddress isEqualToString:@""]) {
-        MBAlert(@"请确定你选择的机构是否开通此项服务");
-        return;
-    }
+    if (_webAddress.length<=0) {
+        [self getWebService];
+        
+    }else{
+   
     NSMutableArray *arr=[NSMutableArray array];
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(_moblieTF.text),@"loginName", nil]];
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(_pasTF.text),@"loginPwd", nil]];
@@ -319,11 +305,11 @@
        
        
    } failure:^(NSError *error, id JSON) {
-       MBAlert(@"请确定你选择的机构是否开通此项服务");
+//       MBAlert(@"请确定你选择的机构是否开通此项服务");
 
    }];
     
-
+    }
 
 }
 -(void)getUerInfo:(NSDictionary *)dic
