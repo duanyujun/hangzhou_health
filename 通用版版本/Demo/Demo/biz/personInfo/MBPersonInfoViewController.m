@@ -347,7 +347,7 @@ UINavigationControllerDelegate,MBTextFieldDelegate>
     NSLog(@"Image Picker Controller did finish picking media.");
     //TODO:选择照片或者照相完成以后的处理
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     PersonInfoHeadCell*cell =(PersonInfoHeadCell*)[_tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"%@",cell);
     cell.rightView.image=info[@"UIImagePickerControllerOriginalImage"];
