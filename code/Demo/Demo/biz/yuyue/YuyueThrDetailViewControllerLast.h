@@ -7,9 +7,6 @@
 #import <UIKit/UIKit.h>
 
 @interface YuyueThrDetailViewControllerLast : UIViewController
-{
-    NSMutableArray *_newAddDic;
-}
 @property(nonatomic,strong)NSArray *dataArray;
 @property(nonatomic,copy)NSString *priceStr;
 @property(nonatomic,copy)NSString *nameStr;

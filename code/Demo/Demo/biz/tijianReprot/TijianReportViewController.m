@@ -146,9 +146,9 @@
     NSMutableArray *arr=[NSMutableArray array];
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"UserID"]),@"userID", nil]];
     
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",_startIndex],@"startIndex", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%ld",(long)_startIndex],@"startIndex", nil]];
     
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",_startIndex+10],@"endIndex", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%ld",_startIndex+10],@"endIndex", nil]];
     
     
     NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"GetReportInfoList"];
@@ -372,7 +372,7 @@
 
         }
 
-        cell.itemCountLbl.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
+        cell.itemCountLbl.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
         [cell hiddleLoadMoreView];
     }
     return cell;
@@ -483,7 +483,6 @@
     }
     @catch (NSException *exception) {
         
-        NSDictionary *resutlDic =[NSDictionary dictionaryWithXMLString:string][@"soap:Body"][@"GetReportAbnoramlAndItemsResponse"][@"GetReportAbnoramlAndItemsResult"];
         
         MBAlert(@"暂无相关记录");
     }

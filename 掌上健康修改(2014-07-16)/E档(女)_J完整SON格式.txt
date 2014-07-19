@@ -1,0 +1,2350 @@
+{
+    "PackageName": "E档（女）",
+    "PackagePrice": "895",
+    "PackageSex": "2",
+    "PackageExplain": "",
+    "PackageDetail": [
+        {
+            "SortName": "肿瘤筛查",
+            "ChildItem": [
+                [
+                    {
+                        "TJ_Code": "3521",
+                        "TJ_Name": "蛋白指纹图谱肿瘤筛查",
+                        "TJ_Price": "500",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "113",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5474",
+                        "TJ_Name": "基因全套",
+                        "TJ_Price": "25800",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "170",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "2101",
+                        "TJ_Name": "大便常规+隐血",
+                        "TJ_Price": "6",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "82",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "12",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "5418",
+                        "TJ_Name": "肠癌筛查（粪便）",
+                        "TJ_Price": "80",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "83",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "12",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3506",
+                        "TJ_Name": "肿瘤二项（定量）",
+                        "TJ_Price": "65",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "103",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "17",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "3519",
+                        "TJ_Name": "肿瘤四项女(定量)",
+                        "TJ_Price": "145",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "105",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "17",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "3508",
+                        "TJ_Name": "肿瘤六项女（定量）",
+                        "TJ_Price": "205",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "107",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "17",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "3510",
+                        "TJ_Name": "肿瘤八项女（定量）",
+                        "TJ_Price": "285",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "109",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "17",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "3501",
+                        "TJ_Name": "蛋白芯片肿瘤十二项",
+                        "TJ_Price": "300",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "110",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "17",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "5467",
+                        "TJ_Name": "肿瘤十三项女（定量）",
+                        "TJ_Price": "485",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "112",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "17",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3522",
+                        "TJ_Name": "肿瘤超早期检测（单癌种）",
+                        "TJ_Price": "8000",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "114",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "18",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "3523",
+                        "TJ_Name": "肿瘤超早期检测（全套）",
+                        "TJ_Price": "16000",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "115",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "18",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5456",
+                        "TJ_Name": "肿瘤超早期筛查（突变监控）",
+                        "TJ_Price": "2000",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "116",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "18",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5475",
+                        "TJ_Name": "基因肿瘤女4项",
+                        "TJ_Price": "3600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "171",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "27",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5476",
+                        "TJ_Name": "基因肿瘤女16项",
+                        "TJ_Price": "9800",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "172",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "27",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5481",
+                        "TJ_Name": "基因肺癌",
+                        "TJ_Price": "1200",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "175",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "27",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5487",
+                        "TJ_Name": "基因乳腺癌",
+                        "TJ_Price": "1200",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "176",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "27",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5488",
+                        "TJ_Name": "基因宫颈癌",
+                        "TJ_Price": "1200",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "177",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "27",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5490",
+                        "TJ_Name": "基因肝癌",
+                        "TJ_Price": "1200",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "178",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "27",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5479",
+                        "TJ_Name": "基因慢病6项",
+                        "TJ_Price": "4800",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "179",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "28",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5480",
+                        "TJ_Name": "基因慢病11项",
+                        "TJ_Price": "6800",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "180",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "28",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5482",
+                        "TJ_Name": "基因叶酸",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "181",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "28",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5483",
+                        "TJ_Name": "基因烟酒损伤",
+                        "TJ_Price": "1800",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "182",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "28",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5484",
+                        "TJ_Name": "基因冠心病",
+                        "TJ_Price": "1200",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "183",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "28",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5485",
+                        "TJ_Name": "基因糖尿病",
+                        "TJ_Price": "1200",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "184",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "28",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5486",
+                        "TJ_Name": "基因哮喘",
+                        "TJ_Price": "1200",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "185",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "28",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5489",
+                        "TJ_Name": "基因血栓组合",
+                        "TJ_Price": "1800",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "186",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "28",
+                        "Sort_Name": "肿瘤筛查",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "SortName": "心肺健康",
+            "ChildItem": [
+                [
+                    {
+                        "TJ_Code": "108",
+                        "TJ_Name": "中心动脉压",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "3",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "110",
+                        "TJ_Name": "自主神经平衡检测",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "4",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "701",
+                        "TJ_Name": "动态血压",
+                        "TJ_Price": "140",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "14",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "705",
+                        "TJ_Name": "24小时动态心电图",
+                        "TJ_Price": "250",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "18",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "803",
+                        "TJ_Name": "脑血管功能检测",
+                        "TJ_Price": "70",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "19",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "804",
+                        "TJ_Name": "甲襞微循环检测",
+                        "TJ_Price": "40",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "20",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "806",
+                        "TJ_Name": "肺功能检测",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "21",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1013",
+                        "TJ_Name": "肌钙蛋白",
+                        "TJ_Price": "90",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "32",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "2902",
+                        "TJ_Name": "经颅多普勒血流图TCD",
+                        "TJ_Price": "50",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "91",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3010",
+                        "TJ_Name": "心脏彩超",
+                        "TJ_Price": "115",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "93",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3024",
+                        "TJ_Name": "颈部血管彩超",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "99",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3901",
+                        "TJ_Name": "动脉硬化检测",
+                        "TJ_Price": "100",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "123",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3906",
+                        "TJ_Name": "心脏功能检测",
+                        "TJ_Price": "50",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "124",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5458",
+                        "TJ_Name": "睡眠状况检测",
+                        "TJ_Price": "50",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "168",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5460",
+                        "TJ_Name": "血管内皮功能",
+                        "TJ_Price": "188",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "169",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "704",
+                        "TJ_Name": "心电图（十二导联同步）",
+                        "TJ_Price": "18",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "15",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "2",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "5416",
+                        "TJ_Name": "心电图全套",
+                        "TJ_Price": "68",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "16",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "2",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "5417",
+                        "TJ_Name": "心电图（十二导联同步、心向量）",
+                        "TJ_Price": "28",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "17",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "2",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1501",
+                        "TJ_Name": "血液流变学(女)",
+                        "TJ_Price": "54",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "45",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "6",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1801",
+                        "TJ_Name": "DR胸部正侧位片",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "47",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "7",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "1861",
+                        "TJ_Name": "胸部低剂量CT扫描",
+                        "TJ_Price": "320",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "48",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "7",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "1824",
+                        "TJ_Name": "DR胸部正位片",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "49",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "7",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "5425",
+                        "TJ_Name": "胸部低剂量CT扫描（三维重建）",
+                        "TJ_Price": "340",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "50",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "7",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5335",
+                        "TJ_Name": "心理健康促进",
+                        "TJ_Price": "120",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "160",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "26",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5469",
+                        "TJ_Name": "心理健康测评",
+                        "TJ_Price": "90",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "161",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "26",
+                        "Sort_Name": "心肺健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "SortName": "内分泌健康",
+            "ChildItem": [
+                [
+                    {
+                        "TJ_Code": "1045",
+                        "TJ_Name": "胰岛素",
+                        "TJ_Price": "20",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "33",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "内分泌健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "4503",
+                        "TJ_Name": "葡萄糖餐后2小时（GLU2）",
+                        "TJ_Price": "6",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "131",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "内分泌健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5201",
+                        "TJ_Name": "糖化血红蛋白",
+                        "TJ_Price": "30",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "138",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "内分泌健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "2201",
+                        "TJ_Name": "性激素七项（女）",
+                        "TJ_Price": "225",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "87",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "14",
+                        "Sort_Name": "内分泌健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3020",
+                        "TJ_Name": "甲状腺彩超",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "96",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "16",
+                        "Sort_Name": "内分泌健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5463",
+                        "TJ_Name": "甲状腺三维成像",
+                        "TJ_Price": "168",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "97",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "16",
+                        "Sort_Name": "内分泌健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5464",
+                        "TJ_Name": "甲状腺弹性成像",
+                        "TJ_Price": "118",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "98",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "16",
+                        "Sort_Name": "内分泌健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "4401",
+                        "TJ_Name": "甲状腺功能五项",
+                        "TJ_Price": "132",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "128",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "20",
+                        "Sort_Name": "内分泌健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "4403",
+                        "TJ_Name": "甲状腺功能二项",
+                        "TJ_Price": "50",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "129",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "20",
+                        "Sort_Name": "内分泌健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "SortName": "消化健康",
+            "ChildItem": [
+                [
+                    {
+                        "TJ_Code": "3007",
+                        "TJ_Name": "腹部彩超（肝胆脾胰肾）",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "92",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3202",
+                        "TJ_Name": "人体成分分析",
+                        "TJ_Price": "50",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "102",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3701",
+                        "TJ_Name": "胃镜检查",
+                        "TJ_Price": "248",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "117",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3702",
+                        "TJ_Name": "胃镜病理（每部位）",
+                        "TJ_Price": "110",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "118",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3705",
+                        "TJ_Name": "胶囊内镜",
+                        "TJ_Price": "6000",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "119",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "4903",
+                        "TJ_Name": "腹壁脂肪及营养评价",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "134",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5419",
+                        "TJ_Name": "胃功能三项",
+                        "TJ_Price": "160",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "163",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "807",
+                        "TJ_Name": "碳14呼气检测胃幽门螺杆菌",
+                        "TJ_Price": "90",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "22",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "3",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "808",
+                        "TJ_Name": "碳13呼气检测胃幽门螺杆菌",
+                        "TJ_Price": "180",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "23",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "3",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5001",
+                        "TJ_Name": "幽门杆菌蛋白芯片检测",
+                        "TJ_Price": "80",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "24",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "3",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5449",
+                        "TJ_Name": "幽门螺杆菌现感染",
+                        "TJ_Price": "120",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "25",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "3",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1050",
+                        "TJ_Name": "生化全套（12项）",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "34",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "4",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "1051",
+                        "TJ_Name": "生化全套（20项）",
+                        "TJ_Price": "90",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "35",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "4",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "1052",
+                        "TJ_Name": "生化全套（30项）",
+                        "TJ_Price": "205",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "36",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "4",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "1053",
+                        "TJ_Name": "生化全套（25项）",
+                        "TJ_Price": "145",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "37",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "4",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "1055",
+                        "TJ_Name": "生化全套（32项）",
+                        "TJ_Price": "290",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "38",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "4",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1102",
+                        "TJ_Name": "乙肝三系",
+                        "TJ_Price": "75",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "39",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "5",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1104",
+                        "TJ_Name": "乙肝表面抗原",
+                        "TJ_Price": "7",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "40",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "5",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5402",
+                        "TJ_Name": "快速乙肝表面抗原",
+                        "TJ_Price": "7",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "41",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "5",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "4701",
+                        "TJ_Name": "肛门指检",
+                        "TJ_Price": "5",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "132",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "21",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    },
+                    {
+                        "TJ_Code": "204",
+                        "TJ_Name": "电子肛肠镜",
+                        "TJ_Price": "180",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "133",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "21",
+                        "Sort_Name": "消化健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "2"
+                    }
+                ]
+            ]
+        },
+        {
+            "SortName": "女性健康",
+            "ChildItem": [
+                [
+                    {
+                        "TJ_Code": "402",
+                        "TJ_Name": "电子阴道镜",
+                        "TJ_Price": "50",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "9",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "403",
+                        "TJ_Name": "妇科常规（未婚禁查）",
+                        "TJ_Price": "10",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "10",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "407",
+                        "TJ_Name": "人乳头状瘤病毒分型（HPV）",
+                        "TJ_Price": "200",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "13",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "2102",
+                        "TJ_Name": "白带常规",
+                        "TJ_Price": "6",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "84",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5440",
+                        "TJ_Name": "细菌性阴道炎检测(BV检测)",
+                        "TJ_Price": "38",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "167",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "404",
+                        "TJ_Name": "宫颈刮片",
+                        "TJ_Price": "30",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "11",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "1",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "405",
+                        "TJ_Name": "宫颈癌高精密度检测（TCT）",
+                        "TJ_Price": "130",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "12",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "1",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1859",
+                        "TJ_Name": "乳腺钼靶",
+                        "TJ_Price": "198",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "77",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "11",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "3023",
+                        "TJ_Name": "乳腺彩超",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "78",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "11",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1839",
+                        "TJ_Name": "远红外线热层像（乳腺）",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "79",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "11",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5413",
+                        "TJ_Name": "乳腺弹性成像（电子触诊）",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "80",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "11",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5462",
+                        "TJ_Name": "双侧乳腺弹性三维成像",
+                        "TJ_Price": "218",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "81",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "11",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3019",
+                        "TJ_Name": "妇科彩超（憋尿）",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "94",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "15",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "3022",
+                        "TJ_Name": "经阴道妇科彩超（未婚禁查）",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "95",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "15",
+                        "Sort_Name": "女性健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "SortName": "功能医学",
+            "ChildItem": [
+                [
+                    {
+                        "TJ_Code": "5313",
+                        "TJ_Name": "氨基酸平衡性分析",
+                        "TJ_Price": "1360",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "139",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5314",
+                        "TJ_Name": "毒性元素螯合分析",
+                        "TJ_Price": "1600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "140",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5315",
+                        "TJ_Name": "骨质代谢健康评估",
+                        "TJ_Price": "880",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "141",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5316",
+                        "TJ_Name": "环境荷尔蒙-增塑剂&防腐剂",
+                        "TJ_Price": "980",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "142",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5317",
+                        "TJ_Name": "甲状腺荷尔蒙健康评估",
+                        "TJ_Price": "680",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "143",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5318",
+                        "TJ_Name": "抗氧化维生素分析",
+                        "TJ_Price": "1260",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "144",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5320",
+                        "TJ_Name": "全套雌激素代谢健康评估",
+                        "TJ_Price": "980",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "150",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5321",
+                        "TJ_Name": "全套代谢功能分析",
+                        "TJ_Price": "3800",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "151",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5324",
+                        "TJ_Name": "心血管代谢综合健康评估",
+                        "TJ_Price": "1880",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "154",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5325",
+                        "TJ_Name": "压力荷尔蒙平衡性分析",
+                        "TJ_Price": "1360",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "155",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5326",
+                        "TJ_Name": "氧化压力分析",
+                        "TJ_Price": "1360",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "156",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5328",
+                        "TJ_Name": "脂肪酸平衡分析",
+                        "TJ_Price": "1660",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "159",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5319",
+                        "TJ_Name": "慢性食物过敏原分析",
+                        "TJ_Price": "2500",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "145",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "23",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5301",
+                        "TJ_Name": "食物不耐受（4项）",
+                        "TJ_Price": "115",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "146",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "23",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5302",
+                        "TJ_Name": "食物不耐受（7项）",
+                        "TJ_Price": "200",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "147",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "23",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5303",
+                        "TJ_Name": "食物不耐受（14项）",
+                        "TJ_Price": "400",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "148",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "23",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5304",
+                        "TJ_Name": "食物不耐受（90项）",
+                        "TJ_Price": "2700",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "149",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "23",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5323",
+                        "TJ_Name": "全套女性荷尔蒙健康评估",
+                        "TJ_Price": "1980",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "153",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "24",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5327",
+                        "TJ_Name": "营养与毒性元素分析",
+                        "TJ_Price": "1960",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "157",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "25",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5329",
+                        "TJ_Name": "营养与毒性元素分析（红血球）",
+                        "TJ_Price": "1960",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "158",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "25",
+                        "Sort_Name": "功能医学",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "SortName": "影像健康",
+            "ChildItem": [
+                [
+                    {
+                        "TJ_Code": "1808",
+                        "TJ_Name": "全身远红外线热层像（TMI）",
+                        "TJ_Price": "500",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "51",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1810",
+                        "TJ_Name": "DR单侧肩关节片",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "52",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1851",
+                        "TJ_Name": "胸椎核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "76",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3201",
+                        "TJ_Name": "骨密度检测",
+                        "TJ_Price": "80",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "101",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5422",
+                        "TJ_Name": "电子耳镜",
+                        "TJ_Price": "38",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "164",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5423",
+                        "TJ_Name": "电子鼻镜",
+                        "TJ_Price": "70",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "165",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5424",
+                        "TJ_Name": "电子喉镜",
+                        "TJ_Price": "70",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "166",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1811",
+                        "TJ_Name": "DR单侧髋关节片",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "53",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1812",
+                        "TJ_Name": "DR单侧腕关节片",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "54",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1813",
+                        "TJ_Name": "DR单侧膝关节正侧位片",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "55",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1816",
+                        "TJ_Name": "DR跟骨正侧位片",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "56",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1817",
+                        "TJ_Name": "DR踝关节正侧位片",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "57",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1819",
+                        "TJ_Name": "DR胫腓关节正侧位片",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "58",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1820",
+                        "TJ_Name": "DR全髋关节片",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "59",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1821",
+                        "TJ_Name": "DR手或足正斜位片",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "60",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1823",
+                        "TJ_Name": "DR尾骶正侧位片",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "61",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1852",
+                        "TJ_Name": "膝关节核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "62",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1853",
+                        "TJ_Name": "踝关节核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "63",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1854",
+                        "TJ_Name": "肩关节核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "64",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1855",
+                        "TJ_Name": "髋关节核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "65",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1856",
+                        "TJ_Name": "腕关节核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "66",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1857",
+                        "TJ_Name": "肘关节核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "67",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1858",
+                        "TJ_Name": "骨盆核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "68",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1831",
+                        "TJ_Name": "DR骨盆正位片",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "69",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "8",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1818",
+                        "TJ_Name": "DR颈椎正侧位片",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "70",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "9",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1849",
+                        "TJ_Name": "颈椎核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "71",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "9",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1827",
+                        "TJ_Name": "DR腰椎正侧位片",
+                        "TJ_Price": "95",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "72",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "9",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1850",
+                        "TJ_Name": "腰椎核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "73",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "9",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1848",
+                        "TJ_Name": "头颅核磁共振",
+                        "TJ_Price": "600",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "74",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "10",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "1860",
+                        "TJ_Name": "头颅CT平扫",
+                        "TJ_Price": "320",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "75",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "10",
+                        "Sort_Name": "影像健康",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ]
+            ]
+        },
+        {
+            "SortName": "其他项目",
+            "ChildItem": [
+                [
+                    {
+                        "TJ_Code": "105",
+                        "TJ_Name": "内科",
+                        "TJ_Price": "10",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "1",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "106",
+                        "TJ_Name": "基础五项(身高、体重、血压)",
+                        "TJ_Price": "5",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "2",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5519",
+                        "TJ_Name": "咨询与总检报告",
+                        "TJ_Price": "10",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "2",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5406",
+                        "TJ_Name": "抽血材料",
+                        "TJ_Price": "20",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "2",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "112",
+                        "TJ_Name": "体电图亚健康检测（全套）",
+                        "TJ_Price": "500",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "5",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "202",
+                        "TJ_Name": "外科",
+                        "TJ_Price": "5",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "6",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "302",
+                        "TJ_Name": "耳鼻喉科",
+                        "TJ_Price": "5",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "7",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "303",
+                        "TJ_Name": "电测听",
+                        "TJ_Price": "30",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "8",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "908",
+                        "TJ_Name": "快速眼底成像",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "26",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "909",
+                        "TJ_Name": "全自动眼压检测",
+                        "TJ_Price": "10",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "27",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "911",
+                        "TJ_Name": "裂隙灯",
+                        "TJ_Price": "5",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "28",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "912",
+                        "TJ_Name": "眼科视力",
+                        "TJ_Price": "5",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "29",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "913",
+                        "TJ_Name": "眼底检查",
+                        "TJ_Price": "5",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "30",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "915",
+                        "TJ_Name": "眼光学相干断层扫描(双眼)",
+                        "TJ_Price": "120",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "31",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1202",
+                        "TJ_Name": "全血细胞分析",
+                        "TJ_Price": "15",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "42",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1204",
+                        "TJ_Name": "血型检测",
+                        "TJ_Price": "8",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "43",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "1301",
+                        "TJ_Name": "尿液检查",
+                        "TJ_Price": "11",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "44",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "2502",
+                        "TJ_Name": "口腔科",
+                        "TJ_Price": "5",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "89",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "2504",
+                        "TJ_Name": "口腔内窥镜",
+                        "TJ_Price": "5",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "90",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "4201",
+                        "TJ_Name": "早餐",
+                        "TJ_Price": "15",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "125",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5415",
+                        "TJ_Name": "健康风险评估",
+                        "TJ_Price": "0.01",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "162",
+                        "TJ_Type": "1",
+                        "TJ_GroupID": "",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "1",
+                        "Is_Cancel": "2"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "2114",
+                        "TJ_Name": "血沉（女）",
+                        "TJ_Price": "4",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "86",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "13",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "3807",
+                        "TJ_Name": "经络检测",
+                        "TJ_Price": "180",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "120",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "19",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "3808",
+                        "TJ_Name": "中医体质辨识",
+                        "TJ_Price": "80",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "121",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "19",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "3809",
+                        "TJ_Name": "中医四诊辨体养生",
+                        "TJ_Price": "380",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "122",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "19",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5494",
+                        "TJ_Name": "甲状腺功能三项",
+                        "TJ_Price": "82",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "130",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "20",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ],
+                [
+                    {
+                        "TJ_Code": "5101",
+                        "TJ_Name": "微量元素七项",
+                        "TJ_Price": "40",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "135",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "22",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5102",
+                        "TJ_Name": "微量元素九项",
+                        "TJ_Price": "60",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "136",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "22",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    },
+                    {
+                        "TJ_Code": "5468",
+                        "TJ_Name": "微营养素十项",
+                        "TJ_Price": "98",
+                        "TJ_Explain": "",
+                        "TJ_OrderID": "137",
+                        "TJ_Type": "2",
+                        "TJ_GroupID": "22",
+                        "Sort_Name": "其他项目",
+                        "Is_Check": "2",
+                        "Is_Cancel": "1"
+                    }
+                ]
+            ]
+        }
+    ]
+}

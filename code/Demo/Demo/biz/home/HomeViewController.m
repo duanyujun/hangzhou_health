@@ -423,13 +423,13 @@
 -(void)btnThreeBressed
 {
     
-    BOOL isLogin =[[[NSUserDefaults standardUserDefaults]valueForKey:LOGINSTATUS] boolValue];
-    if (!isLogin) {
-        [self goToLoginViewAbout];
-    }else{
+//    BOOL isLogin =[[[NSUserDefaults standardUserDefaults]valueForKey:LOGINSTATUS] boolValue];
+//    if (!isLogin) {
+//        [self goToLoginViewAbout];
+//    }else{
         [self getSendLogbtnThre];
 
-    }
+//    }
     
 }
 -(void)getSendLogbtnThre

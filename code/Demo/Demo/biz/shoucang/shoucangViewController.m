@@ -235,17 +235,12 @@
 -(void)deleteAboutNews
 {
     
-    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
     
     NSDictionary *deleInfo =_dataArray[_deleIndexAboutArray];
-    NSLog(@"%@",deleInfo);
     NSMutableArray *arr=[NSMutableArray array];
     
     
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(deleInfo[@"collectID"]),@"articleID", nil]];
-//    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(deleInfo[@"collectID"]),@"collectID", nil]];
-
-//    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"UserID"]),@"userID", nil]];
 
     NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"DeleteCollectMissionaryArticle"];
     NSLog(@"%@",soapMsg);

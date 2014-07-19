@@ -21,7 +21,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _newAddDic = [[NSMutableArray alloc]initWithCapacity:2];
     
     self.view.backgroundColor=HEX(@"#ffffff");
     self.title=@"套餐详情";
@@ -110,15 +109,24 @@
         }
         NSDictionary *infoDic = _dataArray[indexPath.row];
         cell.infoDic = infoDic;
-        cell.nameLabel.text = MBNonEmptyString(infoDic[@"TJ_Name"]);
-        cell.priceLabel.text = MBNonEmptyString(infoDic[@"TJ_Price"]);
-        if ([MBNonEmptyString(infoDic[@"Is_Check"]) isEqualToString:@"1"]) {
-            [cell.selectBtn setImage:[UIImage imageNamed:@"gouxuan_yes.png"] forState:UIControlStateNormal];
-        }else
-        {
-            [cell.selectBtn setImage:[UIImage imageNamed:@"gouxuan_no.png"] forState:UIControlStateNormal];
-            
+        cell.nameLabel.text = MBNonEmptyString(infoDic[@"SortName"]);
+        NSLog(@"%@",infoDic);
+        NSArray *arrayOf =infoDic[@"ChildItem"];
+        NSInteger  priceOf = 0;
+        for (int i=0; i<arrayOf.count; i++) {
+            NSArray *oneItemInfo = arrayOf[i];
+            NSLog(@"%@",oneItemInfo);
+            for (int j=0; j<oneItemInfo.count; j++) {
+                NSDictionary *oneInfoDic = oneItemInfo[j];
+                if ([MBNonEmptyStringNo_(oneInfoDic[@"Is_Check"]) isEqualToString:@"1"]) {
+                    priceOf+=[MBNonEmptyStringNo_(oneInfoDic[@"TJ_Price"]) integerValue];
+                }
+            }
+
         }
+        
+        cell.priceLabel.text = MBNonEmptyString([NSString stringWithFormat:@"%d",priceOf]);
+        
         return cell;
     }
 
@@ -133,14 +141,14 @@
         
         if ([Is_Cancel isEqualToString:@"1"]) {
             MBAlert(@"此项目是必须项目，不可取消");
-            [cell.selectBtn setImage:[UIImage imageNamed:@"gouxuan_yes.png"] forState:UIControlStateNormal];
+            [cell.selectBtn setImage:[UIImage imageNamed:@"2.png"] forState:UIControlStateNormal];
         }else
         {
             if (cell.isSelectAbout) {
-                [cell.selectBtn setImage:[UIImage imageNamed:@"gouxuan_yes.png"] forState:UIControlStateNormal];
+                [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];
             }else
             {
-                [cell.selectBtn setImage:[UIImage imageNamed:@"gouxuan_no.png"] forState:UIControlStateNormal];
+                [cell.selectBtn setImage:[UIImage imageNamed:@"4.png"] forState:UIControlStateNormal];
                 
                 
             }
@@ -148,10 +156,10 @@
     }else
     {
         if (cell.isSelectAbout) {
-            [cell.selectBtn setImage:[UIImage imageNamed:@"gouxuan_yes.png"] forState:UIControlStateNormal];
+            [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];
         }else
         {
-            [cell.selectBtn setImage:[UIImage imageNamed:@"gouxuan_no.png"] forState:UIControlStateNormal];
+            [cell.selectBtn setImage:[UIImage imageNamed:@"4.png"] forState:UIControlStateNormal];
 
         }
     }
@@ -163,6 +171,10 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+       
+}
 
 @end

@@ -286,6 +286,7 @@
 {
     
     NSString *resutlDic =[NSDictionary dictionaryWithXMLString:string][@"soap:Body"][@"GetPackageDeatilJSONResponse"][@"GetPackageDeatilJSONResult"];
+    NSLog(@"%@",resutlDic);
     NSArray *arrayOfResult = [resutlDic objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode][@"PackageDetail"] ;
     _detailName = MBNonEmptyString([resutlDic objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode][@"PackageName"]);
     _detailPrice = MBNonEmptyString([resutlDic objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode][@"PackagePrice"]);

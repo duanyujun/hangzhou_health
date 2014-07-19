@@ -146,7 +146,6 @@ static UIFont *buttonFont = nil;
     {
         NSArray *block = [_blocks objectAtIndex:i];
         NSString *title = [block objectAtIndex:1];
-        NSString *color = [block objectAtIndex:2];
 
         UIImage *image = [UIImage imageNamed:@"detail.png"];
         image = [image stretchableImageWithLeftCapWidth:(int)(image.size.width+1)>>1 topCapHeight:0];
