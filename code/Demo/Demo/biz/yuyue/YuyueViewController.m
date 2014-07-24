@@ -267,6 +267,7 @@
     
     
     NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"GetPackageDeatilJSON"];
+    NSLog(@"%@",soapMsg);
     
     __block YuyueViewController *blockSelf = self;
     
@@ -278,7 +279,7 @@
 
         
     } failure:^(NSError *error, id JSON) {
-        
+        NSLog(@"%@",error);
     }];
 
 }
@@ -304,9 +305,9 @@
     
     
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"UserName"]),@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"Name"]),@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"MobileNO"]),@"Mobile", nil]];
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"查看体检套餐",@"ActExplain", nil]];
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
     

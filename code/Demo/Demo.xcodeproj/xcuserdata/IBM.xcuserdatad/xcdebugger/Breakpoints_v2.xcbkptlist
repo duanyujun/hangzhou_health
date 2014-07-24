@@ -9,22 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo/biz/yuyue/YuyueThrDetailViewControllerLast.m"
-            timestampString = "427444460.30957"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-rightBtnUpload"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Demo/biz/yuyue/YuyueTeleViewController.m"
             timestampString = "426870585.63477"
             startingColumnNumber = "9223372036854775807"
@@ -70,16 +54,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo/biz/yuyue/YuyueThrDetailViewControllerLast.m"
+            timestampString = "427644411.686679"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo/biz/yuyue/YuyueViewController.m"
-            timestampString = "427442406.814068"
+            filePath = "Demo/biz/yuyue/YuyueThrDetailViewControllerLast.m"
+            timestampString = "427644499.627815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
-            landmarkName = "-getGetReportAbnoramlAndItemsSuccess:"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-arrayWithSection:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo/biz/yuyue/YuyueThrDetailViewControllerLast.m"
-            timestampString = "427448542.441122"
+            filePath = "Demo/biz/yuyue/HRFriendsCell.m"
+            timestampString = "427644553.131373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-bindFriend:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

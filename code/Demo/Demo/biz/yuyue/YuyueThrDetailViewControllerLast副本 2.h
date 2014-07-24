@@ -11,7 +11,7 @@
 @property(nonatomic,copy)NSString *priceStr;
 @property(nonatomic,copy)NSString *nameStr;
 @property(nonatomic,strong)NSDictionary *sendDataInfo;
-@property(nonatomic,strong)UITableView *tableView;
+
 
 
 @end

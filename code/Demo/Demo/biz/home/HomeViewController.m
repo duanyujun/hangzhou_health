@@ -435,16 +435,20 @@
 -(void)getSendLogbtnThre
 {
     NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    NSLog(@"%@",allUserDic);
     NSMutableArray *arr=[NSMutableArray array];
     
     
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"UserName"]),@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"Name"]),@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"MobileNO"]),@"Mobile", nil]];
+    
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"体检预约",@"ActExplain", nil]];
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
     
+    NSLog(@"%@",arr);
     
     NSString *soapMsg=[SoapHelper arraySendLogToDefaultSoapMessage:arr methodName:@"AddWenXinOperateLog"];
     NSLog(@"111111111111===========%@",soapMsg);
@@ -454,7 +458,6 @@
     
     [MBIIRequest requestSendLogXMLWithItems:@[item] success:^(id JSON) {
         
-        NSLog(@"444444=====%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
         [blockSelf goTotijiaoResViewbtnThre];
         
     } failure:^(NSError *error, id JSON) {
@@ -463,11 +466,56 @@
     }];
 }
 
+-(void)getWebService
+{
+    
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(ORGANIZATIONNAME),@"organName", nil]];
+    
+    NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"GetWebServiceAddress"];
+    
+    __block HomeViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"GetWebServiceAddress" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestAboutVisXMLWithItems:@[item] success:^(id JSON) {
+        
+        
+        NSLog(@"%@",[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]);
+        [blockSelf getWebServiceResult:[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]];
+        
+    } failure:^(NSError *error, id JSON) {
+        
+    }];
+    
+}
+-(void)getWebServiceResult:(NSString*)string
+{
+    NSDictionary *xmlDic = [NSDictionary dictionaryWithXMLString:string];
+    _webAddress = MBNonEmptyStringNo_(xmlDic[@"soap:Body"][@"GetWebServiceAddressResponse"][@"GetWebServiceAddressResult"]);
+    [[NSUserDefaults standardUserDefaults]setValue:MBNonEmptyStringNo_(_webAddress) forKey:@"webAddress"];
+    NSLog(@"11111=====%@",_webAddress);
 
+    if (_webAddress.length>5) {
+        
+        YuyueViewController *tijian=[[YuyueViewController alloc]init];
+        [self.navigationController pushViewController:tijian animated:YES];
+    }
+}
 -(void)goTotijiaoResViewbtnThre
 {
-    YuyueViewController *tijian=[[YuyueViewController alloc]init];
-    [self.navigationController pushViewController:tijian animated:YES];
+    
+    if (_webAddress.length<5) {
+        
+        [self getWebService];
+        
+    }else
+    {
+        YuyueViewController *tijian=[[YuyueViewController alloc]init];
+        [self.navigationController pushViewController:tijian animated:YES];
+    }
+
 }
 
 -(void)getSendLog
@@ -477,9 +525,9 @@
     
     
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"OrganName", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"UserName"],@"ClientNo", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"Name"],@"ClientName", nil]];
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[allUserDic allValues][0][@"MobileNO"],@"Mobile", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"UserName"]),@"ClientNo", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"Name"]),@"ClientName", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"MobileNO"]),@"Mobile", nil]];
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"查询体检报告",@"ActExplain", nil]];
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ios",@"Remark", nil]];
     

@@ -11,6 +11,10 @@
 		186C47D9197133DD00882AEF /* YuyueThrDetailViewControllerLast.m in Sources */ = {isa = PBXBuildFile; fileRef = 186C47D8197133DD00882AEF /* YuyueThrDetailViewControllerLast.m */; };
 		186C47DD197139F800882AEF /* YuYueDtailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186C47DB197139F800882AEF /* YuYueDtailTableViewCell.m */; };
 		186C47DE197139F800882AEF /* YuYueDtailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186C47DC197139F800882AEF /* YuYueDtailTableViewCell.xib */; };
+		18ADEAA0197D4E5300286DBA /* HeaderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ADEA9B197D4E5300286DBA /* HeaderButton.m */; };
+		18ADEAA1197D4E5300286DBA /* HRTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ADEA9D197D4E5300286DBA /* HRTableCell.m */; };
+		18ADEAA2197D4E5300286DBA /* HRFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ADEA9F197D4E5300286DBA /* HRFriendsCell.m */; };
+		18ADEAA4197D4F8400286DBA /* friends.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18ADEAA3197D4F8400286DBA /* friends.plist */; };
 		18B34FE6197A1C1B0039848D /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B34FE2197A1C1B0039848D /* 1.png */; };
 		18B34FE7197A1C1B0039848D /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B34FE3197A1C1B0039848D /* 2.png */; };
 		18B34FE8197A1C1B0039848D /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B34FE4197A1C1B0039848D /* 3.png */; };
@@ -473,6 +477,13 @@
 		186C47DA197139F800882AEF /* YuYueDtailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuYueDtailTableViewCell.h; sourceTree = "<group>"; };
 		186C47DB197139F800882AEF /* YuYueDtailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuYueDtailTableViewCell.m; sourceTree = "<group>"; };
 		186C47DC197139F800882AEF /* YuYueDtailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YuYueDtailTableViewCell.xib; sourceTree = "<group>"; };
+		18ADEA9A197D4E5300286DBA /* HeaderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderButton.h; sourceTree = "<group>"; };
+		18ADEA9B197D4E5300286DBA /* HeaderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderButton.m; sourceTree = "<group>"; };
+		18ADEA9C197D4E5300286DBA /* HRTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRTableCell.h; sourceTree = "<group>"; };
+		18ADEA9D197D4E5300286DBA /* HRTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTableCell.m; sourceTree = "<group>"; };
+		18ADEA9E197D4E5300286DBA /* HRFriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRFriendsCell.h; sourceTree = "<group>"; };
+		18ADEA9F197D4E5300286DBA /* HRFriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRFriendsCell.m; sourceTree = "<group>"; };
+		18ADEAA3197D4F8400286DBA /* friends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = friends.plist; sourceTree = "<group>"; };
 		18B34FE2197A1C1B0039848D /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		18B34FE3197A1C1B0039848D /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		18B34FE4197A1C1B0039848D /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
@@ -1983,6 +1994,13 @@
 			isa = PBXGroup;
 			children = (
 				186C47D7197133DD00882AEF /* YuyueThrDetailViewControllerLast.h */,
+				18ADEAA3197D4F8400286DBA /* friends.plist */,
+				18ADEA9A197D4E5300286DBA /* HeaderButton.h */,
+				18ADEA9B197D4E5300286DBA /* HeaderButton.m */,
+				18ADEA9C197D4E5300286DBA /* HRTableCell.h */,
+				18ADEA9D197D4E5300286DBA /* HRTableCell.m */,
+				18ADEA9E197D4E5300286DBA /* HRFriendsCell.h */,
+				18ADEA9F197D4E5300286DBA /* HRFriendsCell.m */,
 				186C47D8197133DD00882AEF /* YuyueThrDetailViewControllerLast.m */,
 				E70EBA54191F1E9600EB1DA8 /* YuyueThrDetailViewController.h */,
 				E70EBA55191F1E9600EB1DA8 /* YuyueThrDetailViewController.m */,
@@ -2537,6 +2555,7 @@
 				E786A23C18E1B055003789B4 /* alert-red-button@2x.png in Resources */,
 				E7195FCC18F9460400996A37 /* setting_shiyongbangzhu.png in Resources */,
 				E7195FC418F9395200996A37 /* hl_weixin.jpg in Resources */,
+				18ADEAA4197D4F8400286DBA /* friends.plist in Resources */,
 				BDA411CC19274B0C009FB9B1 /* send-highlighted@2x.png in Resources */,
 				E7D0935E18D9E34600A4993C /* tabBarItem2@2x.png in Resources */,
 				E7A3048C18EFC99F0028A2E2 /* parent_30.json in Resources */,
@@ -2631,6 +2650,7 @@
 				E7BB682B191DD70100F960BC /* XueYaUploadViewController.m in Sources */,
 				E7E3E4BF18E67FC500681555 /* XueTangViewController.m in Sources */,
 				E7C7B70418E6B4BC00CAF2A2 /* YuyueTeleViewController.m in Sources */,
+				18ADEAA2197D4E5300286DBA /* HRFriendsCell.m in Sources */,
 				E7C79B6C188F78D400C1DFBD /* MBPresentView.m in Sources */,
 				E7D55C5E1923A3BC00744A2F /* SoapHelper.m in Sources */,
 				E7C79B73188F78D400C1DFBD /* MBTextField.m in Sources */,
@@ -2646,6 +2666,7 @@
 				E7E3E4B218E67A6D00681555 /* TizhongViewController.m in Sources */,
 				E7C79B69188F78D400C1DFBD /* MBMenuView.m in Sources */,
 				E7C7B7BE18E7B96000CAF2A2 /* FoodViewController.m in Sources */,
+				18ADEAA1197D4E5300286DBA /* HRTableCell.m in Sources */,
 				E7C49A4019035CEA00BAE380 /* RATreeView+TableViewDelegate.m in Sources */,
 				E72B948D18DDC3B20065C9E1 /* Stack.m in Sources */,
 				E752127618F6EDFF000717A2 /* SportsAllTableViewController.m in Sources */,
@@ -2713,6 +2734,7 @@
 				E7C79ADA188F70FB00C1DFBD /* AFJSONUtilities.m in Sources */,
 				E7C7B7C118E7F68400CAF2A2 /* MoreViewController.m in Sources */,
 				BD9F07B819335DFE006F1557 /* TijianDetialViewController.m in Sources */,
+				18ADEAA0197D4E5300286DBA /* HeaderButton.m in Sources */,
 				E7C49A3D19035CEA00BAE380 /* RATreeView+Enums.m in Sources */,
 				E7C79B33188F77F500C1DFBD /* NSStringUtils.m in Sources */,
 				E7C7B7A818E6FB5000CAF2A2 /* YuyuejiLiuAllController.m in Sources */,
