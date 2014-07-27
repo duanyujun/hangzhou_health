@@ -15,6 +15,9 @@
 @property(strong,nonatomic) NSDictionary *infoDic;
 @property(assign,nonatomic)id delegateAbout;
 @property(assign,nonatomic)BOOL isSelectAbout;
+@property(copy,nonatomic)NSString* TJ_Code;
+@property (weak, nonatomic) IBOutlet UIImageView *showMoreITem;
+
 
 - (IBAction)seleBtnPressed:(id)sender;
 @end

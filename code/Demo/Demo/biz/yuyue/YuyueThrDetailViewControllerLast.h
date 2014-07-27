@@ -5,9 +5,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface YuyueThrDetailViewControllerLast : UIViewController
-@property(nonatomic,strong)NSArray *dataArray;
+@interface YuyueThrDetailViewControllerLast : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@property(nonatomic,strong)NSMutableArray *dataArray;
 @property(nonatomic,copy)NSString *priceStr;
 @property(nonatomic,copy)NSString *nameStr;
 @property(nonatomic,strong)NSDictionary *sendDataInfo;

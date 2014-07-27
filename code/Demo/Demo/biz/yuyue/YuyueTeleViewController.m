@@ -20,6 +20,10 @@
     UITextField*_telTF;
     UITextField*_noteTF;
     MBSelectView*_timeSele;
+    UITextField*_peopleIDTF;
+    UITextField*_peopleCountTF;
+
+    
 }
 @end
 
@@ -55,7 +59,7 @@
     
     NSDictionary*allUserDic =[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE][moblie];
     
-    NSArray *itemArray =@[@"套餐名称:",@"套餐价格:",@"预约时间:",@"姓名:",@"联系电话:",@"备注:"];
+    NSArray *itemArray =@[@"套餐名称:",@"套餐价格:",@"预约时间:",@"姓名:",@"身份证号:",@"联系电话:",@"人数:",@"备注:"];
     for (int i=0; i<itemArray.count; i++) {
         
         UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(10, 10+i*40, 80, 35)];
@@ -74,7 +78,13 @@
         if (i==1) {
             UILabel *value=[[UILabel alloc]initWithFrame:CGRectMake(150, 10+i*40, 170, 35)];
             value.textAlignment=NSTextAlignmentLeft;
-            value.text=[NSString stringWithFormat:@"￥%@",MBNonEmptyStringNo_(_infoAbout[@"PackagePrice"])];
+            if (_priceStr.length>=1) {
+                value.text=[NSString stringWithFormat:@"￥%@",MBNonEmptyStringNo_(_priceStr)];
+
+            }else{
+                value.text=[NSString stringWithFormat:@"￥%@",MBNonEmptyStringNo_(_infoAbout[@"PackagePrice"])];
+
+            }
             value.font=kNormalTextFont;
             [self.view addSubview:value];
         }
@@ -98,28 +108,47 @@
                 _nameTF.text=MBNonEmptyStringNo_(allUserDic[@"Name"]);
             }
             [self.view addSubview:_nameTF];
-        }if (i==2+2) {
-            _telTF=[[UITextField alloc]initWithFrame:CGRectMake(160, 10+40+40+40*2, 160, 35)];
+        }if (i==4) {
+            _peopleIDTF=[[UITextField alloc]initWithFrame:CGRectMake(160, 10+40+40+40*2, 160, 35)];
+            _peopleIDTF.returnKeyType=UIReturnKeyDone;
+            _peopleIDTF.keyboardAppearance=UIKeyboardAppearanceDefault;//键盘外观
+            _peopleIDTF.placeholder=@"请输入身份证";
+            _peopleIDTF.delegate=self;
+
+            
+            [self.view addSubview:_peopleIDTF];
+        }if (i==5) {
+            _telTF=[[UITextField alloc]initWithFrame:CGRectMake(160, 10+40+40+40*3, 160, 35)];
             _telTF.placeholder=@"请输入联系电话";
             _telTF.returnKeyType=UIReturnKeyDone;
             _telTF.keyboardType=UIKeyboardTypeNumberPad;
             _telTF.keyboardAppearance=UIKeyboardAppearanceDefault;//键盘外观
             _telTF.delegate=self;
-
+            
             if (![MBNonEmptyStringNo_(allUserDic[@"MobileNO"]) isEqualToString:@""]) {
                 _telTF.text=MBNonEmptyStringNo_(allUserDic[@"MobileNO"]);
             }
-
+            
             [self.view addSubview:_telTF];
-        }if (i==3+2) {
-            _noteTF=[[UITextField alloc]initWithFrame:CGRectMake(160, 10+40+40+40+40*2, 160, 35)];
+        }if (i==6) {
+            _peopleCountTF=[[UITextField alloc]initWithFrame:CGRectMake(160, 10+40+40+40*4, 160, 35)];
+            _peopleCountTF.returnKeyType=UIReturnKeyDone;
+            _peopleCountTF.keyboardType=UIKeyboardTypeNumberPad;
+            _peopleCountTF.keyboardAppearance=UIKeyboardAppearanceDefault;//键盘外观
+            _peopleCountTF.placeholder=@"请输入预约人数";
+            _peopleCountTF.delegate=self;
+
+          
+            [self.view addSubview:_peopleCountTF];
+        }if (i==7) {
+            _noteTF=[[UITextField alloc]initWithFrame:CGRectMake(160, 10+40+40+40+40*4, 160, 35)];
             _noteTF.placeholder=@"请输入备注";
             _noteTF.delegate=self;
             [self.view addSubview:_noteTF];
         }
     }
  
-    for (int i=1; i<5+2; i++) {
+    for (int i=1; i<5+2+2; i++) {
         UIImageView *iameg=[[UIImageView alloc]initWithFrame:CGRectMake(10, 10+i*38, 300, 1)];
         iameg.backgroundColor=kTipTextColor;
         [self.view addSubview:iameg];
@@ -129,16 +158,27 @@
     [btn setBackgroundImage:[UIImage imageNamed:@"btn_red_big_xiayibu.png"] forState:UIControlStateNormal];
     [btn setTitle:@"确定预约" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(yueyuBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    btn.frame = CGRectMake(10, 200+80, 300, 40);
+    btn.frame = CGRectMake(10, 200+80*2, 300, 40);
     [self.view addSubview:btn];
 }
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+
+    [_nameTF resignFirstResponder];
+    [_telTF resignFirstResponder];
+    [_noteTF resignFirstResponder];
+    [_timeSele resignFirstResponder];
+    [_peopleIDTF resignFirstResponder];
+    [_peopleCountTF resignFirstResponder];
     [_telTF resignFirstResponder];
 }
 //确定预约
 -(void)yueyuBtnPressed
 {
+    if (_peopleIDTF.text.length!=18) {
+        MBAlert(@"身份格式不正确");
+        return;
+    }
     if (_telTF.text.length!=11) {
         MBAlert(@"手机格式不正确");
         return;
@@ -149,28 +189,48 @@
     NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
     NSLog(@"%@",allUserDic);
     
-    NSString *recodePO = [NSString stringWithFormat:@"<PackageName>%@</PackageName><PackagePrice>%@</PackagePrice><PackageSex>%@</PackageSex><PackageExplain>%@</PackageExplain><YuYueDate>%@</YuYueDate><Name>%@</Name><Sex>%@</Sex><Mobile>%@</Mobile><CardNo>1</CardNo><Persons>1</Persons><Company></Company><Remark>%@</Remark><Source>3</Source>",MBNonEmptyStringNo_(_infoAbout[@"PackageName"]),MBNonEmptyStringNo_(_infoAbout[@"PackagePrice"]),MBNonEmptyStringNo_(_infoAbout[@"PackageSex"]),MBNonEmptyStringNo_(_infoAbout[@"PackageExplain"]),MBNonEmptyStringNo_([_timeSele.dateValue dateString]),MBNonEmptyStringNo_(_nameTF.text),MBNonEmptyStringNo_([allUserDic allValues][0][@"Sex"]),MBNonEmptyStringNo_(_telTF.text),MBNonEmptyStringNo_(_noteTF.text)];
+    NSString *recodePO = [NSString stringWithFormat:@"<PackageName>%@</PackageName><PackagePrice>%@</PackagePrice><PackageSex>%@</PackageSex><PackageExplain>%@</PackageExplain><YuYueDate>%@</YuYueDate><Name>%@</Name><Sex>%@</Sex><Mobile>%@</Mobile><CardNo>%@</CardNo><Persons>%@</Persons><Company></Company><Remark>%@</Remark><Source>3</Source>",MBNonEmptyStringNo_(_infoAbout[@"PackageName"]),MBNonEmptyStringNo_(_infoAbout[@"PackagePrice"]),MBNonEmptyStringNo_(_infoAbout[@"PackageSex"]),MBNonEmptyStringNo_(_infoAbout[@"PackageExplain"]),MBNonEmptyStringNo_([_timeSele.dateValue dateString]),MBNonEmptyStringNo_(_nameTF.text),MBNonEmptyStringNo_([allUserDic allValues][0][@"Sex"]),MBNonEmptyStringNo_(_telTF.text),MBNonEmptyStringNo_(_peopleIDTF.text),MBNonEmptyStringNo_(_peopleCountTF.text),MBNonEmptyStringNo_(_noteTF.text)];
     
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(recodePO),@"recordPO", nil]];
 
     
     NSString *YYDetail;
     for (int i=0; i<_dataAllArray.count; i++) {
-        NSDictionary *dicOnf =_dataAllArray[i];
-        if (!YYDetail) {
-            YYDetail =[NSString stringWithFormat:@"<YYDetail><TJ_Code>%@</TJ_Code><TJ_Name>%@</TJ_Name><TJ_Price>%@</TJ_Price><TJ_Explain>%@</TJ_Explain><TJ_OrderID>%@</TJ_OrderID></YYDetail>",MBNonEmptyStringNo_(dicOnf[@"TJ_Code"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Name"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Price"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Explain"]),MBNonEmptyStringNo_(dicOnf[@"TJ_OrderID"])];
-        }else
-        {
-             YYDetail =[NSString stringWithFormat:@"%@<YYDetail><TJ_Code>%@</TJ_Code><TJ_Name>%@</TJ_Name><TJ_Price>%@</TJ_Price><TJ_Explain>%@</TJ_Explain><TJ_OrderID>%@</TJ_OrderID></YYDetail>",YYDetail,MBNonEmptyStringNo_(dicOnf[@"TJ_Code"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Name"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Price"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Explain"]),MBNonEmptyStringNo_(dicOnf[@"TJ_OrderID"])];
+        NSDictionary *dicOnfOut =_dataAllArray[i];
+        NSArray *childItemArray = dicOnfOut[@"ChildItem"];
+        if ([childItemArray isKindOfClass:[NSArray class]]) {
+            for (int j=0; j<childItemArray.count; j++) {
+                NSArray *dicOnfOfAllArray =childItemArray[j];
+
+                if ([dicOnfOfAllArray isKindOfClass:[NSArray class]]) {
+                    for (int k=0; k<dicOnfOfAllArray.count; k++) {
+                        NSDictionary *dicOnf =dicOnfOfAllArray[k];
+                        NSLog(@"%@",dicOnf);
+                        if (!YYDetail) {
+                            YYDetail =[NSString stringWithFormat:@"<YYDetail><TJ_Code>%@</TJ_Code><TJ_Name>%@</TJ_Name><TJ_Price>%@</TJ_Price><TJ_Explain>%@</TJ_Explain><TJ_OrderID>%@</TJ_OrderID></YYDetail>",MBNonEmptyStringNo_(dicOnf[@"TJ_Code"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Name"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Price"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Explain"]),MBNonEmptyStringNo_(dicOnf[@"TJ_OrderID"])];
+                        }else
+                        {
+                            YYDetail =[NSString stringWithFormat:@"%@<YYDetail><TJ_Code>%@</TJ_Code><TJ_Name>%@</TJ_Name><TJ_Price>%@</TJ_Price><TJ_Explain>%@</TJ_Explain><TJ_OrderID>%@</TJ_OrderID></YYDetail>",YYDetail,MBNonEmptyStringNo_(dicOnf[@"TJ_Code"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Name"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Price"]),MBNonEmptyStringNo_(dicOnf[@"TJ_Explain"]),MBNonEmptyStringNo_(dicOnf[@"TJ_OrderID"])];
+                        }
+                        
+                    }
+                }
+                
+
+
+                
+            }
+           
+            
         }
     }
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(YYDetail),@"details", nil]];
 
-    NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"AddReservationBodycheck"];
+    NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"AddYuYueRecord"];
     NSLog(@"%@",soapMsg);
     __block YuyueTeleViewController *blockSelf = self;
     
-    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddReservationBodycheck" params:@{@"soapMessag":soapMsg}];
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddYuYueRecord" params:@{@"soapMessag":soapMsg}];
     
     [MBIIRequest requestXMLWithItems:@[item] success:^(id JSON) {
         
@@ -186,6 +246,9 @@
 }
 -(void)AddReservationBodycheckSuccess:(NSString *)string
 {
+    MBAlertWithDelegate(@"预约成功", self);
+
+    return;
     NSDictionary *xmlDoc = [NSDictionary dictionaryWithXMLString:string];
     NSLog(@"1111=====%@",xmlDoc);
     if ([MBNonEmptyStringNo_(xmlDoc[@"soap:Body"][@"AddReservationBodycheckResponse"][@"AddReservationBodycheckResult"]) isEqualToString:@"1"]) {

@@ -329,7 +329,7 @@
 -(void)goToView
 {
     YuyueThrDetailViewControllerLast *all =[[YuyueThrDetailViewControllerLast alloc]init];
-    all.dataArray = _getDataArray;
+    all.dataArray = [[NSMutableArray alloc]initWithArray:_getDataArray];
     all.priceStr = _detailPrice;
     all.nameStr = _detailName;
     all.sendDataInfo = _sendDataInfo;

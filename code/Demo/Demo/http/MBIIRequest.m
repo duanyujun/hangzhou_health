@@ -287,7 +287,7 @@ BOOL shouldCancelRequest(NSString *method) {
     MBRequestItem *item=items[0];
     NSString *urlstr = @"http://42.120.0.83:9008/MobileInterface.asmx";
     urlstr=MBNonEmptyStringNo_([[NSUserDefaults standardUserDefaults]valueForKey:@"webAddress"]);
-    
+    NSLog(@"%@",urlstr);
     urlstr=[urlstr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url =[NSURL URLWithString:urlstr];
     NSString *soapActionURL = [NSString stringWithFormat:@"http://tempuri.org/%@",item.method];

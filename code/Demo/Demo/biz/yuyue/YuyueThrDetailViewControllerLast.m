@@ -1,29 +1,36 @@
 //
 //  ViewController.m
-//  HeaderViewDemo
+//  SKSTableView
 //
-//  Created by Rannie on 13-9-8.
-//  Copyright (c) 2013年 Rannie. All rights reserved.
+//  Created by Sakkaras on 26/12/13.
+//  Copyright (c) 2013 Sakkaras. All rights reserved.
 //
 
 #import "YuyueThrDetailViewControllerLast.h"
-#import "HRFriendsCell.h"
-#import "HeaderButton.h"
 #import "YuyueTeleViewController.h"
-#define RTagOffset 10
-#define RRowHeight 50.0f
-#define RHeaderHeight 45.0f
-
-@interface YuyueThrDetailViewControllerLast ()<UITableViewDataSource,UITableViewDelegate>
+#import "YuYueDtailTableViewCell.h"
+#import "MBSelectView.h"
+#import "LeveyPopListView.h"
+@interface YuyueThrDetailViewControllerLast ()<YuYueDtailTableViewCellDelegate,LeveyPopListViewDelegate>
 {
-    NSMutableArray *_groupNames;
-    
-    NSMutableDictionary *_headers;
+    NSMutableArray *_showDataArray;
+    NSMutableArray *_originDataArray;
+    NSArray *_tempStoreDate;
+    UILabel *_showEfloLabel;
 }
+
 @end
 
-static NSString * const CellIdentifier = @"FriendCell";
 @implementation YuyueThrDetailViewControllerLast
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 //返回到上个页面
 -(void)backViewUPloadView
@@ -34,17 +41,28 @@ static NSString * const CellIdentifier = @"FriendCell";
 {
     YuyueTeleViewController *all =[[YuyueTeleViewController alloc]init];
     all.infoAbout = _sendDataInfo;
+    all.priceStr = _priceStr;
+    all.dataAllArray = _dataArray;
     //    all.dataAllArray = arrayOfResult;
     UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:all];
     [self.navigationController presentViewController:nav animated:YES completion:nil];
     //    [self presentViewController:all animated:YES completion:nil];
     
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.view.backgroundColor=HEX(@"#ffffff");
+    
+    _originDataArray = [[NSMutableArray alloc]initWithArray:_dataArray];
+    
+    _showEfloLabel =[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+    _showEfloLabel.font = kNormalTextFont;
+    _showEfloLabel.textAlignment = UITextAlignmentCenter;
+    _showEfloLabel.text = [NSString stringWithFormat:@"%@      ￥%@",_nameStr,_priceStr];
+    [self.view addSubview:_showEfloLabel];
+    
     self.title=@"套餐详情";
     if (IOS7_OR_LATER) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -58,11 +76,18 @@ static NSString * const CellIdentifier = @"FriendCell";
         [btnLeft addTarget:self action:@selector(backViewUPloadView) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
     }
+    _showDataArray = [[NSMutableArray alloc]initWithCapacity:2];
+    for (int i=0; i<_dataArray.count; i++) {
+        if (i==0) {
+            [_showDataArray addObject:@"YES"];
+        }else
+        {
+            [_showDataArray addObject:@"NO"];
+        }
+    }
     
-    
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, kContentViewHeight+49) style:UITableViewStylePlain];
-    
-    NSLog(@"%@",_dataArray[0]);
+    NSLog(@"%@",_showDataArray);
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, 320, kContentViewHeight+9) style:UITableViewStyleGrouped];
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -77,83 +102,299 @@ static NSString * const CellIdentifier = @"FriendCell";
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
 
     
-    [self loadData];
 }
-
-- (void)loadData
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    _headers = [NSMutableDictionary dictionaryWithCapacity:_dataArray.count];
+    return [_dataArray count];
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSArray *arrayOfONet=_dataArray[section][@"ChildItem"];
+    NSString *showItem = _showDataArray[section];
     
-    _groupNames = [NSMutableArray arrayWithCapacity:_dataArray.count];
-    for (NSInteger i = 0; i < _dataArray.count; i++)
+    if ([showItem isEqualToString:@"YES"]) {
+        
+        return arrayOfONet.count;
+
+    }else
     {
-        NSDictionary *dict = _dataArray[i];
-        [_groupNames addObject:dict[@"SortName"]];
+        return 0;
+
     }
 }
-
-- (NSArray *)arrayWithSection:(NSInteger)number
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSDictionary *dict = _dataArray[number];
-    NSArray *friendsArray = dict[@"ChildItem"];
-    NSLog(@"%@",friendsArray);
-    return friendsArray;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return _groupNames.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    HeaderButton *header = _headers[@(section)];
-    NSArray *array = [self arrayWithSection:section];
-    NSInteger count = header.isOpen?array.count:0;
-    return count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    HRFriendsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
+    view.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"5.png"]];
     
-    NSArray *array = [self arrayWithSection:indexPath.section];
-    [cell bindFriend:array[indexPath.row]];
+    UILabel *lbael = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 300, 40)];
+    lbael.text = _dataArray[section][@"SortName"];
+    lbael.font=kNormalTextFont;
+    lbael.textColor =[UIColor whiteColor];
+    [view addSubview:lbael];
     
+    UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame= view.frame;
+    [view addSubview:btn];
+    btn.tag = section;
+    [btn addTarget:self action:@selector(btnShowRow:) forControlEvents:UIControlEventTouchUpInside];
+    return view;
+    
+}
+-(void)btnShowRow:(UIButton *)btn
+{
+    NSString *showItem = _showDataArray[btn.tag];
+    NSLog(@"2222======%@,3333333====%d",showItem,btn.tag);
+    if ([showItem isEqualToString:@"YES"]) {
+        
+        [_showDataArray replaceObjectAtIndex:btn.tag withObject:@"NO"];
+        
+    }else
+    {
+        [_showDataArray replaceObjectAtIndex:btn.tag withObject:@"YES"];
+        
+    }
+    [_tableView reloadData];
+
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *cellStr = @"YuYueDtailTableViewCell";
+    YuYueDtailTableViewCell *cell  = (YuYueDtailTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellStr];
+    if (cell==nil) {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"YuYueDtailTableViewCell" owner:self options:nil]lastObject];
+        cell.isSelectAbout = NO;
+        cell.delegateAbout = self;
+    }
+    
+    NSArray *itemArray =_dataArray[indexPath.section][@"ChildItem"];
+    NSArray *teimOne = itemArray[indexPath.row];
+    if (teimOne.count>1) {
+        cell.showMoreITem.hidden=NO;
+    }else
+    {
+        cell.showMoreITem.hidden=YES;
+    }
+    NSDictionary *infoDic = teimOne[0];
+    cell.infoDic = infoDic;
+    cell.nameLabel.text = MBNonEmptyString(infoDic[@"TJ_Name"]);
+    cell.priceLabel.text = MBNonEmptyString(infoDic[@"TJ_Price"]);
+    cell.TJ_Code = MBNonEmptyStringNo_(infoDic[@"TJ_Code"]);
+    
+    if ([MBNonEmptyString(infoDic[@"Is_Check"]) isEqualToString:@"1"]) {
+        if ([MBNonEmptyStringNo_(infoDic[@"Is_Cancel"]) isEqualToString:@"1"]) {
+            
+            
+            for (int i=0; i<_originDataArray.count; i++) {
+                
+                NSMutableArray *itemArray =[NSMutableArray arrayWithArray:_originDataArray[i][@"ChildItem"]];
+                for (int j=0; j<itemArray.count; j++) {
+                    NSMutableArray *teiONeArray = [NSMutableArray arrayWithArray:itemArray[j]];
+                    for (int k=0; k<teiONeArray.count; k++) {
+                        
+                        NSMutableDictionary *teimOne = [NSMutableDictionary dictionaryWithDictionary:teiONeArray[k]];
+                        
+                        if ([cell.TJ_Code isEqualToString:MBNonEmptyStringNo_(teimOne[@"TJ_Code"])]) {
+                           
+                            if ([MBNonEmptyStringNo_(teimOne[@"Is_Check"]) isEqualToString:@"1"]) {
+                                [cell.selectBtn setImage:[UIImage imageNamed:@"2.png"] forState:UIControlStateNormal];
+
+                                
+                            }else
+                            {
+                                [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];
+
+                            }
+                        }
+                        
+                    }
+                }
+                
+                
+            }
+
+            
+            
+        }else{
+            [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];
+        }
+    }else
+    {
+        [cell.selectBtn setImage:[UIImage imageNamed:@"4.png"] forState:UIControlStateNormal];
+        
+    }
     return cell;
-}
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+}
+-(void)seleThisCell:(YuYueDtailTableViewCell *)cell
 {
-    HeaderButton *header = _headers[@(section)];
-    if (!header)
+    cell.isSelectAbout = !cell.isSelectAbout;
+    NSString *Is_Check = MBNonEmptyString(cell.infoDic[@"Is_Check"]);
+    NSString *Is_Cancel = MBNonEmptyString(cell.infoDic[@"Is_Cancel"]);
+    
+    BOOL isSeleck=NO;
+    if ([Is_Check isEqualToString:@"1"]) {
+        
+        if ([Is_Cancel isEqualToString:@"1"]) {
+            MBAlert(@"此项目是必须项目，不可取消");
+            isSeleck=YES;
+            [cell.selectBtn setImage:[UIImage imageNamed:@"2.png"] forState:UIControlStateNormal];
+        }else
+        {
+            if (cell.isSelectAbout) {
+                isSeleck=YES;
+
+                [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];
+            }else
+            {
+                [cell.selectBtn setImage:[UIImage imageNamed:@"4.png"] forState:UIControlStateNormal];
+                isSeleck=NO;
+
+                
+                
+            }
+        }
+    }else
     {
-        header = [HeaderButton buttonWithType:UIButtonTypeCustom];
-        header.bounds = CGRectMake(0, 0, 320, RHeaderHeight);
-        header.backgroundColor = [UIColor colorWithRed:0.4 green:0.4 blue:0.8 alpha:1.0];
-        header.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-        NSString *title = _groupNames[section];
-        [header setTitle:title forState:UIControlStateNormal];
-        [header addTarget:self action:@selector(expandFriends:) forControlEvents:UIControlEventTouchUpInside];
-        [_headers setObject:header forKey:@(section)];
+        if (cell.isSelectAbout) {
+            [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];
+            isSeleck=YES;
+
+        }else
+        {
+            [cell.selectBtn setImage:[UIImage imageNamed:@"4.png"] forState:UIControlStateNormal];
+            isSeleck=NO;
+
+            
+        }
     }
-    return header;
+    
+    
+    for (int i=0; i<_dataArray.count; i++) {
+        
+        NSMutableArray *itemArray =[NSMutableArray arrayWithArray:_dataArray[i][@"ChildItem"]];
+        NSString *SortName= MBNonEmptyStringNo_(_dataArray[i][@"SortName"]);
+        for (int j=0; j<itemArray.count; j++) {
+            NSMutableArray *teiONeArray = [NSMutableArray arrayWithArray:itemArray[j]];
+            for (int k=0; k<1; k++) {
+                
+                NSMutableDictionary *teimOne = [NSMutableDictionary dictionaryWithDictionary:teiONeArray[k]];
+                
+                if ([cell.TJ_Code isEqualToString:MBNonEmptyStringNo_(teimOne[@"TJ_Code"])]) {
+                    if (isSeleck==YES) {
+                        
+                        [teimOne setValue:@"1" forKey:@"Is_Check"];
+                    }else
+                    {
+                        [teimOne setValue:@"2" forKey:@"Is_Check"];
+                    }
+                }
+                [teiONeArray replaceObjectAtIndex:k withObject:teimOne];
+
+            }
+            [itemArray replaceObjectAtIndex:j withObject:teiONeArray];
+        }
+        
+        [_dataArray replaceObjectAtIndex:i withObject:[NSDictionary dictionaryWithObjectsAndKeys:itemArray, @"ChildItem",SortName,@"SortName", nil]];
+        
+    }
+    
+    NSInteger sumAllMoney=0;
+    for (int i=0; i<_dataArray.count; i++) {
+        
+        NSMutableArray *itemArray =[NSMutableArray arrayWithArray:_dataArray[i][@"ChildItem"]];
+
+        for (int j=0; j<itemArray.count; j++) {
+            NSMutableArray *teiONeArray = [NSMutableArray arrayWithArray:itemArray[j]];
+            for (int k=0; k<teiONeArray.count; k++) {
+                
+                NSMutableDictionary *teimOne = [NSMutableDictionary dictionaryWithDictionary:teiONeArray[k]];
+                
+                if ([MBNonEmptyStringNo_(teimOne[@"Is_Check"]) isEqualToString:@"1"]) {
+                    
+                    sumAllMoney+= [MBNonEmptyStringNo_(teimOne[@"TJ_Price"]) integerValue];
+  
+                }
+                
+            }
+        }
+        
+    }
+    _priceStr = [NSString stringWithFormat:@"%d",sumAllMoney];
+    _showEfloLabel.text = [NSString stringWithFormat:@"%@      ￥%d",_nameStr,sumAllMoney];
+
+    
+    
+ 
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *itemArray =_dataArray[indexPath.section][@"ChildItem"];
+    NSArray *teimOne = itemArray[indexPath.row];
+    if (teimOne.count>1) {
+        NSMutableArray *arrayOf = [NSMutableArray arrayWithCapacity:2];
+        for (int i=0; i<teimOne.count; i++) {
+            NSDictionary *oneIteInfo = teimOne[i];
+            [arrayOf addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@  ￥%@",MBNonEmptyStringNo_(oneIteInfo[@"TJ_Name"]),MBNonEmptyStringNo_(oneIteInfo[@"TJ_Price"])],@"text", nil]];
+            
+        }
+        LeveyPopListView *lplv = [[LeveyPopListView alloc] initWithTitle:@"请选择套餐" options:arrayOf];
+        lplv.delegate = self;
+        _tempStoreDate = teimOne;
+        [lplv showInView:self.view animated:YES];
+    }
+}
+#pragma mark - LeveyPopListView delegates
+- (void)leveyPopListView:(LeveyPopListView *)popListView didSelectedIndex:(NSInteger)anIndex
+{
+    NSLog(@"%@",_tempStoreDate[anIndex]);
+    
+    NSDictionary *selectItemInfo = _tempStoreDate[anIndex];
+    
+    for (int i=0; i<_dataArray.count; i++) {
+        
+        NSMutableArray *itemArray =[NSMutableArray arrayWithArray:_dataArray[i][@"ChildItem"]];
+        NSString *SortName= MBNonEmptyStringNo_(_dataArray[i][@"SortName"]);
+        for (int j=0; j<itemArray.count; j++) {
+            NSMutableArray *teiONeArray = [NSMutableArray arrayWithArray:itemArray[j]];
+            for (int k=0; k<teiONeArray.count; k++) {
+                
+                NSMutableDictionary *teimOne = [NSMutableDictionary dictionaryWithDictionary:teiONeArray[k]];
+                
+                
+                if ([selectItemInfo[@"TJ_Code"] isEqualToString:MBNonEmptyStringNo_(teimOne[@"TJ_Code"])]) {
+                   
+                    [teimOne setValue:@"2" forKey:@"Is_Check"];
+                    NSMutableDictionary *teimOneOnly = [NSMutableDictionary dictionaryWithDictionary:teiONeArray[0]];
+                    [teimOneOnly setValue:@"2" forKey:@"Is_Check"];
+
+                    [teiONeArray replaceObjectAtIndex:k withObject:teimOne];
+                    [teiONeArray replaceObjectAtIndex:0 withObject:teimOneOnly];
+
+                    [teiONeArray exchangeObjectAtIndex:0 withObjectAtIndex:k];
+
+                }
+                
+            }
+            [itemArray replaceObjectAtIndex:j withObject:teiONeArray];
+        }
+        
+        [_dataArray replaceObjectAtIndex:i withObject:[NSDictionary dictionaryWithObjectsAndKeys:itemArray, @"ChildItem",SortName,@"SortName", nil]];
+        
+    }
+    
+    
+    [_tableView reloadData];
+
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return RHeaderHeight;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return RRowHeight;
-}
-
-- (void)expandFriends:(HeaderButton *)header
-{
-    header.open = !header.isOpen;
-    [self.tableView reloadData];
-}
 
 @end
