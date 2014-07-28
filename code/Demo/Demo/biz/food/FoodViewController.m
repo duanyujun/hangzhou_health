@@ -844,7 +844,7 @@
 }
 -(void)deleteAboutNews
 {
-    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+    //NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
     
     NSDictionary *deleInfo =_curShowArray[_deleIndexAboutArray];
     NSLog(@"%@",deleInfo);

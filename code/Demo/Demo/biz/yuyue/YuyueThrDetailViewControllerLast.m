@@ -395,6 +395,9 @@
     [_tableView reloadData];
 
 }
+-(void)leveyPopListViewDidCancel{
+    
+}
 
 
 @end

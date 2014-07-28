@@ -148,7 +148,7 @@
     
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%ld",(long)_startIndex],@"startIndex", nil]];
     
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%ld",_startIndex+10],@"endIndex", nil]];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",_startIndex+10],@"endIndex", nil]];
     
     
     NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"GetReportInfoList"];

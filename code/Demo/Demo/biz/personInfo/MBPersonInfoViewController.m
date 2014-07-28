@@ -372,7 +372,7 @@ UINavigationControllerDelegate,MBTextFieldDelegate>
     NSLog(@"%@",dicAbout);
 
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    NSData *imageData = UIImageJPEGRepresentation(upImage, 0.5);
+    NSData *imageData = UIImageJPEGRepresentation(upImage, 0.05);
 
     NSArray *ursStrArray =[urlstr componentsSeparatedByString:@"/"];
     NSString *hostUrl =[NSString stringWithFormat:@"%@//%@/UpLoadHandler.ashx",ursStrArray[0],ursStrArray[2]];
