@@ -11,6 +11,7 @@
 #import "YuYueDtailTableViewCell.h"
 #import "MBSelectView.h"
 #import "LeveyPopListView.h"
+#import "MBAlertView.h"
 @interface YuyueThrDetailViewControllerLast ()<YuYueDtailTableViewCellDelegate,LeveyPopListViewDelegate>
 {
     NSMutableArray *_showDataArray;
@@ -177,58 +178,51 @@
     
     NSArray *itemArray =_dataArray[indexPath.section][@"ChildItem"];
     NSArray *teimOne = itemArray[indexPath.row];
+        NSDictionary *infoDic = teimOne[0];
+    BOOL isBlack=NO;
+    static NSInteger fista=0;
+        for (int i=0; i<teimOne.count; i++) {
+            NSDictionary *infoDicAbout = teimOne[i];
+            if ([MBNonEmptyStringNo_(infoDicAbout[@"Is_Check"]) isEqualToString:@"1"]) {
+                if (fista==0) {
+                    infoDic = infoDicAbout;
+
+                }
+            }
+            if ([MBNonEmptyStringNo_(infoDicAbout[@"Is_Cancel"]) isEqualToString:@"2"]) {
+                isBlack=YES;
+            }
+            
+        }
+    
+    fista+=1;
+    
     if (teimOne.count>1) {
         cell.showMoreITem.hidden=NO;
     }else
     {
         cell.showMoreITem.hidden=YES;
     }
-    NSDictionary *infoDic = teimOne[0];
     cell.infoDic = infoDic;
     cell.nameLabel.text = MBNonEmptyString(infoDic[@"TJ_Name"]);
     cell.priceLabel.text = MBNonEmptyString(infoDic[@"TJ_Price"]);
     cell.TJ_Code = MBNonEmptyStringNo_(infoDic[@"TJ_Code"]);
     
-    if ([MBNonEmptyString(infoDic[@"Is_Check"]) isEqualToString:@"1"]) {
-        if ([MBNonEmptyStringNo_(infoDic[@"Is_Cancel"]) isEqualToString:@"1"]) {
-            
-            
-            for (int i=0; i<_originDataArray.count; i++) {
-                
-                NSMutableArray *itemArray =[NSMutableArray arrayWithArray:_originDataArray[i][@"ChildItem"]];
-                for (int j=0; j<itemArray.count; j++) {
-                    NSMutableArray *teiONeArray = [NSMutableArray arrayWithArray:itemArray[j]];
-                    for (int k=0; k<teiONeArray.count; k++) {
-                        
-                        NSMutableDictionary *teimOne = [NSMutableDictionary dictionaryWithDictionary:teiONeArray[k]];
-                        
-                        if ([cell.TJ_Code isEqualToString:MBNonEmptyStringNo_(teimOne[@"TJ_Code"])]) {
-                           
-                            if ([MBNonEmptyStringNo_(teimOne[@"Is_Check"]) isEqualToString:@"1"]) {
-                                [cell.selectBtn setImage:[UIImage imageNamed:@"2.png"] forState:UIControlStateNormal];
-
-                                
-                            }else
-                            {
-                                [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];
-
-                            }
-                        }
-                        
-                    }
-                }
-                
-                
-            }
-
-            
-            
-        }else{
-            [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];
-        }
-    }else
-    {
+    if ([MBNonEmptyString(infoDic[@"Is_Check"]) isEqualToString:@"1"]&&[MBNonEmptyString(infoDic[@"Is_Cancel"]) isEqualToString:@"1"]) {
+        [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];
+        
+    }
+    if ([MBNonEmptyString(infoDic[@"Is_Check"]) isEqualToString:@"1"]&&[MBNonEmptyString(infoDic[@"Is_Cancel"]) isEqualToString:@"2"]) {
+        [cell.selectBtn setImage:[UIImage imageNamed:@"1.png"] forState:UIControlStateNormal];
+        
+    }
+    
+    if ([MBNonEmptyString(infoDic[@"Is_Check"]) isEqualToString:@"2"]&&isBlack==NO){
         [cell.selectBtn setImage:[UIImage imageNamed:@"4.png"] forState:UIControlStateNormal];
+    
+    }
+    if ([MBNonEmptyString(infoDic[@"Is_Check"]) isEqualToString:@"2"]&&isBlack==YES){
+        [cell.selectBtn setImage:[UIImage imageNamed:@"1.png"] forState:UIControlStateNormal];
         
     }
     return cell;
@@ -243,10 +237,10 @@
     BOOL isSeleck=NO;
     if ([Is_Check isEqualToString:@"1"]) {
         
-        if ([Is_Cancel isEqualToString:@"1"]) {
+        if ([Is_Cancel isEqualToString:@"2"]) {
             MBAlert(@"此项目是必须项目，不可取消");
             isSeleck=YES;
-            [cell.selectBtn setImage:[UIImage imageNamed:@"2.png"] forState:UIControlStateNormal];
+            [cell.selectBtn setImage:[UIImage imageNamed:@"1.png"] forState:UIControlStateNormal];
         }else
         {
             if (cell.isSelectAbout) {
@@ -265,7 +259,13 @@
     }else
     {
         if (cell.isSelectAbout) {
+            if ([Is_Cancel isEqualToString:@"2"]) {
+                MBAlert(@"此项目是必须项目，不可取消");
+                isSeleck=YES;
+                [cell.selectBtn setImage:[UIImage imageNamed:@"1.png"] forState:UIControlStateNormal];
+            }else{
             [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];
+            }
             isSeleck=YES;
 
         }else
@@ -335,6 +335,19 @@
     
  
 }
+-(void)showMoreDetail:(YuYueDtailTableViewCell *)cell
+{
+    NSLog(@"%@",cell.infoDic);
+    NSString *showInfo = @"";
+    if (MBNonEmptyStringNo_(cell.infoDic[@"TJ_Explain"]).length>0) {
+        showInfo =MBNonEmptyStringNo_(cell.infoDic[@"TJ_Explain"]);
+    }else
+    {
+        showInfo = @"此套餐暂无详细说明";
+    }
+     MBAlertView *alterVeiw =[[MBAlertView alloc]initWithTitle:@"套餐信息" message:showInfo delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alterVeiw show];
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *itemArray =_dataArray[indexPath.section][@"ChildItem"];
@@ -372,7 +385,7 @@
                 
                 if ([selectItemInfo[@"TJ_Code"] isEqualToString:MBNonEmptyStringNo_(teimOne[@"TJ_Code"])]) {
                    
-                    [teimOne setValue:@"2" forKey:@"Is_Check"];
+                    [teimOne setValue:@"1" forKey:@"Is_Check"];
                     NSMutableDictionary *teimOneOnly = [NSMutableDictionary dictionaryWithDictionary:teiONeArray[0]];
                     [teimOneOnly setValue:@"2" forKey:@"Is_Check"];
 
@@ -393,6 +406,31 @@
     
     
     [_tableView reloadData];
+    
+    NSInteger sumAllMoney=0;
+    for (int i=0; i<_dataArray.count; i++) {
+        
+        NSMutableArray *itemArray =[NSMutableArray arrayWithArray:_dataArray[i][@"ChildItem"]];
+        
+        for (int j=0; j<itemArray.count; j++) {
+            NSMutableArray *teiONeArray = [NSMutableArray arrayWithArray:itemArray[j]];
+            for (int k=0; k<teiONeArray.count; k++) {
+                
+                NSMutableDictionary *teimOne = [NSMutableDictionary dictionaryWithDictionary:teiONeArray[k]];
+                
+                if ([MBNonEmptyStringNo_(teimOne[@"Is_Check"]) isEqualToString:@"1"]) {
+                    
+                    sumAllMoney+= [MBNonEmptyStringNo_(teimOne[@"TJ_Price"]) integerValue];
+                    
+                }
+               
+                
+            }
+        }
+        
+    }
+    _priceStr = [NSString stringWithFormat:@"%d",sumAllMoney];
+    _showEfloLabel.text = [NSString stringWithFormat:@"%@      ￥%d",_nameStr,sumAllMoney];
 
 }
 -(void)leveyPopListViewDidCancel{

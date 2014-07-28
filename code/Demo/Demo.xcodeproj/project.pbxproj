@@ -31,6 +31,7 @@
 		BD1A0DBB1934C61200784BEA /* NengLiangUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1A0DBA1934C61200784BEA /* NengLiangUploadViewController.m */; };
 		BD1A0DBE1934CC0700784BEA /* NengHaoMBFundMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1A0DBD1934CC0700784BEA /* NengHaoMBFundMapViewController.m */; };
 		BD1A0DC01934D63900784BEA /* yudongBG.png in Resources */ = {isa = PBXBuildFile; fileRef = BD1A0DBF1934D63900784BEA /* yudongBG.png */; };
+		BD744E7A19868DEC00A61E9B /* rightwang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD744E7919868DEC00A61E9B /* rightwang@2x.png */; };
 		BD9F07B819335DFE006F1557 /* TijianDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9F07B719335DFE006F1557 /* TijianDetialViewController.m */; };
 		BDA410D619262A07009FB9B1 /* select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA410D519262A07009FB9B1 /* select@2x.png */; };
 		BDA411401927173C009FB9B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA4113F1927173C009FB9B1 /* CoreLocation.framework */; };
@@ -516,6 +517,7 @@
 		BD1A0DBC1934CC0700784BEA /* NengHaoMBFundMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NengHaoMBFundMapViewController.h; sourceTree = "<group>"; };
 		BD1A0DBD1934CC0700784BEA /* NengHaoMBFundMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NengHaoMBFundMapViewController.m; sourceTree = "<group>"; };
 		BD1A0DBF1934D63900784BEA /* yudongBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yudongBG.png; sourceTree = "<group>"; };
+		BD744E7919868DEC00A61E9B /* rightwang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightwang@2x.png"; sourceTree = "<group>"; };
 		BD9F07B619335DFE006F1557 /* TijianDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TijianDetialViewController.h; sourceTree = "<group>"; };
 		BD9F07B719335DFE006F1557 /* TijianDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TijianDetialViewController.m; sourceTree = "<group>"; };
 		BDA410D519262A07009FB9B1 /* select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select@2x.png"; sourceTree = "<group>"; };
@@ -1661,6 +1663,7 @@
 		E7C79AB3188F705300C1DFBD /* image */ = {
 			isa = PBXGroup;
 			children = (
+				BD744E7919868DEC00A61E9B /* rightwang@2x.png */,
 				1894C73819850C1E0023C3A7 /* lowUpload@2x.png */,
 				1894C7361984F1F70023C3A7 /* 5.png */,
 				18B34FE2197A1C1B0039848D /* 1.png */,
@@ -2607,6 +2610,7 @@
 				BDA411BF19274B0C009FB9B1 /* bubble-square-outgoing.png in Resources */,
 				E780859C18DB2AA2009FC0CD /* menuBg@2x.png in Resources */,
 				E7FC540818EDAFD2002ED412 /* shphone.db in Resources */,
+				BD744E7A19868DEC00A61E9B /* rightwang@2x.png in Resources */,
 				BDA411BA19274B0C009FB9B1 /* bubble-square-incoming-selected@2x.png in Resources */,
 				E746ADCA18DF18BE0074FAF4 /* one@2x.png in Resources */,
 				E786A23C18E1B055003789B4 /* alert-red-button@2x.png in Resources */,

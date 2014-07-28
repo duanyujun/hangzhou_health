@@ -33,7 +33,7 @@
         [self addSubview:_itemCountLbl];
         
         
-        _rightLabl =[[UILabel alloc]initWithFrame:CGRectMake(170, 10, 100, 30)];
+        _rightLabl =[[UILabel alloc]initWithFrame:CGRectMake(190, 10, 100, 30)];
         _rightLabl.font =[UIFont fontWithName:@"Helvetica Neue" size:14];
         _rightLabl.textColor = kRedTextColor;
         _rightLabl.numberOfLines=0;

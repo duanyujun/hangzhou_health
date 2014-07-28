@@ -20,6 +20,13 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)showMoreDetail:(id)sender {
+    
+    if (_delegateAbout&&[_delegateAbout respondsToSelector:@selector(showMoreDetail:)]) {
+        [_delegateAbout showMoreDetail:self];
+    }
+}
+
 - (IBAction)seleBtnPressed:(id)sender {
     if (_delegateAbout&&[_delegateAbout respondsToSelector:@selector(seleThisCell:)]) {
         [_delegateAbout seleThisCell:self];

@@ -18,6 +18,8 @@
 @property(copy,nonatomic)NSString* TJ_Code;
 @property (weak, nonatomic) IBOutlet UIImageView *showMoreITem;
 
+- (IBAction)showMoreDetail:(id)sender;
+
 
 - (IBAction)seleBtnPressed:(id)sender;
 @end
@@ -25,5 +27,6 @@
 @protocol YuYueDtailTableViewCellDelegate <NSObject>
 
 -(void)seleThisCell:(YuYueDtailTableViewCell*)cell;
+-(void)showMoreDetail:(YuYueDtailTableViewCell*)cell;
 
 @end

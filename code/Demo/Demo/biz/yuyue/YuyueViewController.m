@@ -146,7 +146,17 @@
             cell.bgView.image=[UIImage imageNamed:@"five.png"];
         }
         NSLog(@"%@",_dataArray[0]);
-        cell.itemLbl.text=MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackageName"]);
+    
+    NSString *rankStr =@"";
+    if (MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackageExplain"]).length>0) {
+        
+        rankStr =MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackageExplain"]);
+        
+    }else
+    {
+        rankStr = @"暂无说明";
+    }
+        cell.itemLbl.text=[NSString stringWithFormat:@"%@  %@",MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackageName"]),rankStr];
 
         cell.itemCountLbl.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
         cell.yuyueBtn.hidden=NO;
