@@ -1,0 +1,567 @@
+生活问卷题目：
+		List<String> questionList = new ArrayList<String>();
+		questionList = new ArrayList<String>();
+		/** 第一部分：多选题 **/
+		questionList.add("1.本人患病情况 (多选题)");
+		questionList.add("2.父亲患病情况 (多选题)");
+		questionList.add("3.母亲患病情况 (多选题)");
+		questionList.add("4.祖父母患病情况 (多选题)");
+		questionList.add("5.(外)祖父母患病情况 (多选题)");
+
+		/** 第二部分：单选题 **/
+		questionList.add("1.米、面、薯类平均日摄入量： (一碗指2两)");
+		questionList.add("2.肉类及肉制品平均日摄入量：");
+		questionList.add("3.鱼类及水产品平均日摄入量：");
+		questionList.add("4.蛋类及蛋制品平均日摄入量：(一个是指约50克)");
+		questionList.add("5.奶类及奶制品平均日摄入量：(一杯是指约200ml)");
+		questionList.add("6.大豆及豆制品平均日摄入量：");
+		questionList.add("7.新鲜蔬菜平均日摄入量：");
+		questionList.add("8.新鲜水果平均日摄入量：");
+		questionList.add("9.平均日饮水摄入量：(一杯是指约200ml)");
+
+		/** 第三部分 **/
+		questionList.add("1.您平均每周吃早餐的天数：");
+		questionList.add("2.您平均每周吃夜宵的天数：");
+		questionList.add("3.您目前饮食方面的喜好： (多选题)");
+		questionList.add("4.您目前饮食的不良习惯： (多选题)");
+
+		/** 第四部分 **/
+		questionList.add("1.您平均每天的工作时间是：");
+		questionList.add("2.平均每天坐姿(静止)时间：");
+		questionList.add("3.您平均每周运动锻炼的时间：");
+		questionList.add("4.您一般锻炼的强度是：");
+
+		/** 第五部分 **/
+		questionList.add("1.您当前吸烟情况的描述是：");
+		questionList.add("2.平均每天吸香烟的支数是：");
+		questionList.add("3.您总共吸烟的年数是：");
+		questionList.add("4.平均每周被动吸烟情况：");
+
+		/** 第六部分 **/
+		questionList.add("1.您当前饮酒情况的描述是：");
+		questionList.add("2.您最常饮酒的类型：");
+		questionList.add("3.平均每天饮酒的两数是：（折算成白酒）");
+		questionList.add("4.您总共饮酒的年数是：");
+
+		/** 第七部分 **/
+		questionList.add("1.您是否受一些重大意外困扰：");
+		questionList.add("2.您的情绪对工作或生活的影响：");
+		questionList.add("3.您感觉到自己的精神压力：");
+		questionList.add("4.您感觉自己的睡眠充足吗：");
+		questionList.add("5.您的糖皮质激素服用情况： ");
+		questionList.add("6.您经常接触到有害因素： ");
+
+---------------------------------------------------------------------------------------------------------
+
+生活问卷答案：
+		switch (index) {
+		case 1:
+			answers.add("高血压");
+			answers.add("糖尿病");
+			answers.add("冠心病");
+			answers.add("高脂血症");
+			answers.add("肥胖");
+			answers.add("中风");
+			answers.add("肺癌");
+			if (sex.equals("男")) {
+				answers.add("前列腺癌");
+			} else {
+				answers.add("乳腺癌");
+			}
+			answers.add("骨质疏松");
+			answers.add("肝癌");
+			answers.add("老年痴呆");
+			answers.add("胃癌");
+			break;
+		case 2:
+			answers.add("高血压");
+			answers.add("糖尿病");
+			answers.add("冠心病");
+			answers.add("高脂血症");
+			answers.add("肥胖");
+			answers.add("中风");
+			answers.add("肺癌");
+			answers.add("前列腺癌");
+			answers.add("骨质疏松");
+			answers.add("肝癌");
+			answers.add("老年痴呆");
+			answers.add("胃癌");
+			break;
+		case 3:
+			answers.add("高血压");
+			answers.add("糖尿病");
+			answers.add("冠心病");
+			answers.add("高脂血症");
+			answers.add("肥胖");
+			answers.add("中风");
+			answers.add("肺癌");
+			answers.add("乳腺癌");
+			answers.add("骨质疏松");
+			answers.add("肝癌");
+			answers.add("老年痴呆");
+			answers.add("胃癌");
+			break;
+		case 4:
+			answers.add("高血压");
+			answers.add("糖尿病");
+			answers.add("冠心病");
+			answers.add("高脂血症");
+			answers.add("肥胖");
+			answers.add("中风");
+			answers.add("肺癌");
+			answers.add("前列腺癌");
+			answers.add("乳腺癌");
+			answers.add("骨质疏松");
+			answers.add("肝癌");
+			answers.add("老年痴呆");
+			answers.add("胃癌");
+			break;
+		case 5:
+			answers.add("高血压");
+			answers.add("糖尿病");
+			answers.add("冠心病");
+			answers.add("高脂血症");
+			answers.add("肥胖");
+			answers.add("中风");
+			answers.add("肺癌");
+			answers.add("前列腺癌");
+			answers.add("乳腺癌");
+			answers.add("骨质疏松");
+			answers.add("肝癌");
+			answers.add("老年痴呆");
+			answers.add("胃癌");
+			break;
+		case 6:
+			answers.add("＜1碗");
+			answers.add("1～2碗");
+			answers.add("2～4碗 ");
+			answers.add("4～6碗");
+			answers.add("≥6碗");
+			break;
+
+		case 7:
+			answers.add("不吃");
+			answers.add("＜1两");
+			answers.add("1～2两 ");
+			answers.add("2～5两");
+			answers.add("≥5两");
+			break;
+		case 8:
+			answers.add("不吃");
+			answers.add("＜1两");
+			answers.add("1～2两 ");
+			answers.add("2～5两");
+			answers.add("≥5两");
+			break;
+		case 9:
+			answers.add("不吃");
+			answers.add("＜1个");
+			answers.add("1～2个 ");
+			answers.add("2～3个");
+			answers.add("≥3个");
+			break;
+		case 10:
+			answers.add("不吃");
+			answers.add("＜1杯");
+			answers.add("1～2杯 ");
+			answers.add("2～3杯");
+			answers.add("≥3杯");
+			break;
+		case 11:
+			answers.add("不吃");
+			answers.add("＜0.5两");
+			answers.add("0.5～1两 ");
+			answers.add("1～2两");
+			answers.add("≥2两");
+			break;
+		case 12:
+			answers.add("＜2两");
+			answers.add("2～6两");
+			answers.add("6～10两 ");
+			answers.add("10～15两");
+			answers.add("≥15两 ");
+			break;
+		case 13:
+			answers.add("＜1两");
+			answers.add("1～4两");
+			answers.add("4～8两");
+			answers.add("8～12两");
+			answers.add("≥12两");
+			break;
+		case 14:
+			answers.add("＜3杯");
+			answers.add(">3～6杯");
+			answers.add("6～9杯 ");
+			answers.add("9～12杯");
+			answers.add("≥12杯");
+			break;
+		case 15:
+			answers.add("没有");
+			answers.add("1-2天");
+			answers.add("3-4天 ");
+			answers.add("5-6天");
+			answers.add("7天");
+			break;
+		case 16:
+			answers.add("没有");
+			answers.add("1-2天");
+			answers.add("3-4天 ");
+			answers.add("5-6天");
+			answers.add("7天");
+			break;
+		case 17:
+			answers.add("咸");
+			answers.add("酸");
+			answers.add("鲜 ");
+			answers.add("甜");
+			answers.add("辣");
+			answers.add("生");
+			answers.add("冷");
+			answers.add("硬 ");
+			answers.add("烫");
+			answers.add("煎炸");
+			answers.add("油腻");
+			answers.add("腌熏");
+			break;
+		case 18:
+			answers.add("吃饭时喝水");
+			answers.add("吃饭过快");
+			answers.add("吃得过饱 ");
+			answers.add("晚餐过晚 ");
+			break;
+		case 19:
+			answers.add("没有");
+			answers.add("1-2小时");
+			answers.add("2-5小时 ");
+			answers.add("5-8小时");
+			answers.add("≥8小时");
+			break;
+		case 20:
+			answers.add("没有");
+			answers.add("1-2小时");
+			answers.add("2-5小时 ");
+			answers.add("5-8小时");
+			answers.add("≥8小时");
+			break;
+		case 21:
+			answers.add("不锻炼");
+			answers.add("1-2小时");
+			answers.add("2-5小时 ");
+			answers.add("2-4小时");
+			answers.add("≥4小时");
+			break;
+		case 22:
+			answers.add("不锻炼");
+			answers.add("极轻度运动");
+			answers.add("轻度运动 ");
+			answers.add("中度运动");
+			answers.add("重度运动");
+			break;
+		case 23:
+
+			answers.add("从不");
+			answers.add("偶尔");
+			answers.add("戒烟 ");
+			answers.add("吸烟 ");
+
+			break;
+		case 24:
+			answers.add("＜5支");
+			answers.add("5-15支");
+			answers.add("15-25支 ");
+			answers.add("25-40支");
+			answers.add("≥40支");
+			break;
+		case 25:
+			answers.add("＜5年");
+			answers.add("5-15年");
+			answers.add("15-25年 ");
+			answers.add("25-40年");
+			answers.add("≥40年");
+			break;
+		case 26:
+			answers.add("没有");
+			answers.add("1-2天");
+			answers.add("3-4天 ");
+			answers.add("5-6天");
+			answers.add("7天");
+			break;
+		case 27:
+			answers.add("从不");
+			answers.add("偶尔");
+			answers.add("戒酒 ");
+			answers.add("饮酒");
+			break;
+		case 28:
+			answers.add("白酒");
+			answers.add("黄酒");
+			answers.add("红酒 ");
+			answers.add("啤酒");
+			answers.add("其他");
+			break;
+		case 29:
+			answers.add("＜2两");
+			answers.add("2-4两");
+			answers.add("4-6两 ");
+			answers.add("6-8两");
+			answers.add("≥8两");
+			break;
+		case 30:
+			answers.add("＜5年");
+			answers.add("5-15年");
+			answers.add("15-25年 ");
+			answers.add("25-40年");
+			answers.add("≥40年");
+			break;
+		case 31:
+			answers.add("是");
+			answers.add("否");
+			break;
+		case 32:
+			answers.add("几乎没有");
+			answers.add("有一点");
+			answers.add("较明显 ");
+			answers.add("很大");
+			break;
+		case 33:
+			answers.add("几乎没有");
+			answers.add("有一点");
+			answers.add("较明显 ");
+			answers.add("很大");
+			break;
+		case 34:
+			answers.add("充足");
+			answers.add("一般");
+			answers.add("不足 ");
+			answers.add("严重不足");
+			break;
+		case 35:
+			answers.add("没有");
+			answers.add("<3月");
+			answers.add("3-12月 ");
+			answers.add("1-3年");
+			answers.add("3年以上");
+			break;
+		case 36:
+			answers.add("油烟");
+			answers.add("粉烟尘");
+			answers.add("毒物、致癌物 ");
+			answers.add("高温");
+			answers.add("低温");
+			answers.add("噪音 ");
+			answers.add("辐射");
+			break;
+		default:
+			break;
+		}
+
+
+
+
+
+
+
+
+
+
+=========================================================================================================
+=========================================================================================================
+
+心理问卷题目：
+		List<String> questionList = new ArrayList<String>();
+		questionList.add("1、 头痛");
+		questionList.add("2、 严重神经过敏，心神不定");
+		questionList.add("3、 头脑中有不必要的想法或字句盘旋");
+		questionList.add("4、 头晕或昏倒");
+		questionList.add("5、 对异性的兴趣减退");
+		questionList.add("6、 对旁人责备求全");
+		questionList.add("7、 感到别人能控制你的思想");
+		questionList.add("8、 责怪别人制造麻烦");
+		questionList.add("9、 忘记性大");
+		questionList.add("10、 担心自己的衣饰整齐及仪态的端庄");
+		questionList.add("11、 容易烦恼和激动");
+		questionList.add("12、 胸痛");
+		questionList.add("13、 害怕空旷的场所或街道");
+		questionList.add("14、 感到自己精力下降，活动减慢");
+		questionList.add("15、 想结束自己的生命");
+		questionList.add("16、听到旁人听不到声音");
+		questionList.add("17、 发抖");
+		questionList.add("18、 感到大多数人都不可信任");
+		questionList.add("19、胃口不好");
+		questionList.add("20、容易哭泣");
+		questionList.add("21、 同异性相处时感到害羞不自在");
+		questionList.add("22、 感到受骗，中了圈套或有人想抓你");
+		questionList.add("23、 无缘无故的感觉到害怕");
+		questionList.add("24、 自己不能控制的大发脾气");
+		questionList.add("25、 怕单独出门");
+		questionList.add("26、 经常责怪自己");
+		questionList.add("27、 腰痛");
+		questionList.add("28、 感到难以完成任务");
+		questionList.add("29、 感到孤独");
+		questionList.add("30、 感到苦闷");
+		questionList.add("31、 过分担忧");
+		questionList.add("32、 对事物不感兴趣");
+		questionList.add("33、 感到害怕");
+		questionList.add("34、 你的感情容易受到伤害");
+		questionList.add("35、 旁人能知道你的私下想法");
+		questionList.add("36、 感到别人不理解你不同情你");
+		questionList.add("37、 感到人们对你不友好，不喜欢你");
+		questionList.add("38、 做事情必须做得很慢以保证做正确");
+		questionList.add("39、 心跳得厉害");
+		questionList.add("40、 恶心或胃不舒服");
+		questionList.add("41、 感到比不上别人");
+		questionList.add("42、 肌肉酸痛");
+		questionList.add("43、 感到有人在监视你谈论你");
+		questionList.add("44、 难以入睡");
+		questionList.add("45、 做事必须反复检查");
+		questionList.add("46、 难以做出决定");
+		questionList.add("47、 怕乘电车、公共汽车、地铁或火车");
+		questionList.add("48、 呼吸困难");
+		questionList.add("49、 一阵阵发冷或发热");
+		questionList.add("50、 因为感到害怕而避开某些东西、场合或活动");
+		questionList.add("51、 脑子变空了");
+		questionList.add("52、 身体发麻或刺痛");
+		questionList.add("53、 喉咙有梗塞感");
+		questionList.add("54、 感到前途没有希望");
+		questionList.add("55、 不能集中注意力");
+		questionList.add("56、 感到身体的某一部分软弱无力");
+		questionList.add("57、 感到紧张或容易紧张");
+		questionList.add("58、 感到手或脚发重");
+		questionList.add("59、 感到死亡的事");
+		questionList.add("60、 吃得太多");
+		questionList.add("61、 当别人看着你或谈论你时感到不自在");
+		questionList.add("62、 有一些不属于你自己的看法");
+		questionList.add("63、 有想打人或伤害他人的冲动");
+		questionList.add("64、 醒得太早");
+		questionList.add("65、 必须反复洗手、点数目或触摸某些东西必须反复洗手、点数目或触摸某些东西");
+		questionList.add("66、 睡得不稳不深");
+		questionList.add("67、 有想摔坏或破坏东西的冲动");
+		questionList.add("68、 有一些别人没有的想法或念头");
+		questionList.add("69、 感到对别人神经过敏");
+		questionList.add("70、 在商场或电影院等人多的地方感到不自在");
+		questionList.add("71、 感到任何事情都很困难");
+		questionList.add("72、 一阵阵恐惧或惊恐");
+		questionList.add("73、 感到在公共场合吃东西很不舒服");
+		questionList.add("74、 经常与人争论");
+		questionList.add("75、 单独一个人时神经很紧张");
+		questionList.add("76、 别人对你的成绩没有做出恰当的评论");
+		questionList.add("77、 即使和别人在一起也感到孤独");
+		questionList.add("78、 感到坐立不安心神不定");
+		questionList.add("79、 感到自己没有什么价值");
+		questionList.add("80、 感到熟悉的东西变陌生或不象真的");
+		questionList.add("81、 大叫或摔东西");
+		questionList.add("82、 害怕会在公共场合昏倒");
+		questionList.add("83、 感到别人想占你便宜");
+		questionList.add("84、 为一些有关“性”的想法而苦恼");
+		questionList.add("85、 你认为应该因为自己的过错而受惩罚");
+		questionList.add("86、 感到要赶快把事情做完");
+		questionList.add("87、 感到自己的身体有严重问题");
+		questionList.add("88、 从未感到和其他人亲近");
+		questionList.add("89、 感到自己有罪");
+		questionList.add("90、 感到自己的脑子有毛病");
+
+----------------------------------------------------------------------------------------------------
+
+心理问卷答案：
+		answers = new ArrayList<String>();
+		answers.add("没有");
+		answers.add("很轻");
+		answers.add("中等");
+		answers.add("偏重");
+		answers.add("严重");
+
+
+
+
+
+
+
+
+
+
+
+
+
+=========================================================================================================
+=========================================================================================================
+
+中医问卷题目：
+		List<String> questionList = new ArrayList<String>();
+		questionList.add("1、 您精力充沛吗？");
+		questionList.add("2、 您容易疲乏吗？");
+		questionList.add("3、 您容易气短（呼吸短促，接不上气）吗？");
+		questionList.add("4、 您容易心慌吗？");
+		questionList.add("5、 您容易头晕或站起时晕眩吗？");
+		questionList.add("6、 您喜欢安静、懒得说话吗？");
+		questionList.add("7、 您说话声音低弱无力吗？");
+		questionList.add("8、 您容易忘事（健忘）吗？");
+		questionList.add("9、 您感到闷闷不乐、情绪低沉吗？");
+		questionList.add("10、 您多愁善感、感情脆弱吗？");
+		questionList.add("11、 您容易精神紧张、焦虑不安吗？");
+		questionList.add("12、 您容易感到害怕或受到惊吓吗？");
+		questionList.add("13、 您两肋部或乳房胀痛吗？");
+		questionList.add("14、 您感到胸闷或腹部胀满吗？");
+		questionList.add("15、 您无缘无故叹气吗？");
+		questionList.add("16、 您感到身体沉重不轻松或不爽快吗？");
+		questionList.add("17、 您感到手脚心发热吗？");
+		questionList.add("18、 您手脚发凉吗？");
+		questionList.add("19、 您胃脘部、背部或腰膝部怕冷吗？");
+		questionList.add("20、 您感到怕冷、衣服比别人穿得多吗？");
+		questionList.add("21、 您感觉身体、脸上发热吗？");
+		questionList.add("22、 您比一般人耐受不了寒冷（冬天的寒冷或夏天的冷空调、电扇等）吗？");
+		questionList.add("23、 您比别人容易患感冒吗？");
+		questionList.add("24、 您不感冒时也会打喷嚏吗？");
+		questionList.add("25、 您不感冒时也会鼻塞、流鼻涕吗？");
+		questionList.add("26、 您有因季节变化、温度变化或异味等原因而咳喘的现象吗？");
+		questionList.add("27、 您活动量稍大就容易出虚汗吗？");
+		questionList.add("28、 您有额部油脂分泌多的现象吗？");
+		questionList.add("29、 您皮肤或口唇干吗？");
+		questionList.add("30、 您容易过敏（对药物、食物、气味、花粉或在季节交替、气候变化时）吗？");
+		questionList.add("31、 您的皮肤容易起荨麻疹（风团、风疹块、风疙瘩）吗？");
+		questionList.add("32、 您的皮肤因过敏出现过紫癜（紫红色瘀点、瘀斑）吗？");
+		questionList.add("33、 您的皮肤在不知不觉中会出现乌青或青紫瘀斑（皮下出血）吗？");
+		questionList.add("34、 您的皮肤一抓就红，并出现抓痕吗？");
+		questionList.add("35、 您口唇的颜色比一般人红吗？");
+		questionList.add("36、 您两颧部有细微红丝吗？");
+		questionList.add("37、 您身体上有哪里疼痛吗？");
+		questionList.add("38、 您面部两颧潮红或偏红吗？");
+		questionList.add("39、 您面部或鼻部有油腻感或者油亮发光吗？");
+		questionList.add("40、 您面色晦暗或容易出现褐斑吗？");
+		questionList.add("41、 您容易生痤疮或疮疖吗？");
+		questionList.add("42、 您上眼睑比别人肿（上眼睑有轻微隆起的现象）吗？");
+		questionList.add("43、 您会出现黑眼圈吗？");
+		questionList.add("44、 您感到眼睛干涩吗？");
+		questionList.add("45、 您口唇颜色偏黯吗？");
+		questionList.add("46、 您感到口干咽燥、总想喝水吗？");
+		questionList.add("47、 您咽喉部有异物感，且吐之不出、咽之不下吗？");
+		questionList.add("48、 您感到口苦或嘴里有异味吗？");
+		questionList.add("49、 您嘴里有黏黏的感觉吗？");
+		questionList.add("50、 您舌苔厚腻或有舌苔厚厚的感觉吗？");
+		questionList.add("51、 您平时痰多，特别是咽喉部总感到有痰堵着吗？");
+		questionList.add("52、 您吃（喝）凉的东西会感到不舒服或者怕吃（喝）凉东西吗？");
+		questionList.add("53、 您能适应外界自然和社会环境的变化吗？");
+		questionList.add("54、 您容易失眠吗？");
+		questionList.add("55、 您受凉或吃（喝）凉的东西后，容易腹泻（拉肚子）吗？");
+		questionList.add("56、 您大便黏滞不爽、有解不尽的感觉吗？");
+		questionList.add("57、 您容易便秘或大便干燥吗？");
+		questionList.add("58、 您腹部肥满松软吗？");
+		questionList.add("59、 您小便时尿道有发热感、尿色浓（深）吗？");
+		if (sex.equals("女")) {
+			questionList.add("60、 您带下色黄（白带颜色发黄）吗？（限女性回答）");
+		} else {
+			questionList.add("60、 您的阴囊部位潮湿吗？（限男性回答）");
+		}
+
+----------------------------------------------------------------------------------------------------
+
+中医问卷答案：
+		answers = new ArrayList<String>();
+		answers.add("没有 （根本不）");
+		answers.add("很少 （有一点）");
+		answers.add("有时 （有    些）");
+		answers.add("经常 （相    当）");
+		answers.add("总是 （非    常）");
+
+=========================================================================================================
+=========================================================================================================
+
