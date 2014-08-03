@@ -126,7 +126,7 @@
 
     
     _moblieTF =[[UITextField alloc]initWithFrame:CGRectMake(55, moble.frame.origin.y, moble.frame.size.width, moble.frame.size.height)];
-    _moblieTF.placeholder =@"请输入手机号码";
+    _moblieTF.placeholder =@"请输入登录名";
     NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
     NSLog(@"%@",allUserDic);
     NSString *loginName = [allUserDic allValues][0][@"UserName"];

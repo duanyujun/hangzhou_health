@@ -16,7 +16,15 @@
     UIScrollView *_oneScrollo;
     NSMutableArray *_oneScrollAnserBtn;
     NSMutableArray *_oneScrollTwoAnserBtn;
-    
+    NSMutableArray *_oneScrollAnserImageVewi;
+    NSMutableArray *_oneScrollAnserImageVewiThree;
+    NSMutableArray *_oneScrollAnserBtnThree;
+    NSMutableArray *_oneScrollAnserImageVewiFour;
+    NSMutableArray *_oneScrollAnserImageVewiLastAll;
+    NSMutableArray *_oneScrollAnserImageVewiLastOnlyTwo;
+    NSMutableArray *_oneScrollAnserImageVewiLastOnlyTwoFive;
+    NSMutableArray *_oneScrollAnserBtnThreeLastOne;
+
     UIScrollView *_twoScrollo;
     UIScrollView *_threeScrollo;
 }
@@ -41,13 +49,18 @@
 -(void)showOneView
 {
     if (!_oneScrollo) {
+        _oneScrollAnserImageVewi = [[NSMutableArray alloc]initWithCapacity:2];
+        _oneScrollAnserImageVewiThree = [[NSMutableArray alloc]initWithCapacity:2];
+        
         _oneScrollo = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 60, 320, kScreenHeight-30-120)];
         _oneScrollo.backgroundColor =[UIColor clearColor];
         [self.view addSubview:_oneScrollo];
         //youy_yes@2x  gouy_no.png
         
         
-        NSArray *oneLabeQuertin = @[@"1.本人患病情况 (多选题)",@"2.父亲患病情况 (多选题)",@"3.母亲患病情况 (多选题)",@"4.祖父母患病情况 (多选题)",@"5.(外)祖父母患病情况 (多选题)",@"1.米、面、薯类平均日摄入量： (一碗指2两)",@"2.肉类及肉制品平均日摄入量：",@"3.鱼类及水产品平均日摄入量：",@"4.蛋类及蛋制品平均日摄入量：(一个是指约50克)",@"5.奶类及奶制品平均日摄入量：(一杯是指约200ml)",@"6.大豆及豆制品平均日摄入量：",@"7.新鲜蔬菜平均日摄入量：",@"8.新鲜水果平均日摄入量：",@"9.平均日饮水摄入量：(一杯是指约200ml)",@"1.您平均每周吃早餐的天数：",@"2.您平均每周吃夜宵的天数：",@"3.您目前饮食方面的喜好： (多选题)",@"4.您目前饮食的不良习惯： (多选题)",@"1.您当前吸烟情况的描述是：",@"2.平均每天吸香烟的支数是：",@"3.您总共吸烟的年数是：",@"4.平均每周被动吸烟情况：",@"1.您当前饮酒情况的描述是：",@"2.您最常饮酒的类型：",@"3.平均每天饮酒的两数是：（折算成白酒）",@"4.您总共饮酒的年数是：",@"1.您是否受一些重大意外困扰：",@"2.您的情绪对工作或生活的影响：",@"3.您感觉到自己的精神压力：",@"4.您感觉自己的睡眠充足吗：",@"5.您的糖皮质激素服用情况： ",@"6.您经常接触到有害因素："];
+        NSArray *oneLabeQuertin = @[@"1.本人患病情况 (多选题)",@"2.父亲患病情况 (多选题)",@"3.母亲患病情况 (多选题)",@"4.祖父母患病情况 (多选题)",@"5.(外)祖父母患病情况 (多选题)",
+            @"1.米、面、薯类平均日摄入量： (一碗指2两)",@"2.肉类及肉制品平均日摄入量：",@"3.鱼类及水产品平均日摄入量：",@"4.蛋类及蛋制品平均日摄入量：(一个是指约50克)",@"5.奶类及奶制品平均日摄入量：(一杯是指约200ml)",@"6.大豆及豆制品平均日摄入量：",@"7.新鲜蔬菜平均日摄入量：",@"8.新鲜水果平均日摄入量：",@"9.平均日饮水摄入量：(一杯是指约200ml)",
+            @"1.您平均每周吃早餐的天数：",@"2.您平均每周吃夜宵的天数：",@"3.您目前饮食方面的喜好： (多选题)",@"4.您目前饮食的不良习惯： (多选题)",@"1.您平均每天的工作时间",@"2.平均每天坐姿(静止)时间:",@"3.您平均每周运动锻炼的时间:",@"4.您一般锻炼的强度是:",@"1.您当前吸烟情况的描述是：",@"2.平均每天吸香烟的支数是：",@"3.您总共吸烟的年数是：",@"4.平均每周被动吸烟情况：",@"1.您当前饮酒情况的描述是：",@"2.您最常饮酒的类型：",@"3.平均每天饮酒的两数是：（折算成白酒）",@"4.您总共饮酒的年数是：",@"1.您是否受一些重大意外困扰：",@"2.您的情绪对工作或生活的影响：",@"3.您感觉到自己的精神压力：",@"4.您感觉自己的睡眠充足吗：",@"5.您的糖皮质激素服用情况： ",@"6.您经常接触到有害因素："];
         
         _showItemLabel = [[MBLabel alloc]initWithFrame:CGRectMake(10, 35, 310, 30)];
         _showItemLabel.font=kNormalTextFont;
@@ -57,23 +70,48 @@
         
         NSArray *allbingArray  = @[@"高血压",@"糖尿病",@"冠心病",@"高脂血糖",@"肥胖",@"中风",@"肺癌",@"牵累腺癌",@"乳腺癌",@"骨质疏松",@"老年痴呆",@"肝癌",@"胃癌",@"肝癌",@"胃癌"];
         
-        NSArray *allBinTwoArray = @[@"不吃",@"<1两",@"1-2两",@"2-5两",@">=5两",
+        
+        NSArray *allBinTwoArray = @[@"<1碗",@"1-2碗",@"2-4碗",@"4-6碗",@">=6碗",
+                                    @"不吃",@"<1两",@"1-2两",@"2-5两",@">=5两",
+                                    @"不吃",@"<1两",@"1-2两",@"2-5两",@">=5两",
                                     @"不吃",@"<1个",@"1-2个",@"2-3个",@">=3个",
                                     @"不吃",@"<1杯",@"1-2杯",@"2-3杯",@">=3杯",
                                     @"不吃",@"<0.5两",@"0.5-1两",@"1-2两",@">=2两",
                                     @"<2两",@"2-6两",@"6-10两",@"10-15两",@">=15两",
-                                    @"<2两",@"2-6两",@"6-10两",@"10-15两",@">=15两",
+                                    @"<1两",@"1-4两",@"4-8两",@"8-12两",@">=12两",
+                                    @"<3杯",@"3-6杯",@"6-9杯",@"9-12杯",@">=12杯",
+                                    
+                                    @"没有",@"1-2小时",@"2-5小时",@"5-8小时",@">=8小时",
+                                    @"没有",@"1-2小时",@"2-5小时",@"5-8小时",@">=8小时",
+                                    @"不锻炼",@"1-2小时",@"2-5小时",@"2-4小时",@">=4小时",
+                                    @"不锻炼",@"极轻度运动",@"轻度运动",@"中度运动",@"重度运动",
+                                    @"从不",@"偶尔",@"戒烟",@"吸烟",@"",
+                                    @"<5支",@"5-15支",@"15-25支",@"25-40支",@">=40支",
+                                    @"<5年",@"5-15年",@"15-25年",@"25-40年",@">=40年",
+                                    @"没有",@"1-2天",@"3-4天",@"5-6天",@"7天",
+                                    @"从不",@"偶尔",@"戒烟",@"吸烟",@"",
+                                    @"白酒",@"黄酒",@"红酒",@"啤酒",@"其他",
+                                    @"<2两",@"2-4两",@"4-6两",@"6-8两",@">=8两",
+                                    @"<5年",@"5-15年",@"15-25年",@"25-40年",@">=40年",
+                                    ];
+        
+        NSArray *allBinThreeArray = @[@"没有",@"1-2天",@"3-4天",@"5-6天",@"7天",
+                                      @"没有",@"1-2天",@"3-4天",@"5-6天",@"7天",];
+        NSArray *allBinThreeArrayAllSel = @[@"咸",@"酸",@"甜",@"辣",@"生",@"冷",@"硬",@"烫",@"煎炸",@"油腻",@"腌肉"];
+        
+        NSArray *allBinThreeArrayAllSelT = @[@"吃饭时喝水",@"吃饭过快",@"吃得过饱",@"晚餐过晚",@"生",@"冷",@"硬",@"烫",@"煎炸",@"油腻",@"腌肉"];
+        NSArray *allBinThreeArrayLast = @[@"否",@"是",
+                                          @"几乎没有",@"有一点",@"较明显",@"很大",
+                                          @"几乎没有",@"有一点",@"较明显",@"很大",
+                                          @"充足",@"一般",@"不足",@"严重不足",
+                                          @"没有",@"<3月",@"3-12月",@"1-3年",@"3年以上"];
+        NSArray *allBinThreeArrayFieveLast = @[@"没有",@"<3月",@"3-12月",@"1-3年",@"3年以上"];
+        NSArray *allBinThreeArrayFieveLastTreun = @[@"油烟",@"粉烟尘",@"毒物、致癌物",@"高温",@"低温",@"燥音",@"辐射"];
 
-                                    @"不吃",@"",@"",@"",@"",
-                                    @"不吃",@"",@"",@"",@"",
-                                    @"不吃",@"",@"",@"",@"",
-                                    @"不吃",@"",@"",@"",@"",
-                                    @"不吃",@"",@"",@"",@"",
-                                    @"不吃",@"",@"",@"",@"",
-                                    @"不吃",@"",@"",@"",@""];
         for (int i=0; i<oneLabeQuertin.count; i++) {
             
             MBBaseScrollView *contenView  =[[MBBaseScrollView alloc]initWithFrame:CGRectMake(320*i, 0, 320, kScreenHeight-30-120)];
+
             contenView.backgroundColor =[UIColor clearColor];
             MBLabel *label = [[MBLabel alloc]initWithFrame:CGRectMake(10, 10, 310, 30)];
             label.font=kNormalTextFont;
@@ -83,9 +121,6 @@
             
             if (i<5) {
                 
-                if (i==0) {
-                    
-                }
                 for (int j=0; j<5; j++) {
                     for (int k=0; k<3; k++) {
                         
@@ -117,6 +152,8 @@
                         {
                             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
                             [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_off_normal"] forState:UIControlStateNormal];
+                            [btn addTarget:self action:@selector(btnSelect:) forControlEvents:UIControlEventTouchUpInside];
+
                             btn.frame= CGRectMake(5+105*k, 60+50*j, 25, 25);
                             [btn addTarget:self action:@selector(btnSelect:) forControlEvents:UIControlEventTouchUpInside];
                             btn.tag=13*i+3*j+k;
@@ -138,7 +175,315 @@
             }
             
             if (i>=5&&i<=13) {
+
+                for (int j=0; j<5; j++) {
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    btn.frame= CGRectMake(5, 60+40*j, 320, 40);
+                    [btn addTarget:self action:@selector(btnSelectShowTwo:) forControlEvents:UIControlEventTouchUpInside];
+                    btn.tag=5*(i-5)+j;
+                    
+                    
+                    UIImageView *seplectimageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(0, 100+40*j, 320, 1)];
+                    seplectimageVIew.backgroundColor=[UIColor grayColor];
+                    [contenView addSubview:seplectimageVIew];
+                    
+                    UIImageView *imageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(250, 65+40*j, 27, 27)];
+                    imageVIew.image =[UIImage imageNamed:@"youy_yes.png"];
+                    imageVIew.hidden=YES;
+                    imageVIew.tag =5*(i-5)+j;
+                    [contenView addSubview:imageVIew];
+                    [_oneScrollAnserImageVewi addObject:imageVIew];
+                    MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(20, 60+40*j, 300, 40)];
+                    labelShow.font=[UIFont fontWithName:@"Helvetica Neue" size:18];
+                    labelShow.textColor = HEX(@"#007aff");
+                    
+                    labelShow.text = allBinTwoArray[5*(i-5)+j];
+                    
+                    [contenView addSubview:labelShow];
+                    
+                    [contenView addSubview:btn];
+                }
                 
+            }
+            if (i>13&&i<=15) {
+                
+                
+                for (int j=0; j<5; j++) {
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    btn.frame= CGRectMake(5, 60+40*j, 320, 40);
+                    [btn addTarget:self action:@selector(btnSelectShowThree:) forControlEvents:UIControlEventTouchUpInside];
+                    btn.tag=5*(i-5-9)+j;
+                    
+                    
+                    UIImageView *seplectimageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(0, 100+40*j, 320, 1)];
+                    seplectimageVIew.backgroundColor=[UIColor grayColor];
+                    [contenView addSubview:seplectimageVIew];
+                    
+                    UIImageView *imageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(250, 65+40*j, 27, 27)];
+                    imageVIew.image =[UIImage imageNamed:@"youy_yes.png"];
+                    imageVIew.hidden=YES;
+                    imageVIew.tag =5*(i-5-9)+j;
+                    [contenView addSubview:imageVIew];
+                    [_oneScrollAnserImageVewiThree addObject:imageVIew];
+                    MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(20, 60+40*j, 300, 40)];
+                    labelShow.font=[UIFont fontWithName:@"Helvetica Neue" size:18];
+                    labelShow.textColor = HEX(@"#007aff");
+                    
+                    labelShow.text = allBinThreeArray[5*(i-5-9)+j];
+                    
+                    [contenView addSubview:labelShow];
+                    
+                    [contenView addSubview:btn];
+                }
+
+                
+            }
+            if (i==16) {
+                for (int j=0; j<4; j++) {
+                    for (int k=0; k<3; k++) {
+                        
+                        if (j==3) {
+                        if(k==0||k==1){
+                                
+                                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                                [btn addTarget:self action:@selector(btnSelectThreeAbout:) forControlEvents:UIControlEventTouchUpInside];
+                                [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_off_normal"] forState:UIControlStateNormal];
+                                btn.frame= CGRectMake(5+105*k, 60+50*j, 25, 25);
+                                btn.tag=3*j+k;
+                                MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(30+105*k, 57+50*j, 80, 30)];
+                                labelShow.font=kNormalTextFont;
+                                
+                                
+                                labelShow.text = allBinThreeArrayAllSel[3*j+k];
+                                
+                                [contenView addSubview:labelShow];
+                                
+                                [contenView addSubview:btn];
+                                
+                            }
+                        }else
+                        {
+                            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                            [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_off_normal"] forState:UIControlStateNormal];
+                            [btn addTarget:self action:@selector(btnSelectThreeAbout:) forControlEvents:UIControlEventTouchUpInside];
+
+                            btn.frame= CGRectMake(5+105*k, 60+50*j, 25, 25);
+                            [btn addTarget:self action:@selector(btnSelect:) forControlEvents:UIControlEventTouchUpInside];
+                            btn.tag=3*j+k;
+                            
+                            MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(30+105*k, 57+50*j, 80, 30)];
+                            labelShow.font=kNormalTextFont;
+                            
+                            
+                            labelShow.text = allBinThreeArrayAllSel[3*j+k];
+                            
+                            [contenView addSubview:labelShow];
+                            
+                            [contenView addSubview:btn];
+                        }
+                        
+                        
+                    }
+                }
+            }
+            if (i==17) {
+                for (int j=0; j<2; j++) {
+                    for (int k=0; k<2; k++) {
+                        
+                        
+                        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                        [btn addTarget:self action:@selector(btnSelectThreeAbout:) forControlEvents:UIControlEventTouchUpInside];
+                        [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_off_normal"] forState:UIControlStateNormal];
+                        btn.frame= CGRectMake(5+135*k, 60+50*j, 25, 25);
+                        btn.tag=2*j+k+11;
+                        MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(30+135*k, 57+50*j, 110, 30)];
+                        labelShow.font=kNormalTextFont;
+                        
+                        
+                        labelShow.text = allBinThreeArrayAllSelT[2*j+k];
+                        
+                        [contenView addSubview:labelShow];
+                        
+                        [contenView addSubview:btn];
+                        
+                    }
+                }
+            }
+            if (i>=18&&i<30) {
+                
+                for (int j=0; j<5; j++) {
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    btn.frame= CGRectMake(5, 60+40*j, 320, 40);
+                    [btn addTarget:self action:@selector(btnSelectShowFour:) forControlEvents:UIControlEventTouchUpInside];
+                    btn.tag=5*(i-5-9-4)+j;
+                    
+                    
+                    UIImageView *seplectimageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(0, 100+40*j, 320, 1)];
+                    seplectimageVIew.backgroundColor=[UIColor grayColor];
+                    [contenView addSubview:seplectimageVIew];
+                    
+                    UIImageView *imageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(250, 65+40*j, 27, 27)];
+                    imageVIew.image =[UIImage imageNamed:@"youy_yes.png"];
+                    imageVIew.hidden=YES;
+                    imageVIew.tag =5*(i-5-9-4)+j;
+                    [contenView addSubview:imageVIew];
+                    [_oneScrollAnserImageVewiFour addObject:imageVIew];
+                    MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(20, 60+40*j, 300, 40)];
+                    labelShow.font=[UIFont fontWithName:@"Helvetica Neue" size:18];
+                    labelShow.textColor = HEX(@"#007aff");
+ 
+                    labelShow.text = allBinTwoArray[45+5*(i-18)+j];
+                    NSLog(@"sdfsdf====%d",5*i+j-46);
+                    [contenView addSubview:labelShow];
+                    
+                    [contenView addSubview:btn];
+                }
+                
+            }
+            if (i==30) {
+                
+                for (int j=0; j<2; j++) {
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    btn.frame= CGRectMake(5, 60+40*j, 320, 40);
+                    [btn addTarget:self action:@selector(btnSelectShowLastOnleTwo:) forControlEvents:UIControlEventTouchUpInside];
+                    btn.tag=j;
+                    
+                    
+                    UIImageView *seplectimageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(0, 100+40*j, 320, 1)];
+                    seplectimageVIew.backgroundColor=[UIColor grayColor];
+                    [contenView addSubview:seplectimageVIew];
+                    
+                    UIImageView *imageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(250, 65+40*j, 27, 27)];
+                    imageVIew.image =[UIImage imageNamed:@"youy_yes.png"];
+                    imageVIew.hidden=YES;
+                    [contenView addSubview:imageVIew];
+                    [_oneScrollAnserImageVewiLastOnlyTwo addObject:imageVIew];
+                    MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(20, 60+40*j, 300, 40)];
+                    labelShow.font=[UIFont fontWithName:@"Helvetica Neue" size:18];
+                    labelShow.textColor = HEX(@"#007aff");
+                    
+            
+                        
+                    labelShow.text = allBinThreeArrayLast[j];
+                    
+                    [contenView addSubview:labelShow];
+                    
+                    [contenView addSubview:btn];
+                }
+                
+
+            }
+            
+            if (i>30&&i<34) {
+                
+                for (int j=0; j<4; j++) {
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    btn.frame= CGRectMake(5, 60+40*j, 320, 40);
+                    [btn addTarget:self action:@selector(btnSelectShowSeven:) forControlEvents:UIControlEventTouchUpInside];
+                    btn.tag=j+4*(i-31);
+                    
+                    
+                    UIImageView *seplectimageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(0, 100+40*j, 320, 1)];
+                    seplectimageVIew.backgroundColor=[UIColor grayColor];
+                    [contenView addSubview:seplectimageVIew];
+                    
+                    UIImageView *imageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(250, 65+40*j, 27, 27)];
+                    imageVIew.image =[UIImage imageNamed:@"youy_yes.png"];
+                    imageVIew.hidden=YES;
+                    [contenView addSubview:imageVIew];
+                    [_oneScrollAnserImageVewiLastAll addObject:imageVIew];
+                    MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(20, 60+40*j, 300, 40)];
+                    labelShow.font=[UIFont fontWithName:@"Helvetica Neue" size:18];
+                    labelShow.textColor = HEX(@"#007aff");
+                    
+                    labelShow.text = allBinThreeArrayLast[j+4*(i-31)+2];
+                    
+                    [contenView addSubview:labelShow];
+                    
+                    [contenView addSubview:btn];
+                }
+
+            }
+            if (i==34) {
+                
+                for (int j=0; j<5; j++) {
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    btn.frame= CGRectMake(5, 60+40*j, 320, 40);
+                    [btn addTarget:self action:@selector(btnSelectShowLastOnleTwo:) forControlEvents:UIControlEventTouchUpInside];
+                    btn.tag=j;
+                    
+                    
+                    UIImageView *seplectimageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(0, 100+40*j, 320, 1)];
+                    seplectimageVIew.backgroundColor=[UIColor grayColor];
+                    [contenView addSubview:seplectimageVIew];
+                    
+                    UIImageView *imageVIew =[[UIImageView alloc]initWithFrame:CGRectMake(250, 65+40*j, 27, 27)];
+                    imageVIew.image =[UIImage imageNamed:@"youy_yes.png"];
+                    imageVIew.hidden=YES;
+                    [contenView addSubview:imageVIew];
+                    [_oneScrollAnserImageVewiLastOnlyTwoFive addObject:imageVIew];
+                    MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(20, 60+40*j, 300, 40)];
+                    labelShow.font=[UIFont fontWithName:@"Helvetica Neue" size:18];
+                    labelShow.textColor = HEX(@"#007aff");
+                    
+                    
+                    
+                    labelShow.text = allBinThreeArrayFieveLast[j];
+                    
+                    [contenView addSubview:labelShow];
+                    
+                    [contenView addSubview:btn];
+                }
+
+            }
+            if (i==35) {
+                
+                for (int j=0; j<3; j++) {
+                    for (int k=0; k<3; k++) {
+                        
+                        if (j==2) {
+                           if(k==0){
+                                
+                                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                                [btn addTarget:self action:@selector(btnSelectLastOne:) forControlEvents:UIControlEventTouchUpInside];
+                                [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_off_normal"] forState:UIControlStateNormal];
+                                btn.frame= CGRectMake(5+85*k, 60+50*j, 25, 25);
+                                btn.tag=3*j+k;
+                                MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(30+85*k, 57+50*j, 80, 30)];
+                                labelShow.font=kNormalTextFont;
+                                
+                                
+                                labelShow.text = allBinThreeArrayFieveLastTreun[3*j+k];
+                                
+                                [contenView addSubview:labelShow];
+                                
+                                [contenView addSubview:btn];
+                                
+                            }
+                        }else
+                        {
+                            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                            [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_off_normal"] forState:UIControlStateNormal];
+                            [btn addTarget:self action:@selector(btnSelectLastOne:) forControlEvents:UIControlEventTouchUpInside];
+                            
+                            btn.frame= CGRectMake(5+85*k, 60+50*j, 25, 25);
+                            [btn addTarget:self action:@selector(btnSelect:) forControlEvents:UIControlEventTouchUpInside];
+                            btn.tag=3*j+k;
+                            
+                            MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(30+85*k, 57+50*j, 90, 30)];
+                            labelShow.font=kNormalTextFont;
+                            
+                            
+                            labelShow.text = allBinThreeArrayFieveLastTreun[3*j+k];
+                            
+                            [contenView addSubview:labelShow];
+                            
+                            [contenView addSubview:btn];
+                        }
+                        
+                        
+                    }
+                }
             }
             [_oneScrollo addSubview:contenView];
             
@@ -147,9 +492,134 @@
         _oneScrollo.showsHorizontalScrollIndicator = YES;
         _oneScrollo.showsVerticalScrollIndicator = YES;
         _oneScrollo.pagingEnabled=YES;
+        _oneScrollo.delegate=self;
         
     }
 }
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    _slider.value=scrollView.contentOffset.x/320;
+    if (_oneScrollo.hidden==NO) {
+        if (_slider.value==35) {
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(submitRightBtnPressed)];
+            
+        }else
+        {
+            self.navigationItem.rightBarButtonItem=nil;
+        }
+    }
+}
+-(void)submitRightBtnPressed
+{
+    
+}
+-(void)btnSelectShowTwo:(UIButton *)btn
+{
+    
+    for ( int i=btn.tag/5*5; i<btn.tag/5*5+5; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewi[i];
+        iamgeView.hidden=YES;
+    }
+    UIImageView*iamgeView = _oneScrollAnserImageVewi[btn.tag];
+    iamgeView.hidden=NO;
+    
+    
+}-(void)btnSelectShowThree:(UIButton *)btn
+{
+    
+    for ( int i=btn.tag/5*5; i<btn.tag/5*5+5; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewiThree[i];
+        iamgeView.hidden=YES;
+    }
+    UIImageView*iamgeView = _oneScrollAnserImageVewiThree[btn.tag];
+    iamgeView.hidden=NO;
+    
+    
+}
+-(void)btnSelectShowFour:(UIButton *)btn
+{
+    
+    for ( int i=btn.tag/5*5; i<btn.tag/5*5+5; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewiFour[i];
+        iamgeView.hidden=YES;
+    }
+    UIImageView*iamgeView = _oneScrollAnserImageVewiFour[btn.tag];
+    iamgeView.hidden=NO;
+    
+}
+-(void)btnSelectShowLastOnleFive:(UIButton *)btn
+{
+    
+    for ( int i=0; i<5; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewiLastOnlyTwoFive[i];
+        iamgeView.hidden=YES;
+    }
+    UIImageView*iamgeView = _oneScrollAnserImageVewiLastOnlyTwoFive[btn.tag];
+    iamgeView.hidden=NO;
+    
+    
+}
+-(void)btnSelectShowLastOnleTwo:(UIButton *)btn
+{
+    
+    for ( int i=0; i<2; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewiLastOnlyTwo[i];
+        iamgeView.hidden=YES;
+    }
+    UIImageView*iamgeView = _oneScrollAnserImageVewiLastOnlyTwo[btn.tag];
+    iamgeView.hidden=NO;
+    
+    
+}
+-(void)btnSelectShowSeven:(UIButton *)btn
+{
+    
+    for ( int i=btn.tag/4*4; i<btn.tag/4*4+4; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewiLastAll[i];
+        iamgeView.hidden=YES;
+    }
+    UIImageView*iamgeView = _oneScrollAnserImageVewiLastAll[btn.tag];
+    iamgeView.hidden=NO;
+    
+    
+}
+
+-(void)btnSelectThreeAbout:(UIButton*)btn
+{
+    NSLog(@"11111======%d",btn.tag);
+    
+    NSString *btnItemStr = _oneScrollAnserBtnThree[btn.tag];
+    if ([btnItemStr isEqualToString:@"YES"]) {
+        [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_off_normal.png"] forState:UIControlStateNormal];
+        btnItemStr = @"NO";
+    }else
+    {
+        [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_on_normal.png"] forState:UIControlStateNormal];
+        btnItemStr = @"YES";
+        
+    }
+    [_oneScrollAnserBtnThree replaceObjectAtIndex:btn.tag withObject:btnItemStr];
+    
+}
+
+-(void)btnSelectLastOne:(UIButton*)btn
+{
+    NSLog(@"11111======%d",btn.tag);
+    
+    NSString *btnItemStr = _oneScrollAnserBtnThreeLastOne[btn.tag];
+    if ([btnItemStr isEqualToString:@"YES"]) {
+        [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_off_normal.png"] forState:UIControlStateNormal];
+        btnItemStr = @"NO";
+    }else
+    {
+        [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_on_normal.png"] forState:UIControlStateNormal];
+        btnItemStr = @"YES";
+        
+    }
+    [_oneScrollAnserBtnThreeLastOne replaceObjectAtIndex:btn.tag withObject:btnItemStr];
+    
+}
+
 -(void)btnSelect:(UIButton*)btn
 {
     NSLog(@"11111======%d",btn.tag);
@@ -171,11 +641,25 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    _oneScrollAnserBtnThree = [[NSMutableArray alloc]initWithCapacity:2];
+    _oneScrollAnserImageVewiFour = [[NSMutableArray alloc]initWithCapacity:2];
+    _oneScrollAnserImageVewiLastAll = [[NSMutableArray alloc]initWithCapacity:2];
     _oneScrollAnserBtn = [[NSMutableArray alloc]init];
+    _oneScrollAnserBtnThreeLastOne = [[NSMutableArray alloc]initWithCapacity:2];
+    
+    _oneScrollAnserImageVewiLastOnlyTwo = [[NSMutableArray alloc]initWithCapacity:2];
     for (int i=0; i<65; i++) {
         [_oneScrollAnserBtn addObject:@"NO"];
     }
+    for (int i=0; i<7; i++) {
+        [_oneScrollAnserBtnThreeLastOne addObject:@"NO"];
+    }
+
+
+    for (int i=0; i<15; i++) {
+        [_oneScrollAnserBtnThree addObject:@"NO"];
+    }
+    
     self.title=@"问卷调查";
     self.view.backgroundColor=HEX(@"#ffffff");
     
@@ -220,8 +704,9 @@
     
     _slider = [[UISlider alloc] initWithFrame:CGRectMake(0, kScreenHeight-49-30-40, 320, 49)];
  	_slider.minimumValue = 0;
- 	_slider.maximumValue = 100;
-    _slider.value = 50;
+ 	_slider.maximumValue = 35;
+    _slider.value = 0;
+    
     [_slider addTarget:self action:@selector(updateValue:) forControlEvents:UIControlEventValueChanged];
 	[self.view addSubview:_slider];
     
@@ -229,7 +714,9 @@
     
 }
 -(void)updateValue:(UISlider*)sender{
-    
+ 
+    NSString *stirng = [NSString stringWithFormat:@"%f",sender.value];
+    [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:YES];
 }
 
 -(void)segmentedCOntrollerPressed:(UISegmentedControl*)con

@@ -7,6 +7,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PaperViewController : UIViewController
+@interface PaperViewController : UIViewController<UIScrollViewDelegate>
 
 @end
