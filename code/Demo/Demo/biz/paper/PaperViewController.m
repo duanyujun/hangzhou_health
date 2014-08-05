@@ -516,6 +516,15 @@
 -(void)submitRightBtnPressed
 {
     
+    NSArray *allbingArray  = @[@"高血压",@"糖尿病",@"冠心病",@"高脂血糖",@"肥胖",@"中风",@"肺癌",@"牵累腺癌",@"乳腺癌",@"骨质疏松",@"老年痴呆",@"肝癌",@"胃癌",@"肝癌",@"胃癌"];
+    NSString *questionStr = @"<questionInfoArray>";
+    for (int i=0; i<5; i++) {
+        for (int j=0; j<_oneScrollAnserBtn.count; j++) {
+        
+        }
+    }
+    
+    
 }
 -(void)btnSelectShowTwo:(UIButton *)btn
 {
