@@ -18,6 +18,8 @@
     NSMutableArray *_originDataArray;
     NSArray *_tempStoreDate;
     UILabel *_showEfloLabel;
+    NSInteger *_fistaShowData;
+    LeveyPopListView *_lplv ;
 }
 
 @end
@@ -55,7 +57,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor=HEX(@"#ffffff");
-    
+    _fistaShowData = 0;
     _originDataArray = [[NSMutableArray alloc]initWithArray:_dataArray];
     
     _showEfloLabel =[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
@@ -103,6 +105,11 @@
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:btnRight];
 
     
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    _fistaShowData +=1;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -178,16 +185,16 @@
     
     NSArray *itemArray =_dataArray[indexPath.section][@"ChildItem"];
     NSArray *teimOne = itemArray[indexPath.row];
-        NSDictionary *infoDic = teimOne[0];
+    NSDictionary *infoDic = teimOne[0];
     BOOL isBlack=NO;
-    static NSInteger fista=0;
+ 
         for (int i=0; i<teimOne.count; i++) {
             NSDictionary *infoDicAbout = teimOne[i];
             if ([MBNonEmptyStringNo_(infoDicAbout[@"Is_Check"]) isEqualToString:@"1"]) {
-                if (fista==0) {
+//                if (_fistaShowData==0) {
                     infoDic = infoDicAbout;
 
-                }
+//                }
             }
             if ([MBNonEmptyStringNo_(infoDicAbout[@"Is_Cancel"]) isEqualToString:@"2"]) {
                 isBlack=YES;
@@ -195,7 +202,6 @@
             
         }
     
-    fista+=1;
     
     if (teimOne.count>1) {
         cell.showMoreITem.hidden=NO;
@@ -359,10 +365,14 @@
             [arrayOf addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%@  ￥%@",MBNonEmptyStringNo_(oneIteInfo[@"TJ_Name"]),MBNonEmptyStringNo_(oneIteInfo[@"TJ_Price"])],@"text", nil]];
             
         }
-        LeveyPopListView *lplv = [[LeveyPopListView alloc] initWithTitle:@"请选择套餐" options:arrayOf];
-        lplv.delegate = self;
+        if (_lplv!=nil) {
+            [_lplv removeFromSuperview];
+            _lplv = nil;
+        }
+        _lplv = [[LeveyPopListView alloc] initWithTitle:@"请选择套餐" options:arrayOf];
+        _lplv.delegate = self;
         _tempStoreDate = teimOne;
-        [lplv showInView:self.view animated:YES];
+        [_lplv showInView:self.view animated:YES];
     }
 }
 #pragma mark - LeveyPopListView delegates
