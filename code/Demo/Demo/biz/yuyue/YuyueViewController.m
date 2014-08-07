@@ -16,12 +16,12 @@
 //#import <GHUnitIOS/GHUnit.h>
 #import "XMLParser.h"
 #import "MBGlobalUICommon.h"
-#import "TiJianReprotCell.h"
+#import "TiJianReprotCellForTijianYuyue.h"
 #import "TijianReportAllViewController.h"
 #import "YuyueThrDetailViewControllerLast.h"
 #import "YuyueTeleViewController.h"
 #import "JSONKit.h"
-@interface YuyueViewController ()<UITableViewDelegate,UITableViewDataSource,TijianReproTcellDelegate>
+@interface YuyueViewController ()<UITableViewDelegate,UITableViewDataSource,TiJianReprotCellForTijianYuyueDelegate>
 {
     NSInteger _startIndex;
     NSMutableArray *_dataArray;
@@ -78,7 +78,7 @@
     
     MBRequestItem*item =[MBRequestItem itemWithMethod:@"GetYuYuePackageJSON" params:@{@"soapMessag":soapMsg}];
     
-    [MBIIRequest requestXMLWIthSureIPWithItems:@[item] success:^(id JSON) {
+    [MBIIRequest requestXMLWithItemsPhone:@[item] success:^(id JSON) {
         
         NSLog(@"%@",[NSDictionary dictionaryWithXMLData:JSON]);
         
@@ -124,12 +124,16 @@
     return _dataArray.count;
 
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     static NSString *cellStr =@"_isShowMore";
-    TiJianReprotCell *cell =[tableView dequeueReusableCellWithIdentifier:cellStr];
+    TiJianReprotCellForTijianYuyue *cell =[tableView dequeueReusableCellWithIdentifier:cellStr];
     if (cell==nil) {
-        cell = [[TiJianReprotCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+        cell = [[TiJianReprotCellForTijianYuyue alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
         cell.delegateAbout = self;
        
     }
@@ -156,7 +160,9 @@
     {
         rankStr = @"暂无说明";
     }
-        cell.itemLbl.text=[NSString stringWithFormat:@"%@  %@",MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackageName"]),rankStr];
+    cell.itemNameLbl.text=[NSString stringWithFormat:@"%@",MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackageName"])];
+
+    cell.itemLbl.text=[NSString stringWithFormat:@"%@",rankStr];
 
         cell.itemCountLbl.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
         cell.yuyueBtn.hidden=NO;
@@ -169,8 +175,35 @@
 
         }
         [cell hiddleLoadMoreView];
-
+    cell.tag = indexPath.row;
     return cell;
+}
+-(void)seeDetailBtnPressed:(TiJianReprotCellForTijianYuyue *)selfCell
+{
+    
+    NSMutableDictionary *allUserDic =_dataArray[selfCell.tag];
+    _sendDataInfo =allUserDic;
+    NSMutableArray *arr=[NSMutableArray array];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(allUserDic[@"PackageGUID"]),@"packageID", nil]];
+    
+    
+    
+    NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"GetPackageDeatilJSON"];
+    NSLog(@"%@",soapMsg);
+    
+    __block YuyueViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"GetPackageDeatilJSON" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestXMLWithItems:@[item] success:^(id JSON) {
+        
+        [blockSelf getGetReportAbnoramlAndItemsSuccess:[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]];
+        
+        
+    } failure:^(NSError *error, id JSON) {
+        NSLog(@"%@",error);
+    }];
+
 }
 -(void)viewWillAppear:(BOOL)animated
 {
