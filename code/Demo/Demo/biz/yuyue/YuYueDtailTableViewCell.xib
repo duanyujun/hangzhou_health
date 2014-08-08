@@ -59,16 +59,6 @@
                             <action selector="showMoreDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wxE-22-o0s"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="37V-VB-mqz">
-                        <rect key="frame" x="266" y="8" width="46" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="showMoreDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="CNp-Rz-12b"/>
-                        </connections>
-                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>

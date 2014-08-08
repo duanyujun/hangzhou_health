@@ -101,16 +101,10 @@
     }
     int row = [indexPath row];
     cell.textLabel.text = [[_options objectAtIndex:row] objectForKey:@"text"];
-    cell.textLabel.numberOfLines=0;
+    
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *string= [[_options objectAtIndex:indexPath.row] objectForKey:@"text"];;
-    CGSize size = [string sizeWithFont:kNormalTextFont constrainedToSize:CGSizeMake(220, 100000)];
-    return size.height+30;
-}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
