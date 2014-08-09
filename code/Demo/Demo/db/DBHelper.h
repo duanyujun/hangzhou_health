@@ -13,5 +13,6 @@
 -(NSString *)returnSprotNameWithSprotCode:(NSString*)code;
 -(NSArray*)getAllSprotsName:(NSString*)sprotNameCode;
 -(NSArray*)getAllProvince;
+-(NSString *)returnQuestionCodeWithQuestionName:(NSString*)name;
 
 @end

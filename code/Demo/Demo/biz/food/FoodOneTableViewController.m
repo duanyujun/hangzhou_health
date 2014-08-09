@@ -127,7 +127,10 @@
              NSLog(@"%@",_dataArray[indexPath.row]);
             NSLog(@"%@",_dataArray[indexPath.row][@"foodTypeName"]);
             if (!dic) {
-                MBAlert(@"该类没有具体分类，请选择其他分类");
+
+                [[NSNotificationCenter defaultCenter]postNotificationName:getKCNotific object:_dataArray[indexPath.row] userInfo:nil];
+                [self backViewUPloadView];
+                
             }else
             {
                 [[NSNotificationCenter defaultCenter]postNotificationName:getKCNotific object:dic userInfo:nil];
@@ -141,7 +144,8 @@
         NSDictionary*dic=[helper getFoodCode:MBNonEmptyStringNo_(_dataArray[indexPath.row][@"foodTypeName"])];
         NSLog(@"%@",dic);
         if (!dic) {
-            MBAlert(@"该类没有具体分类，请选择其他分类");
+            [[NSNotificationCenter defaultCenter]postNotificationName:getKCNotific object:_dataArray[indexPath.row] userInfo:nil];
+            [self backViewUPloadView];
         }else
         {
             [[NSNotificationCenter defaultCenter]postNotificationName:getKCNotific object:dic userInfo:nil];

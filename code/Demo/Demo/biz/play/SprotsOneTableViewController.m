@@ -115,7 +115,7 @@
 {
 
     NSString *sportParamValueID=_nameStr;
-    NSMutableDictionary *sendDic =[NSMutableDictionary dictionaryWithDictionary:_dataArray[0]];
+    NSMutableDictionary *sendDic =[NSMutableDictionary dictionaryWithDictionary:_dataArray[indexPath.row]];
     [sendDic setObject:sportParamValueID forKey:@"sportParamValueID"];
     [[NSNotificationCenter defaultCenter]postNotificationName:getKCFoodNotific object:sendDic userInfo:nil];
     [self backViewUPloadView];

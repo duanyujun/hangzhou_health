@@ -127,6 +127,32 @@ static FMDatabase *_db;
 
     return nil;
 }
+-(NSString *)returnQuestionCodeWithQuestionName:(NSString*)name{
+
+    [self creatDatabase];
+
+    if (![_db open]) {
+        return nil;
+    }
+    
+    NSString *nameAbout = [NSString stringWithFormat:@"%@%@%@",@"%",name,@"%"];
+    
+    NSString *seleSql =[NSString stringWithFormat:@"select * from QuestionInfo where questionInfo  like  \"%@\"",nameAbout];
+    NSLog(@"seleSql===========%@",seleSql);
+    
+    FMResultSet *rs = [_db executeQuery:seleSql];
+    while ([rs next]) {
+        NSString *name = [rs stringForColumn:@"questionNo"];
+        
+        
+        return name;
+        break;
+    }
+    
+    return nil;
+    
+    
+}
 -(NSString *)returnSprotNameWithSprotCode:(NSString*)code
 {
     //select name from sportitem where sportItemNo like ""

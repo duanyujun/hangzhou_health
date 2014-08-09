@@ -63,7 +63,7 @@
     _keLabl.hidden=NO;
     
     NSDictionary*dic=(NSDictionary*)[noc object];
-    NSLog(@"%@",dic);
+    NSLog(@"%@",dic[@"sportName"]);
     _curFoodInfo = [dic copy];
     CGSize size =[MBNonEmptyStringNo_(dic[@"sportName"]) sizeWithFont:kNormalTextFont];
     NSLog(@"%f",size.width);
