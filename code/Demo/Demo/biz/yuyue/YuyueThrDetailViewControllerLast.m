@@ -90,7 +90,7 @@
     }
     
     NSLog(@"%@",_showDataArray);
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, 320, kContentViewHeight+9) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, 320, kContentViewHeight+9) style:UITableViewStylePlain];
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -139,12 +139,14 @@
     lbael.text = _dataArray[section][@"SortName"];
     lbael.font=kNormalTextFont;
     lbael.textColor =[UIColor whiteColor];
+    lbael.backgroundColor =[UIColor clearColor];
     [view addSubview:lbael];
     
     UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame= view.frame;
     [view addSubview:btn];
     btn.tag = section;
+    btn.backgroundColor = [UIColor clearColor];
     [btn addTarget:self action:@selector(btnShowRow:) forControlEvents:UIControlEventTouchUpInside];
     return view;
     
@@ -213,6 +215,8 @@
     cell.nameLabel.text = MBNonEmptyString(infoDic[@"TJ_Name"]);
     cell.priceLabel.text = MBNonEmptyString(infoDic[@"TJ_Price"]);
     cell.TJ_Code = MBNonEmptyStringNo_(infoDic[@"TJ_Code"]);
+    cell.nameLabel.backgroundColor =[UIColor clearColor];
+    cell.priceLabel.backgroundColor =[UIColor clearColor];
     
     if ([MBNonEmptyString(infoDic[@"Is_Check"]) isEqualToString:@"1"]&&[MBNonEmptyString(infoDic[@"Is_Cancel"]) isEqualToString:@"1"]) {
         [cell.selectBtn setImage:[UIImage imageNamed:@"3.png"] forState:UIControlStateNormal];

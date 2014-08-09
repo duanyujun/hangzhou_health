@@ -77,9 +77,18 @@
     _keLabl.hidden=NO;
     
     NSDictionary*dic=(NSDictionary*)[noc object];
-    _curFoodInfo = [dic copy];
-    [_btnFoodType setTitle:MBNonEmptyStringNo_(dic[@"name"]) forState:UIControlStateNormal];
+    NSLog(@"%@",dic);
     
+    _curFoodInfo = [dic copy];
+    
+    if (MBNonEmptyStringNo_(dic[@"name"]).length>0) {
+        [_btnFoodType setTitle:MBNonEmptyStringNo_(dic[@"name"]) forState:UIControlStateNormal];
+
+    }else
+    {
+        [_btnFoodType setTitle:MBNonEmptyStringNo_(dic[@"foodTypeName"]) forState:UIControlStateNormal];
+    }
+          
    _foodCountLabl.frame= CGRectMake(_foodCountLabl.frame.origin.x, 20+95, _foodCountLabl.frame.size.width, _foodCountLabl.frame.size.height);
     _needbuchonLbl.frame= CGRectMake(_needbuchonLbl.frame.origin.x, 20+120, _needbuchonLbl.frame.size.width, _needbuchonLbl.frame.size.height);
     _lingshiLbl.frame= CGRectMake(_lingshiLbl.frame.origin.x,20+145, _lingshiLbl.frame.size.width, _lingshiLbl.frame.size.height);
@@ -133,7 +142,14 @@
             
             [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"UserID"]),@"userID", nil]];
             [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([NSString stringWithFormat:@"%d",[_keWeiAboutFood.text intValue]]),@"weight", nil]];
-            [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(_curFoodInfo[@"code"]),@"nutrientsCode", nil]];
+                if (MBNonEmptyStringNo_(_curFoodInfo[@"code"]).length>0) {
+                    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(_curFoodInfo[@"code"]),@"nutrientsCode", nil]];
+
+                }else
+                {
+                    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(_curFoodInfo[@"ftid"]),@"nutrientsCode", nil]];
+
+                }
             
             
             NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"AddClientFoodRecord"];
@@ -361,6 +377,8 @@
     leftLabl.text=@"体重";
     leftLabl.textColor=kNormalTextColor;
     leftLabl.textAlignment=UITextAlignmentCenter;
+    leftLabl.backgroundColor=[UIColor clearColor];
+    
     [_fistView addSubview:leftLabl];
     
     UIImageView*labRkglBG=[[UIImageView alloc]initWithFrame:CGRectMake(10+200, 140, 100, 30)];
@@ -371,6 +389,8 @@
     rightLabl.text=@"每日饮食";
     rightLabl.textAlignment=UITextAlignmentCenter;
     rightLabl.textColor=kNormalTextColor;
+    rightLabl.backgroundColor=[UIColor clearColor];
+
     [_fistView addSubview:rightLabl];
     
     
@@ -381,12 +401,16 @@
     tizhong.text=@"当前体重";
     tizhong.textAlignment=UITextAlignmentCenter;
     tizhong.textColor=[UIColor blueColor];
+    tizhong.backgroundColor=[UIColor clearColor];
+
     [_fistView addSubview:tizhong];
     
     UILabel *tizhongValue=[[UILabel alloc]initWithFrame:CGRectMake(10, 30+120+20+66+70+30+20, 100, 30)];
     tizhongValue.tag=11;
     tizhongValue.textAlignment=UITextAlignmentCenter;
     tizhongValue.textColor=kTipTextColor;
+    tizhongValue.backgroundColor=[UIColor clearColor];
+
     [_fistView addSubview:tizhongValue];
     
     
@@ -400,12 +424,16 @@
     bianzhun.text=@"标准体重";
     bianzhun.textAlignment=UITextAlignmentCenter;
     bianzhun.textColor=[UIColor blueColor];
+    bianzhun.backgroundColor=[UIColor clearColor];
+
     [_fistView addSubview:bianzhun];
     
     UILabel *bianzhunvalue=[[UILabel alloc]initWithFrame:CGRectMake(10, 80+120+20+66+70+30+66+66+30+20, 120, 30)];
     bianzhunvalue.tag=12;
     bianzhunvalue.textAlignment=UITextAlignmentCenter;
     bianzhunvalue.textColor=kTipTextColor;
+    bianzhunvalue.backgroundColor=[UIColor clearColor];
+
     [_fistView addSubview:bianzhunvalue];
     
     
@@ -420,11 +448,14 @@
     shureuliang.textAlignment=UITextAlignmentCenter;
     shureuliang.textColor=[UIColor blueColor];
     [_fistView addSubview:shureuliang];
+    shureuliang.backgroundColor=[UIColor clearColor];
+
     UILabel *shurongValue=[[UILabel alloc]initWithFrame:CGRectMake(210-15, 70+20+66+80+50, 120, 30)];
     shurongValue.tag=13;
     shurongValue.textAlignment=UITextAlignmentCenter;
     shurongValue.textColor=kTipTextColor;
     shurongValue.adjustsFontSizeToFitWidth=YES;
+    shurongValue.backgroundColor=[UIColor clearColor];
 
     [_fistView addSubview:shurongValue];
     
@@ -439,6 +470,8 @@
     [_fistView addSubview:jinrus];
     UILabel *jianruhunvalue=[[UILabel alloc]initWithFrame:CGRectMake(210-15, 40+80+20+66+70+30+66+66+30, 100, 30)];
     jianruhunvalue.tag=14;
+    jianruhunvalue.backgroundColor=[UIColor clearColor];
+
     jianruhunvalue.adjustsFontSizeToFitWidth=YES;
     jianruhunvalue.textAlignment=UITextAlignmentCenter;
     jianruhunvalue.textColor=kTipTextColor;
@@ -452,6 +485,8 @@
     buzhulab.text=@"今日还需补充能量";
     buzhulab.textAlignment=UITextAlignmentCenter;
     buzhulab.tag=999;
+    buzhulab.backgroundColor=[UIColor clearColor];
+
     buzhulab.textColor=[UIColor blueColor];
     [_fistView addSubview:buzhulab];
     UILabel *buzhuVale=[[UILabel alloc]initWithFrame:CGRectMake(210-15, 100+66+80+20+66+70+30+66+66+30+66, 100, 30)];
@@ -459,6 +494,8 @@
     buzhuVale.tag=15;
     buzhuVale.adjustsFontSizeToFitWidth=YES;
     buzhuVale.textColor=kTipTextColor;
+    buzhuVale.backgroundColor=[UIColor clearColor];
+
     [_fistView addSubview:buzhuVale];
     
     
@@ -486,6 +523,8 @@
     _foodTypeLbl.text=@"食物种类";
     _foodTypeLbl.textColor=kNormalTextColor;
     _foodTypeLbl.font=kNormalTextFont;
+    _foodTypeLbl.backgroundColor=[UIColor clearColor];
+
     [_sendView addSubview:_foodTypeLbl];
     
     
