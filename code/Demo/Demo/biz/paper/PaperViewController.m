@@ -23,10 +23,10 @@
     
     UIScrollView *_oneScrollo;
     NSMutableArray *_oneScrollAnserBtn;
-    NSMutableArray *_oneScrollTwoAnserBtn;
     NSMutableArray *_oneScrollAnserImageVewi;
     NSMutableArray *_oneScrollAnserImageVewiThree;
     NSMutableArray *_oneScrollAnserBtnThree;
+    NSMutableArray *_oneScrollAnserBtnThreeWgh;
     NSMutableArray *_oneScrollAnserImageVewiFour;
     NSMutableArray *_oneScrollAnserImageVewiLastAll;
     NSMutableArray *_oneScrollAnserImageVewiLastOnlyTwo;
@@ -403,10 +403,10 @@
                         
                         
                         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                        [btn addTarget:self action:@selector(btnSelectThreeAbout:) forControlEvents:UIControlEventTouchUpInside];
+                        [btn addTarget:self action:@selector(btnSelectThreeAboutAboutWgh:) forControlEvents:UIControlEventTouchUpInside];
                         [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_off_normal"] forState:UIControlStateNormal];
                         btn.frame= CGRectMake(5+135*k, 60+50*j, 25, 25);
-                        btn.tag=2*j+k+11;
+                        btn.tag=2*j+k;
                         MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(30+135*k, 57+50*j, 110, 30)];
                         labelShow.font=kNormalTextFont;
                         labelShow.backgroundColor =[UIColor clearColor];
@@ -722,11 +722,7 @@
                                 @"您的阴囊部位潮湿吗？（限男性回答）"];
     
     
-    NSString *questionStr = @"";
     DBHelper *helper=[[DBHelper alloc]init];
-    NSLog(@"oneLabeQuertin======%d",oneLabeQuertin.count);
-    NSLog(@"_threeScrollAnserBtn======%d",_threeScrollAnserBtn.count);
-    
     NSString *questinNameSendData = @"";
 
     for ( int i=0; i<oneLabeQuertin.count-1; i++) {
@@ -771,7 +767,6 @@
         
     }
     
-    NSLog(@"questinName=======%@",questinNameSendData);
 
     
     NSMutableArray *arr=[NSMutableArray array];
@@ -789,7 +784,6 @@
     
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([date dateString]),@"createTime", nil]];
 
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(questionStr),@"questionInfoArray", nil]];
 
     
     
@@ -878,7 +872,6 @@
         
     }
     
-    NSLog(@"questinName=======%@",questinNameSendData);
     
     
     NSMutableArray *arr=[NSMutableArray array];
@@ -896,11 +889,285 @@
     
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([date dateString]),@"createTime", nil]];
     
-    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(questionStr),@"questionInfoArray", nil]];
     
     
     
     NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"AddQuestionInfo"];
+    
+    NSLog(@"questinName=======%@",soapMsg);
+
+    __block PaperViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddQuestionInfo" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestXMLWithItems:@[item] success:^(id JSON) {
+        
+        [blockSelf submitRightBtnPressedAbouthreeSuccess:[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]];
+        
+        
+    } failure:^(NSError *error, id JSON) {
+        
+        NSLog(@"%@",error);
+    }];
+
+    
+}
+-(void)submitRightBtnPressed
+{
+    
+    DBHelper *helper=[[DBHelper alloc]init];
+
+    NSArray *allbingArray  = @[@"高血压",@"糖尿病",@"冠心病",@"高脂血糖",@"肥胖",@"中风",@"肺癌",@"前列腺癌",@"乳腺癌",@"骨质疏松",@"老年痴呆",@"肝癌",@"胃癌",@"肝癌",@"胃癌"];
+    NSString *questionStr = @"<questionInfoArray>";
+    
+    NSString *questinNameSendData = @"";
+    for (int i=0; i<5; i++) {
+        for (int j=0; j<_oneScrollAnserBtn.count; j++) {
+            
+            NSString *anserwer = _oneScrollAnserBtn[j];
+            
+            NSString *itemKind = @"";
+            
+            if (i==0) { itemKind = @"本人";}
+            if (i==1) { itemKind = @"父%";}
+            if (i==2) { itemKind = @"母%";}
+            if (i==3) { itemKind = @"祖父母";}
+            if (i==4) { itemKind = @"外祖父母";}
+            
+            NSString*question = [NSString stringWithFormat:@"%@%@",itemKind,allbingArray[j%13]];
+            
+            NSString *questionCode = [helper returnQuestionCodeWithQuestionName:question];
+            if ([anserwer isEqualToString:@"NO"]) {
+                
+                questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,@"2"];
+                
+            }else
+            {
+                questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,@"1"];
+                
+            }
+            
+        }
+    }
+    
+    NSArray *oneLabeQuertin = @[@"米、面、薯类平均日摄入量",@"肉类平均日",@"水产类",@"蛋类平均",@"奶制品平均日",@"豆制品平均",@"新鲜蔬菜平均日摄",@"新鲜水果平均",@"平均日饮"];
+        
+    for (int i=0; i<oneLabeQuertin.count; i++) {
+            
+            NSString*question = oneLabeQuertin[i];
+            NSString *questionCode = [helper returnQuestionCodeWithQuestionName:question];
+
+            NSString *answerCode = @"";
+
+            for (int k=0; k<5; k++) {
+                
+                for (int j=5*i+k; j<5*i+5; j++) {
+                    int imageIndex = 5*i+k;
+                    UIImageView*iamgeView = _oneScrollAnserImageVewi[imageIndex];
+                    if (iamgeView.hidden==NO) {
+                        answerCode = [NSString stringWithFormat:@"%d",k+1];
+                    }else
+                    {
+                        answerCode = [NSString stringWithFormat:@"%d",1];
+                        
+                    }
+                }
+            }
+            
+            questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,answerCode];
+
+        }
+        
+        
+    NSArray *oneLabeQuertinTwoAbout = @[@"您平均每周吃早餐的天",@"您平均每周吃夜宵的天"];
+        
+    for (int i=0; i<oneLabeQuertinTwoAbout.count; i++) {
+            
+            NSString*question = oneLabeQuertin[i];
+            NSString *questionCode = [helper returnQuestionCodeWithQuestionName:question];
+            
+            NSString *answerCode = @"";
+            
+            for (int k=0; k<5; k++) {
+                
+                for (int j=5*i+k; j<5*i+5; j++) {
+                    int imageIndex = 5*i+k;
+                    UIImageView*iamgeView = _oneScrollAnserImageVewiThree[imageIndex];
+                    if (iamgeView.hidden==NO) {
+                        answerCode = [NSString stringWithFormat:@"%d",k+1];
+                    }else
+                    {
+                        answerCode = [NSString stringWithFormat:@"%d",1];
+                        
+                    }
+                }
+            }
+            
+            questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,answerCode];
+            
+        }
+
+
+    
+    NSArray *allBinThreeArrayAllSel = @[@"咸",@"酸",@"甜",@"辣",@"生",@"冷",@"硬",@"烫",@"煎炸",@"油腻",@"腌熏"];
+
+    for (int j=0; j<allBinThreeArrayAllSel.count; j++) {
+            
+            NSString *anserwer = _oneScrollAnserBtnThree[j];
+            
+            NSString*question = [NSString stringWithFormat:@"%@%@",@"饮食喜好",allBinThreeArrayAllSel[j]];
+            
+            NSString *questionCode = [helper returnQuestionCodeWithQuestionName:question];
+        
+            if ([anserwer isEqualToString:@"NO"]) {
+                
+                questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,@"2"];
+                
+            }else
+            {
+                questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,@"1"];
+                
+            }
+
+    }
+
+   
+    NSArray *allBinThreeArrayAllSelFour = @[@"吃饭时喝水",@"吃饭过快",@"吃饭过饱",@"晚餐过晚"];
+    
+    for (int j=0; j<allBinThreeArrayAllSelFour.count; j++) {
+        
+        NSString *anserwer = _oneScrollAnserBtnThreeWgh[j];
+        NSLog(@"222==========%@",anserwer);
+        NSString*question = [NSString stringWithFormat:@"%@",allBinThreeArrayAllSelFour[j]];
+        
+        NSString *questionCode = [helper returnQuestionCodeWithQuestionName:question];
+        
+        if ([anserwer isEqualToString:@"NO"]) {
+            
+            questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,@"2"];
+            
+        }else
+        {
+            questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,@"1"];
+            
+        }
+        
+    }
+
+    
+    
+    NSArray *oneLabeQuertinfourGoode = @[@"您平均每周的工作时间是",@"平均每天坐姿(静止)时间",@"您平均每周运动锻炼时",@"您一般锻炼的强度是什么",@"您当前吸烟情况的描述",@"平均每天吸香烟的支数",@"您总共吸烟的年数",@"平均每周被动吸烟情",@"您当前饮酒情况的描述",@"您最常饮酒的类型",@"平均每天饮酒的两数是",@"您总共饮酒的年数"];
+    
+  
+    for (int i=0; i<oneLabeQuertinfourGoode.count; i++) {
+        
+        NSString*question = oneLabeQuertinfourGoode[i];
+        NSString *questionCode = [helper returnQuestionCodeWithQuestionName:question];
+        
+        NSString *answerCode = @"";
+        
+        for (int k=0; k<5; k++) {
+            
+            for (int j=5*i+k; j<5*i+5; j++) {
+                int imageIndex = 5*i+k;
+
+                UIImageView*iamgeView = _oneScrollAnserImageVewiFour[imageIndex];
+                if (iamgeView.hidden==NO) {
+                    answerCode = [NSString stringWithFormat:@"%d",k+1];
+                }else
+                {
+                    answerCode = [NSString stringWithFormat:@"%d",1];
+                    
+                }
+            }
+        }
+        
+        questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,answerCode];
+        
+    }
+    
+    
+    NSString*questionLast = @"重大意外";
+    NSString *questionCodeLast = [helper returnQuestionCodeWithQuestionName:questionLast];
+    
+    UIImageView *imageViewLast =(UIImageView*)_oneScrollAnserImageVewiLastOnlyTwo[0];
+    if (imageViewLast.hidden==YES) {
+        
+        questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCodeLast,@"2"];
+
+    }else
+    {
+        questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCodeLast,@"1"];
+
+    }
+    
+    NSArray *lastFiceArray =@[@"绪对工作或生",@"觉到自己的精神压",@"觉自己的睡眠充足"];
+    for (int i=0; i<lastFiceArray.count; i++) {
+        
+        NSString*question = lastFiceArray[i];
+        NSString *questionCode = [helper returnQuestionCodeWithQuestionName:question];
+        
+        NSString *answerCode = @"";
+        
+        for (int k=0; k<4; k++) {
+            
+            for (int j=4*i+k; j<4*i+5; j++) {
+                int imageIndex = 4*i+k;
+                UIImageView*iamgeView = _oneScrollAnserImageVewiLastAll[imageIndex];
+                if (iamgeView.hidden==NO) {
+                    answerCode = [NSString stringWithFormat:@"%d",k+1];
+                }else
+                {
+                    answerCode = [NSString stringWithFormat:@"%d",1];
+                    
+                }
+            }
+        }
+        
+        questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,answerCode];
+        
+    }
+
+    
+    
+    NSString*questionLastLastTwo = @"您的糖皮质激素服";
+    NSString *questionCodeLastTwo = [helper returnQuestionCodeWithQuestionName:questionLastLastTwo];
+    
+    UIImageView *imageViewLastStr =(UIImageView*)_oneScrollAnserImageVewiLastOnlyTwo[0];
+    if (imageViewLastStr.hidden == YES) {
+        
+        questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCodeLastTwo,@"2"];
+        
+    }else
+    {
+        questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCodeLastTwo,@"1"];
+        
+    }
+
+//最后一个没有答案
+    
+    NSMutableDictionary *allUserDic =(NSMutableDictionary*)[[NSUserDefaults standardUserDefaults]valueForKey:ALLLOGINPEROPLE];
+
+    
+    NSMutableArray *arr=[NSMutableArray array];
+    
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([allUserDic allValues][0][@"UserID"]),@"userID", nil]];
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(@"1"),@"questionType", nil]];
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(questinNameSendData),@"questionInfoArray", nil]];
+    
+    
+    NSDate *date =[NSDate date];
+    
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_([date dateString]),@"createTime", nil]];
+    
+    
+    
+    
+    NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"AddQuestionInfo"];
+    
     __block PaperViewController *blockSelf = self;
     
     MBRequestItem*item =[MBRequestItem itemWithMethod:@"AddQuestionInfo" params:@{@"soapMessag":soapMsg}];
@@ -914,19 +1181,7 @@
         
     }];
 
-    
-}
--(void)submitRightBtnPressed
-{
-    
-    NSArray *allbingArray  = @[@"高血压",@"糖尿病",@"冠心病",@"高脂血糖",@"肥胖",@"中风",@"肺癌",@"前列腺癌",@"乳腺癌",@"骨质疏松",@"老年痴呆",@"肝癌",@"胃癌",@"肝癌",@"胃癌"];
-    NSString *questionStr = @"<questionInfoArray>";
-    for (int i=0; i<5; i++) {
-        for (int j=0; j<_oneScrollAnserBtn.count; j++) {
-        
-        }
-    }
-    
+
     
 }
 -(void)btnSelectShowTwo:(UIButton *)btn
@@ -1069,6 +1324,20 @@
     [_oneScrollAnserBtnThree replaceObjectAtIndex:btn.tag withObject:btnItemStr];
     
 }
+-(void)btnSelectThreeAboutAboutWgh:(UIButton*)btn
+{
+    NSString *btnItemStr = _oneScrollAnserBtnThreeWgh[btn.tag];
+    if ([btnItemStr isEqualToString:@"YES"]) {
+        [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_off_normal.png"] forState:UIControlStateNormal];
+        btnItemStr = @"NO";
+    }else
+    {
+        [btn setBackgroundImage:[UIImage imageNamed:@"btn_check_on_normal.png"] forState:UIControlStateNormal];
+        btnItemStr = @"YES";
+        
+    }
+    [_oneScrollAnserBtnThreeWgh replaceObjectAtIndex:btn.tag withObject:btnItemStr];
+}
 
 -(void)btnSelectLastOne:(UIButton*)btn
 {
@@ -1109,6 +1378,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    _oneScrollAnserBtnThreeWgh = [[NSMutableArray alloc]initWithCapacity:2];
+    
     _oneScrollAnserBtnThree = [[NSMutableArray alloc]initWithCapacity:2];
     _oneScrollAnserImageVewiFour = [[NSMutableArray alloc]initWithCapacity:2];
     _oneScrollAnserImageVewiLastAll = [[NSMutableArray alloc]initWithCapacity:2];
@@ -1122,9 +1393,11 @@
     for (int i=0; i<7; i++) {
         [_oneScrollAnserBtnThreeLastOne addObject:@"NO"];
     }
+    for (int i=0; i<4; i++) {
+        [_oneScrollAnserBtnThreeWgh addObject:@"NO"];
+    }
 
-
-    for (int i=0; i<15; i++) {
+    for (int i=0; i<11; i++) {
         [_oneScrollAnserBtnThree addObject:@"NO"];
     }
     
