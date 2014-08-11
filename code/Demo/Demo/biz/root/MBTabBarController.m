@@ -538,6 +538,8 @@
         }
         if ([currentAddedButton.url isEqualToString:itemAImagerray[3]])  {
             //问卷
+            MBAlert(@"此功能暂未开通");
+            return;
             PaperViewController*person=[[PaperViewController alloc]init];
             UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:person];
             [rootViewController presentViewController:nav animated:YES completion:^{

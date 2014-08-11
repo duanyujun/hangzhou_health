@@ -16,12 +16,12 @@
 //#import <GHUnitIOS/GHUnit.h>
 #import "XMLParser.h"
 #import "MBGlobalUICommon.h"
-#import "TiJianReprotCell.h"
+#import "TiJianReprotCellForTijianYuyue.h"
 #import "TijianReportAllViewController.h"
 #import "YuyueThrDetailViewControllerLast.h"
 #import "YuyueTeleViewController.h"
 #import "JSONKit.h"
-@interface YuyueViewController ()<UITableViewDelegate,UITableViewDataSource,TijianReproTcellDelegate>
+@interface YuyueViewController ()<UITableViewDelegate,UITableViewDataSource,TiJianReprotCellForTijianYuyueDelegate>
 {
     NSInteger _startIndex;
     NSMutableArray *_dataArray;
@@ -34,20 +34,20 @@
 //返回到上个页面
 -(void)backViewUPloadView
 {
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    //    [self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     _dataArray =[[NSMutableArray alloc]init];
     _startIndex =0;
     [self makeViewAboutDownLoadView];
     self.title=@"体检预约";
-   self.view.backgroundColor= HEX(@"#5ec4fe");
-
+    self.view.backgroundColor= HEX(@"#5ec4fe");
+    
     if (IOS7_OR_LATER) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
         UIBarButtonItem *leftBarItem =[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"backView.png"] style:UIBarButtonItemStylePlain target:self action:@selector(backViewUPloadView)];
@@ -60,17 +60,17 @@
         [btnLeft addTarget:self action:@selector(backViewUPloadView) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
     }
-
-
+    
+    
 }
 -(void)getUserData
 {
-
+    
     NSMutableArray *arr=[NSMutableArray array];
-
+    
     [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:ORGANIZATIONNAME,@"organName", nil]];
-
-
+    
+    
     
     NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"GetYuYuePackageJSON"];
     
@@ -78,7 +78,7 @@
     
     MBRequestItem*item =[MBRequestItem itemWithMethod:@"GetYuYuePackageJSON" params:@{@"soapMessag":soapMsg}];
     
-    [MBIIRequest requestXMLWIthSureIPWithItems:@[item] success:^(id JSON) {
+    [MBIIRequest requestXMLWithItemsPhone:@[item] success:^(id JSON) {
         
         NSLog(@"%@",[NSDictionary dictionaryWithXMLData:JSON]);
         
@@ -87,7 +87,7 @@
     } failure:^(NSError *error, id JSON) {
         
     }];
-
+    
 }
 
 -(void)getUserDataSuccess:(NSDictionary *)dataDic
@@ -120,32 +120,36 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     return _dataArray.count;
-
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     static NSString *cellStr =@"_isShowMore";
-    TiJianReprotCell *cell =[tableView dequeueReusableCellWithIdentifier:cellStr];
+    TiJianReprotCellForTijianYuyue *cell =[tableView dequeueReusableCellWithIdentifier:cellStr];
     if (cell==nil) {
-        cell = [[TiJianReprotCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+        cell = [[TiJianReprotCellForTijianYuyue alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
         cell.delegateAbout = self;
-       
+        
     }
     
-        if (indexPath.row%5==0) {
-            cell.bgView.image=[UIImage imageNamed:@"one.png"];
-        } if (indexPath.row%5==1) {
-            cell.bgView.image=[UIImage imageNamed:@"two.png"];
-        } if (indexPath.row%5==2) {
-            cell.bgView.image=[UIImage imageNamed:@"three.png"];
-        } if (indexPath.row%5==3) {
-            cell.bgView.image=[UIImage imageNamed:@"four.png"];
-        } if (indexPath.row%5==4) {
-            cell.bgView.image=[UIImage imageNamed:@"five.png"];
-        }
-        NSLog(@"%@",_dataArray[0]);
+    if (indexPath.row%5==0) {
+        cell.bgView.image=[UIImage imageNamed:@"one.png"];
+    } if (indexPath.row%5==1) {
+        cell.bgView.image=[UIImage imageNamed:@"two.png"];
+    } if (indexPath.row%5==2) {
+        cell.bgView.image=[UIImage imageNamed:@"three.png"];
+    } if (indexPath.row%5==3) {
+        cell.bgView.image=[UIImage imageNamed:@"four.png"];
+    } if (indexPath.row%5==4) {
+        cell.bgView.image=[UIImage imageNamed:@"five.png"];
+    }
+    NSLog(@"%@",_dataArray[0]);
     
     NSString *rankStr =@"";
     if (MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackageExplain"]).length>0) {
@@ -156,21 +160,50 @@
     {
         rankStr = @"暂无说明";
     }
-        cell.itemLbl.text=[NSString stringWithFormat:@"%@  %@",MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackageName"]),rankStr];
-
-        cell.itemCountLbl.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
-        cell.yuyueBtn.hidden=NO;
-        cell.rightLabl.text=[NSString stringWithFormat:@"￥%@",MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackagePrice"])];
-        cell.yuyueBtn.tag=indexPath.row;
-        if (_seleIndex==indexPath.row) {
-            [cell.yuyueBtn setBackgroundImage:[UIImage imageNamed:@"youy_yes.png"] forState:UIControlStateNormal];
-        }else {
-            [cell.yuyueBtn setBackgroundImage:[UIImage imageNamed:@"gouy_no.png"] forState:UIControlStateNormal];
-
-        }
-        [cell hiddleLoadMoreView];
-
+    cell.itemNameLbl.text=[NSString stringWithFormat:@"%@",MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackageName"])];
+    
+    cell.itemLbl.text=[NSString stringWithFormat:@"%@",rankStr];
+    
+    cell.itemCountLbl.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
+    cell.yuyueBtn.hidden=NO;
+    cell.rightLabl.text=[NSString stringWithFormat:@"￥%@",MBNonEmptyStringNo_(_dataArray[indexPath.row][@"PackagePrice"])];
+    cell.yuyueBtn.tag=indexPath.row;
+    if (_seleIndex==indexPath.row) {
+        [cell.yuyueBtn setBackgroundImage:[UIImage imageNamed:@"youy_yes.png"] forState:UIControlStateNormal];
+    }else {
+        [cell.yuyueBtn setBackgroundImage:[UIImage imageNamed:@"gouy_no.png"] forState:UIControlStateNormal];
+        
+    }
+    [cell hiddleLoadMoreView];
+    cell.tag = indexPath.row;
     return cell;
+}
+-(void)seeDetailBtnPressed:(TiJianReprotCellForTijianYuyue *)selfCell
+{
+    
+    NSMutableDictionary *allUserDic =_dataArray[selfCell.tag];
+    _sendDataInfo =allUserDic;
+    NSMutableArray *arr=[NSMutableArray array];
+    [arr addObject:[NSDictionary dictionaryWithObjectsAndKeys:MBNonEmptyStringNo_(allUserDic[@"PackageGUID"]),@"packageID", nil]];
+    
+    
+    
+    NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"GetPackageDeatilJSON"];
+    NSLog(@"%@",soapMsg);
+    
+    __block YuyueViewController *blockSelf = self;
+    
+    MBRequestItem*item =[MBRequestItem itemWithMethod:@"GetPackageDeatilJSON" params:@{@"soapMessag":soapMsg}];
+    
+    [MBIIRequest requestXMLWithItems:@[item] success:^(id JSON) {
+        
+        [blockSelf getGetReportAbnoramlAndItemsSuccess:[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]];
+        
+        
+    } failure:^(NSError *error, id JSON) {
+        NSLog(@"%@",error);
+    }];
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -193,7 +226,7 @@
         UIButton *btnGoSeleCity=[UIButton buttonWithType:UIButtonTypeCustom];
         btnGoSeleCity.frame=label.frame;
         [view addSubview:btnGoSeleCity];
-//        [btnGoSeleCity addTarget:self action:@selector(goToSeleShengFeng) forControlEvents:UIControlEventTouchUpInside];
+        //        [btnGoSeleCity addTarget:self action:@selector(goToSeleShengFeng) forControlEvents:UIControlEventTouchUpInside];
         _tableView.tableHeaderView=view;
         
         
@@ -212,7 +245,7 @@
         [_dataArray removeAllObjects];
     }
     [self getUserData];
-
+    
     [_tableView reloadData];
 }
 -(void)yuyueBtnPressed:(UIButton *)btn
@@ -243,7 +276,7 @@
     } failure:^(NSError *error, id JSON) {
         
     }];
-
+    
 }
 -(void)getGetReportAbnoramlAndItemsSuccessAboutTwo:(NSString *)string
 {
@@ -257,18 +290,18 @@
     UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:all];
     AppDelegate *appDele =(AppDelegate*)[UIApplication sharedApplication].delegate;
     [appDele.tabBarController presentViewController:nav animated:YES completion:nil];
-
+    
 }
 -(void)loadMoreAboutdata
 {
     _startIndex+=10;
     [self getUserData];
-
+    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-
+    
     NSMutableDictionary *allUserDic =_dataArray[indexPath.row];
     _sendDataInfo =allUserDic;
     NSMutableArray *arr=[NSMutableArray array];
@@ -286,12 +319,12 @@
     [MBIIRequest requestXMLWithItems:@[item] success:^(id JSON) {
         
         [blockSelf getGetReportAbnoramlAndItemsSuccess:[[NSString alloc]initWithData:JSON encoding:NSUTF8StringEncoding]];
-
+        
         
     } failure:^(NSError *error, id JSON) {
         NSLog(@"%@",error);
     }];
-
+    
 }
 -(void)getGetReportAbnoramlAndItemsSuccess:(NSString *)string
 {
@@ -301,7 +334,7 @@
     NSArray *arrayOfResult = [resutlDic objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode][@"PackageDetail"] ;
     _detailName = MBNonEmptyString([resutlDic objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode][@"PackageName"]);
     _detailPrice = MBNonEmptyString([resutlDic objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode][@"PackagePrice"]);
-
+    
     _getDataArray = arrayOfResult;
     
     [self getSendLogbtnThre];

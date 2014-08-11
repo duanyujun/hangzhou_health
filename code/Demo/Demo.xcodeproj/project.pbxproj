@@ -98,6 +98,7 @@
 		BDC105091930CED900B9530C /* sporttwo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDC105061930CED900B9530C /* sporttwo@2x.png */; };
 		BDC1050B1930CFBA00B9530C /* curweight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDC1050A1930CFBA00B9530C /* curweight@2x.png */; };
 		BDC1050D1930D39000B9530C /* sprotfour@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDC1050C1930D39000B9530C /* sprotfour@2x.png */; };
+		BDCC70061998F5AD00CCB59D /* TiJianReprotCellForTijianYuyue.m in Sources */ = {isa = PBXBuildFile; fileRef = BDCC70051998F5AD00CCB59D /* TiJianReprotCellForTijianYuyue.m */; };
 		BDDF79BA198BCDC800B2406C /* btn_check_off_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = BDDF79B8198BCDC800B2406C /* btn_check_off_normal.png */; };
 		BDDF79BB198BCDC800B2406C /* btn_check_on_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = BDDF79B9198BCDC800B2406C /* btn_check_on_normal.png */; };
 		BDEA6D941926051E00AE9B53 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDEA6D931926051E00AE9B53 /* GHUnitIOS.framework */; };
@@ -590,6 +591,8 @@
 		BDC105061930CED900B9530C /* sporttwo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sporttwo@2x.png"; sourceTree = "<group>"; };
 		BDC1050A1930CFBA00B9530C /* curweight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "curweight@2x.png"; sourceTree = "<group>"; };
 		BDC1050C1930D39000B9530C /* sprotfour@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprotfour@2x.png"; sourceTree = "<group>"; };
+		BDCC70041998F5AD00CCB59D /* TiJianReprotCellForTijianYuyue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiJianReprotCellForTijianYuyue.h; sourceTree = "<group>"; };
+		BDCC70051998F5AD00CCB59D /* TiJianReprotCellForTijianYuyue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiJianReprotCellForTijianYuyue.m; sourceTree = "<group>"; };
 		BDDF79B8198BCDC800B2406C /* btn_check_off_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_check_off_normal.png; sourceTree = "<group>"; };
 		BDDF79B9198BCDC800B2406C /* btn_check_on_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_check_on_normal.png; sourceTree = "<group>"; };
 		BDEA6D931926051E00AE9B53 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = Demo/vender/xmlParse/GHUnitIOS.framework; sourceTree = "<group>"; };
@@ -1349,6 +1352,8 @@
 			isa = PBXGroup;
 			children = (
 				E786A25318E1DDD6003789B4 /* TiJianDetailReprotCell.h */,
+				BDCC70041998F5AD00CCB59D /* TiJianReprotCellForTijianYuyue.h */,
+				BDCC70051998F5AD00CCB59D /* TiJianReprotCellForTijianYuyue.m */,
 				E786A25418E1DDD6003789B4 /* TiJianDetailReprotCell.m */,
 				E786A25018E1DB63003789B4 /* TijianReportMoreNotNorDetialViewController.h */,
 				E786A25118E1DB63003789B4 /* TijianReportMoreNotNorDetialViewController.m */,
@@ -2803,6 +2808,7 @@
 				E7C79B68188F78D400C1DFBD /* MBLoadingView.m in Sources */,
 				E71D7ECB191E143D007EF55E /* XueTangUploadViewController.m in Sources */,
 				E752127718F6EDFF000717A2 /* SprotsViewController.m in Sources */,
+				BDCC70061998F5AD00CCB59D /* TiJianReprotCellForTijianYuyue.m in Sources */,
 				E7C79ADA188F70FB00C1DFBD /* AFJSONUtilities.m in Sources */,
 				E7C7B7C118E7F68400CAF2A2 /* MoreViewController.m in Sources */,
 				BD9F07B819335DFE006F1557 /* TijianDetialViewController.m in Sources */,
