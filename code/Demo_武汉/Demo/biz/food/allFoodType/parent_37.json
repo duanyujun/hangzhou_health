@@ -1,0 +1,14 @@
+[
+  {
+    "foodTypeName" : "树坚果",
+    "ftid" : "38",
+    "foodTypeCode" : "07-1",
+    "parentID" : "37"
+  },
+  {
+    "foodTypeName" : "种子",
+    "ftid" : "39",
+    "foodTypeCode" : "07-2",
+    "parentID" : "37"
+  }
+]

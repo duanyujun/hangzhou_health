@@ -1,0 +1,38 @@
+[
+  {
+    "foodTypeName" : "猪",
+    "ftid" : "41",
+    "foodTypeCode" : "08-1",
+    "parentID" : "40"
+  },
+  {
+    "foodTypeName" : "牛",
+    "ftid" : "42",
+    "foodTypeCode" : "08-2",
+    "parentID" : "40"
+  },
+  {
+    "foodTypeName" : "羊",
+    "ftid" : "43",
+    "foodTypeCode" : "08-3",
+    "parentID" : "40"
+  },
+  {
+    "foodTypeName" : "驴",
+    "ftid" : "44",
+    "foodTypeCode" : "08-4",
+    "parentID" : "40"
+  },
+  {
+    "foodTypeName" : "马",
+    "ftid" : "45",
+    "foodTypeCode" : "08-5",
+    "parentID" : "40"
+  },
+  {
+    "foodTypeName" : "其它",
+    "ftid" : "46",
+    "foodTypeCode" : "08-9",
+    "parentID" : "40"
+  }
+]

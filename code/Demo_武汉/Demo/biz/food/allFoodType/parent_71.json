@@ -1,0 +1,20 @@
+[
+  {
+    "foodTypeName" : "婴幼儿配方奶",
+    "ftid" : "72",
+    "foodTypeCode" : "13-1",
+    "parentID" : "71"
+  },
+  {
+    "foodTypeName" : "婴幼儿断奶期辅助食品",
+    "ftid" : "73",
+    "foodTypeCode" : "13-2",
+    "parentID" : "71"
+  },
+  {
+    "foodTypeName" : "婴幼儿补充食品",
+    "ftid" : "74",
+    "foodTypeCode" : "13-3",
+    "parentID" : "71"
+  }
+]

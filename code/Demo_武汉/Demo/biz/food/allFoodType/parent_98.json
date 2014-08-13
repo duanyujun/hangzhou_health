@@ -1,0 +1,20 @@
+[
+  {
+    "foodTypeName" : "糖",
+    "ftid" : "97",
+    "foodTypeCode" : "18-1",
+    "parentID" : "96"
+  },
+  {
+    "foodTypeName" : "糖果",
+    "ftid" : "98",
+    "foodTypeCode" : "18-2",
+    "parentID" : "96"
+  },
+  {
+    "foodTypeName" : "蜜饯",
+    "ftid" : "99",
+    "foodTypeCode" : "18-3",
+    "parentID" : "96"
+  }
+]
