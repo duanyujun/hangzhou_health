@@ -2975,13 +2975,9 @@
 					armv6,
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD:code/Demo/Demo.xcodeproj/project.pbxproj
 				CODE_SIGN_IDENTITY = "iPhone Developer: wang guihua (22PJEU94U5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: wang guihua (22PJEU94U5)";
-=======
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Xu Chao (3CW3H2V25E)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xu Chao (3CW3H2V25E)";
->>>>>>> FETCH_HEAD:code/Demo_南京/Demo.xcodeproj/project.pbxproj
+
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -3009,11 +3005,8 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD:code/Demo/Demo.xcodeproj/project.pbxproj
 				PROVISIONING_PROFILE = "3EADAACE-1AAD-4980-97B2-D366A78D7B18";
-=======
-				PROVISIONING_PROFILE = "366699fb-8a8c-41b3-89b6-a2db3e374207";
->>>>>>> FETCH_HEAD:code/Demo_南京/Demo.xcodeproj/project.pbxproj
+
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3026,13 +3019,9 @@
 					armv6,
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD:code/Demo/Demo.xcodeproj/project.pbxproj
 				CODE_SIGN_IDENTITY = "iPhone Developer: wang guihua (22PJEU94U5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: wang guihua (22PJEU94U5)";
-=======
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Xu Chao (3CW3H2V25E)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xu Chao (3CW3H2V25E)";
->>>>>>> FETCH_HEAD:code/Demo_南京/Demo.xcodeproj/project.pbxproj
+
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -3060,12 +3049,8 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-<<<<<<< HEAD:code/Demo/Demo.xcodeproj/project.pbxproj
 				PROVISIONING_PROFILE = "3EADAACE-1AAD-4980-97B2-D366A78D7B18";
-=======
-				PROVISIONING_PROFILE = "366699fb-8a8c-41b3-89b6-a2db3e374207";
->>>>>>> FETCH_HEAD:code/Demo_南京/Demo.xcodeproj/project.pbxproj
-				WRAPPER_EXTENSION = app;
+
 			};
 			name = Release;
 		};
