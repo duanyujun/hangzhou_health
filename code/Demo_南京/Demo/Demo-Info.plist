@@ -9,11 +9,8 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-<<<<<<< HEAD:code/Demo/Demo/Demo-Info.plist
 	<string>com.wgh.BOCMBCInew</string>
-=======
-	<string>com.hangliao.shphone</string>
->>>>>>> FETCH_HEAD:code/Demo_南京/Demo/Demo-Info.plist
+
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
