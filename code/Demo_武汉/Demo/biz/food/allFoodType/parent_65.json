@@ -1,0 +1,32 @@
+[
+  {
+    "foodTypeName" : "鱼",
+    "ftid" : "66",
+    "foodTypeCode" : "12-1",
+    "parentID" : "65"
+  },
+  {
+    "foodTypeName" : "虾",
+    "ftid" : "67",
+    "foodTypeCode" : "12-2",
+    "parentID" : "65"
+  },
+  {
+    "foodTypeName" : "蟹",
+    "ftid" : "68",
+    "foodTypeCode" : "12-3",
+    "parentID" : "65"
+  },
+  {
+    "foodTypeName" : "贝",
+    "ftid" : "69",
+    "foodTypeCode" : "12-4",
+    "parentID" : "65"
+  },
+  {
+    "foodTypeName" : "其它",
+    "ftid" : "70",
+    "foodTypeCode" : "12-9",
+    "parentID" : "65"
+  }
+]
