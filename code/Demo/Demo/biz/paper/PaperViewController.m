@@ -447,7 +447,6 @@
                     labelShow.backgroundColor =[UIColor clearColor];
 
                     labelShow.text = allBinTwoArray[45+5*(i-18)+j];
-                    NSLog(@"sdfsdf====%d",5*i+j-46);
                     [contenView addSubview:labelShow];
                     labelShow.textColor = [UIColor greenColor];
 
@@ -621,6 +620,253 @@
         
     }
 }
+-(void)canGoNext:(float)index
+{
+    int startIndex=0;
+    int endIndex = 0;
+    if (index==6) {
+        startIndex = 0;
+        endIndex = 5;
+    }
+    if (index==7) {
+        startIndex = 5;
+        endIndex = 10;
+    }
+    if (index==8) {
+        startIndex = 10;
+        endIndex = 15;
+    }
+    if (index==9) {
+        startIndex = 15;
+        endIndex = 20;
+    }
+    if (index==10) {
+        startIndex = 20;
+        endIndex = 25;
+    }if (index==11) {
+        startIndex = 25;
+        endIndex = 30;
+    }if (index==12) {
+        startIndex = 30;
+        endIndex = 35;
+    }if (index==13) {
+        startIndex = 35;
+        endIndex = 40;
+    }if (index==14) {
+        startIndex = 40;
+        endIndex = 45;
+    }
+    
+    if (endIndex==0) {
+        return;
+    }
+    BOOL isAllHave=NO;
+    for ( int i=startIndex; i<endIndex; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewi[i];
+        NSLog(@"请选择一个答案=====%@",iamgeView);
+        
+        if (iamgeView.hidden==NO) {
+            isAllHave = YES;
+        }
+    }
+    if (isAllHave==NO) {
+        NSString *stirng = [NSString stringWithFormat:@"%f",_slider.value-1];
+        
+        [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:NO];
+        
+        MBAlert(@"请选择一个答案");
+        return;
+    }
+
+}
+
+
+-(void)canGoNextoneScrollAnserImageVewiThree:(float)index
+{
+    int startIndex=0;
+    int endIndex = 0;
+    if (index==15) {
+        startIndex = 0;
+        endIndex = 5;
+    }
+    if (index==16) {
+        startIndex = 5;
+        endIndex = 10;
+    }
+    
+    if (endIndex==0) {
+        return;
+    }
+    BOOL isAllHave=NO;
+    for ( int i=startIndex; i<endIndex; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewiThree[i];
+        if (iamgeView.hidden==NO) {
+            isAllHave = YES;
+        }
+    }
+    if (isAllHave==NO) {
+        NSString *stirng = [NSString stringWithFormat:@"%f",_slider.value-1];
+        
+        [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:NO];
+        
+        MBAlert(@"请选择一个答案");
+        return;
+    }
+    
+}
+-(void)canGoNextoneScrollAnserImageVewiLastAllOnlyONe:(float)index
+{
+
+    BOOL isAllHave=NO;
+    for ( int i=0; i<2; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewiLastOnlyTwo[i];
+        if (iamgeView.hidden==NO) {
+            isAllHave = YES;
+        }
+    }
+    
+    if (isAllHave==NO) {
+        NSString *stirng = [NSString stringWithFormat:@"%f",_slider.value-1];
+        
+        [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:NO];
+        
+        MBAlert(@"请选择一个答案");
+        return;
+    }
+    
+}
+-(void)canGoNextoneScrollAnserImageVewiLastAllOnlyFince:(float)index
+{
+    
+    BOOL isAllHave=NO;
+    for ( int i=0; i<5; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewiLastOnlyTwoFive[i];
+        if (iamgeView.hidden==NO) {
+            isAllHave = YES;
+        }
+    }
+    
+    if (isAllHave==NO) {
+        NSString *stirng = [NSString stringWithFormat:@"%f",_slider.value-1];
+        
+        [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:NO];
+        
+        MBAlert(@"请选择一个答案");
+        return;
+    }
+    
+}
+
+-(void)canGoNextoneScrollAnserImageVewiFour:(float)index
+{
+    int startIndex=0;
+    int endIndex = 0;
+    if (index==19) {
+        startIndex = 0;
+        endIndex = 5;
+    }
+    if (index==20) {
+        startIndex = 5;
+        endIndex = 10;
+    }
+    if (index==21) {
+        startIndex = 10;
+        endIndex = 15;
+    }
+    if (index==22) {
+        startIndex = 15;
+        endIndex = 20;
+    }
+    if (index==23) {
+        startIndex = 20;
+        endIndex = 25;
+    }
+    if (index==24) {
+        startIndex = 25;
+        endIndex = 30;
+    }
+    if (index==25) {
+        startIndex = 30;
+        endIndex = 35;
+    }
+    if (index==26) {
+        startIndex = 35;
+        endIndex = 40;
+    }
+    if (index==27) {
+        startIndex = 40;
+        endIndex = 45;
+    }
+    if (index==28) {
+        startIndex = 45;
+        endIndex = 50;
+    }
+    if (index==29) {
+        startIndex = 50;
+        endIndex = 55;
+    }if (index==30) {
+        startIndex = 55;
+        endIndex = 60;
+    }
+    if (endIndex==0) {
+        return;
+    }
+    BOOL isAllHave=NO;
+    for ( int i=startIndex; i<endIndex; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewiFour[i];
+        NSLog(@"imageview=====%@,index=====%d",iamgeView,i);
+        if (iamgeView.hidden==NO) {
+            isAllHave = YES;
+        }
+    }
+    if (isAllHave==NO) {
+        NSString *stirng = [NSString stringWithFormat:@"%f",_slider.value-1];
+        
+        [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:NO];
+        
+        MBAlert(@"请选择一个答案");
+        return;
+    }
+    
+}
+-(void)canGoNextoneScrollAnserImageVewiFourABout:(float)index
+{
+    int startIndex=0;
+    int endIndex = 0;
+    if (index==32) {
+        startIndex = 0;
+        endIndex = 4;
+    }
+    if (index==33) {
+        startIndex = 4;
+        endIndex = 8;
+    }
+    if (index==34) {
+        startIndex = 8;
+        endIndex = 12;
+    }
+   
+    if (endIndex==0) {
+        return;
+    }
+    BOOL isAllHave=NO;
+    for ( int i=startIndex; i<endIndex; i++) {
+        UIImageView*iamgeView = _oneScrollAnserImageVewiLastAll[i];
+        NSLog(@"imageview=====%@,index=====%d",iamgeView,i);
+        if (iamgeView.hidden==NO) {
+            isAllHave = YES;
+        }
+    }
+    if (isAllHave==NO) {
+        NSString *stirng = [NSString stringWithFormat:@"%f",_slider.value-1];
+        
+        [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:NO];
+        
+        MBAlert(@"请选择一个答案");
+        return;
+    }
+    
+}
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     self.navigationItem.rightBarButtonItem=nil;
@@ -645,23 +891,50 @@
             }
             if (_slider.value>4&&_slider.value<=13) {
                 _showItemLabel.text=@"第二部分:膳食结构";
+                if (_slider.value>5) {
+                
+                    [self canGoNext:_slider.value];
+                    
+                }
+                
+                
             }
             if (_slider.value>13&&_slider.value<=17) {
                 _showItemLabel.text=@"第三部分:饮食习惯";
+                [self canGoNextoneScrollAnserImageVewiThree:_slider.value];
             }
             if (_slider.value>17&&_slider.value<=21) {
                 _showItemLabel.text=@"第四部分:运动锻炼";
+                [self canGoNextoneScrollAnserImageVewiFour:_slider.value];
             }
             if (_slider.value>21&&_slider.value<=25) {
                 _showItemLabel.text=@"第五部分:吸烟情况";
+                [self canGoNextoneScrollAnserImageVewiFour:_slider.value];
+
             }
             if (_slider.value>25&&_slider.value<=29) {
                 _showItemLabel.text=@"第六部分:饮酒情况";
+                [self canGoNextoneScrollAnserImageVewiFour:_slider.value];
+                
             }
             if (_slider.value>29) {
                 _showItemLabel.text=@"第七部分:相关健康信息";
+                if (_slider.value==31) {
+                    [self canGoNextoneScrollAnserImageVewiLastAllOnlyONe:_slider.value];
+                }
+                if (_slider.value>31&&_slider.value<35) {
+                    [self canGoNextoneScrollAnserImageVewiFourABout:_slider.value];
+                }
+                if (_slider.value==35) {
+                    [self canGoNextoneScrollAnserImageVewiLastAllOnlyFince:_slider.value];
+                }
             }
         }
+        
+        
+        
+        
+        
 
     }
     if ([scrollView isEqual:_twoScrollo]) {
@@ -1253,10 +1526,10 @@
         iamgeView.hidden=YES;
     }
     NSString *stirng = [NSString stringWithFormat:@"%f",_slider.value];
-    
-    [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320+320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:YES];
     UIImageView*iamgeView = _oneScrollAnserImageVewiFour[btn.tag];
     iamgeView.hidden=NO;
+    [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320+320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:YES];
+  
     
 }
 -(void)btnSelectShowLastOnleFive:(UIButton *)btn
