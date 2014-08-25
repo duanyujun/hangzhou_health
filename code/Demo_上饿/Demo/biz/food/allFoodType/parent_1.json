@@ -1,0 +1,38 @@
+[
+  {
+    "foodTypeName" : "小麦",
+    "ftid" : "2",
+    "foodTypeCode" : "01-1",
+    "parentID" : "1"
+  },
+  {
+    "foodTypeName" : "稻米",
+    "ftid" : "3",
+    "foodTypeCode" : "01-2",
+    "parentID" : "1"
+  },
+  {
+    "foodTypeName" : "玉米",
+    "ftid" : "4",
+    "foodTypeCode" : "01-3",
+    "parentID" : "1"
+  },
+  {
+    "foodTypeName" : "大麦",
+    "ftid" : "5",
+    "foodTypeCode" : "01-4",
+    "parentID" : "1"
+  },
+  {
+    "foodTypeName" : "小米、黄米",
+    "ftid" : "6",
+    "foodTypeCode" : "01-5",
+    "parentID" : "1"
+  },
+  {
+    "foodTypeName" : "其它",
+    "ftid" : "7",
+    "foodTypeCode" : "01-9",
+    "parentID" : "1"
+  }
+]
