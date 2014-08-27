@@ -432,7 +432,18 @@
     @try {
         NSDictionary *resutlDic =[NSDictionary dictionaryWithXMLString:string][@"soap:Body"][@"GetReportAbnoramlAndItemsResponse"][@"GetReportAbnoramlAndItemsResult"];
         
-        NSArray *array =resutlDic[@"data"][@"departments"][@"department"];
+        NSMutableArray *array;
+        NSArray *arrayIfKind =resutlDic[@"data"][@"departments"][@"department"];
+        
+        if ([arrayIfKind isKindOfClass:[NSDictionary class]]) {
+            
+            array = [NSMutableArray arrayWithObject:resutlDic[@"data"][@"departments"][@"department"]];
+            
+        }else
+        {
+            array =resutlDic[@"data"][@"departments"][@"department"];
+            
+        }
 
         NSMutableArray *itemArray =[NSMutableArray arrayWithCapacity:2];
         

@@ -206,7 +206,7 @@
                                 labelShow.font=kNormalTextFont;
                                 label.backgroundColor =[UIColor clearColor];
 
-                                labelShow.textColor = [UIColor greenColor];
+                                labelShow.textColor = HEX(@"#ff6699");
 
                                 labelShow.text = allbingArray[3*j+k];
                                 
@@ -231,7 +231,7 @@
 
                             
                             labelShow.text = allbingArray[3*j+k];
-                            labelShow.textColor = [UIColor greenColor];
+                            labelShow.textColor = HEX(@"#ff6699");
 
                             [contenView addSubview:labelShow];
                             
@@ -304,7 +304,7 @@
                     labelShow.backgroundColor =[UIColor clearColor];
 
                     labelShow.text = allBinTwoArray[5*(i-5)+j];
-                    labelShow.textColor = [UIColor greenColor];
+                    labelShow.textColor = HEX(@"#ff6699");
 
                     [contenView addSubview:labelShow];
                     
@@ -338,7 +338,7 @@
                     labelShow.textColor = HEX(@"#007aff");
                     
                     labelShow.text = allBinThreeArray[5*(i-5-9)+j];
-                    labelShow.textColor = [UIColor greenColor];
+                    labelShow.textColor = HEX(@"#ff6699");
 
                     [contenView addSubview:labelShow];
                     
@@ -365,7 +365,7 @@
 
                             
                                 labelShow.text = allBinThreeArrayAllSel[3*j+k];
-                            labelShow.textColor = [UIColor greenColor];
+                            labelShow.textColor = HEX(@"#ff6699");
 
                                 [contenView addSubview:labelShow];
                                 
@@ -390,7 +390,7 @@
                             labelShow.text = allBinThreeArrayAllSel[3*j+k];
                             
                             [contenView addSubview:labelShow];
-                            labelShow.textColor = [UIColor greenColor];
+                            labelShow.textColor = HEX(@"#ff6699");
 
                             [contenView addSubview:btn];
                         }
@@ -415,7 +415,7 @@
 
                         
                         labelShow.text = allBinThreeArrayAllSelT[2*j+k];
-                        labelShow.textColor = [UIColor greenColor];
+                        labelShow.textColor = HEX(@"#ff6699");
 
                         [contenView addSubview:labelShow];
                         
@@ -450,7 +450,7 @@
 
                     labelShow.text = allBinTwoArray[45+5*(i-18)+j];
                     [contenView addSubview:labelShow];
-                    labelShow.textColor = [UIColor greenColor];
+                    labelShow.textColor = HEX(@"#ff6699");
 
                     [contenView addSubview:btn];
                 }
@@ -482,7 +482,7 @@
 
                     
                     labelShow.text = allBinThreeArrayLast[j];
-                    labelShow.textColor = [UIColor greenColor];
+                    labelShow.textColor = HEX(@"#ff6699");
 
                     [contenView addSubview:labelShow];
                     
@@ -516,7 +516,7 @@
                     labelShow.backgroundColor =[UIColor clearColor];
 
                     labelShow.text = allBinThreeArrayLast[j+4*(i-31)+2];
-                    labelShow.textColor = [UIColor greenColor];
+                    labelShow.textColor = HEX(@"#ff6699");
 
                     [contenView addSubview:labelShow];
                     
@@ -551,7 +551,7 @@
 
                     
                     labelShow.text = allBinThreeArrayFieveLast[j];
-                    labelShow.textColor = [UIColor greenColor];
+                    labelShow.textColor = HEX(@"#ff6699");
 
                     [contenView addSubview:labelShow];
                     
@@ -580,7 +580,7 @@
                                 labelShow.text = allBinThreeArrayFieveLastTreun[3*j+k];
                                 
                                 [contenView addSubview:labelShow];
-                               labelShow.textColor = [UIColor greenColor];
+                               labelShow.textColor = HEX(@"#ff6699");
 
                                 [contenView addSubview:btn];
                                 
@@ -601,7 +601,7 @@
                             labelShow.backgroundColor =[UIColor clearColor];
 
                             labelShow.text = allBinThreeArrayFieveLastTreun[3*j+k];
-                            labelShow.textColor = [UIColor greenColor];
+                            labelShow.textColor = HEX(@"#ff6699");
 
                             [contenView addSubview:labelShow];
                             
@@ -1489,16 +1489,13 @@
     if (endIndex==0) {
         return;
     }
-    BOOL isNewverSele=NO;
     BOOL isAllHave=NO;
     for ( int i=startIndex; i<endIndex; i++) {
         UIImageView*iamgeView = _oneScrollAnserImageVewiFour[i];
         NSLog(@"imageview=====%@,index=====%d",iamgeView,i);
         if (iamgeView.hidden==NO) {
             isAllHave = YES;
-            if (startIndex==20) {
-                isNewverSele=YES;
-            }
+           
         }
         
     }
@@ -1506,19 +1503,13 @@
        
         NSString *stirng = [NSString stringWithFormat:@"%f",_slider.value-1];
 
-        if (isNewverSele) {
-            
-            [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320-320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:NO];
-            
-            MBAlert(@"请选择一个答案");
-            
-        }else{
+
         
             [_oneScrollo scrollRectToVisible:CGRectMake([stirng intValue]*320, _oneScrollo.frame.origin.y, _oneScrollo.frame.size.width, _oneScrollo.frame.size.height) animated:NO];
             
             MBAlert(@"请选择一个答案");
             
-        }
+        
         
 
         return;
@@ -2493,7 +2484,7 @@
                     [_twoScrollAnserBtn addObject:imageVIew];
                     MBLabel *labelShow = [[MBLabel alloc]initWithFrame:CGRectMake(20, 60+40*j, 300, 40)];
                     labelShow.font=[UIFont fontWithName:@"Helvetica Neue" size:18];
-                    labelShow.textColor = [UIColor greenColor];
+                    labelShow.textColor = HEX(@"#ff6699");
                     labelShow.backgroundColor =[UIColor clearColor];
 
                     labelShow.text = ansere[j];
@@ -2605,8 +2596,8 @@
                 label.backgroundColor =[UIColor clearColor];
 
                 labelShow.text = ansere[j];
-                labelShow.textColor = [UIColor greenColor];
-
+                labelShow.textColor = HEX(@"#ff6699");
+                labelShow.textColor = HEX(@"#ff6699");
                 [contenView addSubview:labelShow];
                 
                 [contenView addSubview:btn];

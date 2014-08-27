@@ -55,7 +55,7 @@
     }
     
     _imageArray=@[@"upload.png",@"huanchun.png",@"share.png",@"help.png"];
-    _itemaArray=@[@"检查更新",@"清除缓存",@"软件分享"];
+    _itemaArray=@[@"检查更新",@"清除缓存"];
     //    _itemaArray=@[@"检查更新",@"清除缓存",@"软件分享",@"关于掌上健康"];
     
     self.title=@"设置";
@@ -87,7 +87,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 3;
+    return 2;
 }
 
 
