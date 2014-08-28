@@ -66,6 +66,10 @@
 		BDA411CD19274B0C009FB9B1 /* send.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA411A119274B0C009FB9B1 /* send.png */; };
 		BDA411CE19274B0C009FB9B1 /* send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA411A219274B0C009FB9B1 /* send@2x.png */; };
 		BDA411D019274EB2009FB9B1 /* sendMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA411CF19274EB2009FB9B1 /* sendMessage@2x.png */; };
+		BDA7BE6319AF74BE00257150 /* RepoertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA7BE6219AF74BE00257150 /* RepoertViewController.m */; };
+		BDA7BE6519AF77E200257150 /* fengmian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDA7BE6419AF77E200257150 /* fengmian.jpg */; };
+		BDA7BE6819AF7EE400257150 /* MBSafetyIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA7BE6719AF7EE400257150 /* MBSafetyIntroViewController.m */; };
+		BDA7BE6A19AF82F000257150 /* pinguinformation_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA7BE6919AF82F000257150 /* pinguinformation_normal.png */; };
 		BDA95228192E3AD90029233E /* gouxuan_no.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA95224192E3AD90029233E /* gouxuan_no.png */; };
 		BDA95229192E3AD90029233E /* gouxuan_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA95225192E3AD90029233E /* gouxuan_no@2x.png */; };
 		BDA9522A192E3AD90029233E /* gouxuan_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA95226192E3AD90029233E /* gouxuan_yes.png */; };
@@ -571,6 +575,12 @@
 		BDA411A119274B0C009FB9B1 /* send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = send.png; path = chart/send.png; sourceTree = "<group>"; };
 		BDA411A219274B0C009FB9B1 /* send@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "send@2x.png"; path = "chart/send@2x.png"; sourceTree = "<group>"; };
 		BDA411CF19274EB2009FB9B1 /* sendMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sendMessage@2x.png"; sourceTree = "<group>"; };
+		BDA7BE6119AF74BE00257150 /* RepoertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoertViewController.h; sourceTree = "<group>"; };
+		BDA7BE6219AF74BE00257150 /* RepoertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoertViewController.m; sourceTree = "<group>"; };
+		BDA7BE6419AF77E200257150 /* fengmian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fengmian.jpg; sourceTree = "<group>"; };
+		BDA7BE6619AF7EE400257150 /* MBSafetyIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSafetyIntroViewController.h; sourceTree = "<group>"; };
+		BDA7BE6719AF7EE400257150 /* MBSafetyIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSafetyIntroViewController.m; sourceTree = "<group>"; };
+		BDA7BE6919AF82F000257150 /* pinguinformation_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinguinformation_normal.png; sourceTree = "<group>"; };
 		BDA95224192E3AD90029233E /* gouxuan_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gouxuan_no.png; sourceTree = "<group>"; };
 		BDA95225192E3AD90029233E /* gouxuan_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gouxuan_no@2x.png"; sourceTree = "<group>"; };
 		BDA95226192E3AD90029233E /* gouxuan_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gouxuan_yes.png; sourceTree = "<group>"; };
@@ -1348,6 +1358,8 @@
 		E7124685188F69E90066C6BB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BDA7BE6919AF82F000257150 /* pinguinformation_normal.png */,
+				BDA7BE6419AF77E200257150 /* fengmian.jpg */,
 				E7C79AB1188F705300C1DFBD /* resource */,
 				E7124686188F69E90066C6BB /* Demo-Info.plist */,
 				E7124687188F69E90066C6BB /* InfoPlist.strings */,
@@ -2042,6 +2054,10 @@
 		E7C79B81188F96CE00C1DFBD /* biz */ = {
 			isa = PBXGroup;
 			children = (
+				BDA7BE6619AF7EE400257150 /* MBSafetyIntroViewController.h */,
+				BDA7BE6719AF7EE400257150 /* MBSafetyIntroViewController.m */,
+				BDA7BE6119AF74BE00257150 /* RepoertViewController.h */,
+				BDA7BE6219AF74BE00257150 /* RepoertViewController.m */,
 				BDA410D71926DA12009FB9B1 /* jigou */,
 				E74B383C18FA25BC00A19BE8 /* paper */,
 				E7C7B7B818E7B94D00CAF2A2 /* food */,
@@ -2533,6 +2549,7 @@
 				E7D0934F18D9C13100A4993C /* tabBarBG@2x.png in Resources */,
 				E786A23818E1B055003789B4 /* alert-black-button@2x.png in Resources */,
 				E786A24618E1B27F003789B4 /* whitebg.png in Resources */,
+				BDA7BE6A19AF82F000257150 /* pinguinformation_normal.png in Resources */,
 				E7C7B6FE18E6AC2900CAF2A2 /* youy_yes@2x.png in Resources */,
 				E7E3E4AB18E66C4D00681555 /* xuetagn@2x.png in Resources */,
 				E78BCE3018EC5478008EFB36 /* jianrihaixusheru.gif in Resources */,
@@ -2590,6 +2607,7 @@
 				BDA95228192E3AD90029233E /* gouxuan_no.png in Resources */,
 				E780859A18DB2741009FC0CD /* star_pressed@2x.png in Resources */,
 				E7F33E7C18E4841E00A5B2FF /* shu@2x.png in Resources */,
+				BDA7BE6519AF77E200257150 /* fengmian.jpg in Resources */,
 				BDA411C919274B0C009FB9B1 /* PhotoIcon.png in Resources */,
 				E786A23418E1B055003789B4 /* action-red-button@2x.png in Resources */,
 				E7195FCE18F9460400996A37 /* setting_yijianfankui.png in Resources */,
@@ -2700,6 +2718,7 @@
 				E7C79AD8188F70FB00C1DFBD /* AFImageRequestOperation.m in Sources */,
 				E7C79ADC188F70FB00C1DFBD /* AFPropertyListRequestOperation.m in Sources */,
 				E7C79B31188F77F500C1DFBD /* MBFileManager.m in Sources */,
+				BDA7BE6819AF7EE400257150 /* MBSafetyIntroViewController.m in Sources */,
 				E7C79B36188F77F500C1DFBD /* MBRegExpCheck.m in Sources */,
 				E7C7B7A118E6E1B600CAF2A2 /* ShocCanDetailViewController.m in Sources */,
 				E7C7B7A518E6F2BA00CAF2A2 /* YuyueJiluViewController.m in Sources */,
@@ -2745,6 +2764,7 @@
 				E7E3E4B218E67A6D00681555 /* TizhongViewController.m in Sources */,
 				E7C79B69188F78D400C1DFBD /* MBMenuView.m in Sources */,
 				E7C7B7BE18E7B96000CAF2A2 /* FoodViewController.m in Sources */,
+				BDA7BE6319AF74BE00257150 /* RepoertViewController.m in Sources */,
 				E7C49A4019035CEA00BAE380 /* RATreeView+TableViewDelegate.m in Sources */,
 				E72B948D18DDC3B20065C9E1 /* Stack.m in Sources */,
 				E752127618F6EDFF000717A2 /* SportsAllTableViewController.m in Sources */,

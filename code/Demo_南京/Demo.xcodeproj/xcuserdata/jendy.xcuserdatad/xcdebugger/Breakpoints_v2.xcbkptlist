@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo/biz/paper/PaperViewController.m"
-            timestampString = "430579297.428176"
+            filePath = "Demo/biz/RepoertViewController.m"
+            timestampString = "430928788.729433"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2234"
-            endingLineNumber = "2234"
-            landmarkName = "-btnSelectShowFour:"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-GetNewHealthDataAndResultSuccess:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -168,6 +168,8 @@
 		BDA411CD19274B0C009FB9B1 /* send.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA411A119274B0C009FB9B1 /* send.png */; };
 		BDA411CE19274B0C009FB9B1 /* send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA411A219274B0C009FB9B1 /* send@2x.png */; };
 		BDA411D019274EB2009FB9B1 /* sendMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA411CF19274EB2009FB9B1 /* sendMessage@2x.png */; };
+		BDA7BE5E19AF6C5E00257150 /* RepoertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA7BE5D19AF6C5E00257150 /* RepoertViewController.m */; };
+		BDA7BE6019AF728700257150 /* fengmian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDA7BE5F19AF728700257150 /* fengmian.jpg */; };
 		BDA95228192E3AD90029233E /* gouxuan_no.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA95224192E3AD90029233E /* gouxuan_no.png */; };
 		BDA95229192E3AD90029233E /* gouxuan_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA95225192E3AD90029233E /* gouxuan_no@2x.png */; };
 		BDA9522A192E3AD90029233E /* gouxuan_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA95226192E3AD90029233E /* gouxuan_yes.png */; };
@@ -723,6 +725,9 @@
 		BDA411A119274B0C009FB9B1 /* send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = send.png; path = chart/send.png; sourceTree = "<group>"; };
 		BDA411A219274B0C009FB9B1 /* send@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "send@2x.png"; path = "chart/send@2x.png"; sourceTree = "<group>"; };
 		BDA411CF19274EB2009FB9B1 /* sendMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sendMessage@2x.png"; sourceTree = "<group>"; };
+		BDA7BE5C19AF6C5E00257150 /* RepoertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoertViewController.h; sourceTree = "<group>"; };
+		BDA7BE5D19AF6C5E00257150 /* RepoertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoertViewController.m; sourceTree = "<group>"; };
+		BDA7BE5F19AF728700257150 /* fengmian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fengmian.jpg; sourceTree = "<group>"; };
 		BDA95224192E3AD90029233E /* gouxuan_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gouxuan_no.png; sourceTree = "<group>"; };
 		BDA95225192E3AD90029233E /* gouxuan_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gouxuan_no@2x.png"; sourceTree = "<group>"; };
 		BDA95226192E3AD90029233E /* gouxuan_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gouxuan_yes.png; sourceTree = "<group>"; };
@@ -1211,6 +1216,8 @@
 				BD94593F19A9ECF500852A2F /* tijianReprot */,
 				BD94595419A9ECF500852A2F /* yueyueJilu */,
 				BD94595B19A9ECF500852A2F /* yuyue */,
+				BDA7BE5C19AF6C5E00257150 /* RepoertViewController.h */,
+				BDA7BE5D19AF6C5E00257150 /* RepoertViewController.m */,
 			);
 			path = biz;
 			sourceTree = "<group>";
@@ -1925,6 +1932,7 @@
 		E7C79AB3188F705300C1DFBD /* image */ = {
 			isa = PBXGroup;
 			children = (
+				BDA7BE5F19AF728700257150 /* fengmian.jpg */,
 				BDDF79B8198BCDC800B2406C /* btn_check_off_normal.png */,
 				BDDF79B9198BCDC800B2406C /* btn_check_on_normal.png */,
 				BD744E7919868DEC00A61E9B /* rightwang@2x.png */,
@@ -2416,6 +2424,7 @@
 				E71D7ED2191E30DF007EF55E /* acc_dian.png in Resources */,
 				E746ADC818DF18BE0074FAF4 /* five@2x.png in Resources */,
 				E7E3E4BC18E67C6B00681555 /* zhifang@2x.png in Resources */,
+				BDA7BE6019AF728700257150 /* fengmian.jpg in Resources */,
 				E7F75EDB191E707000A11EE1 /* noMessage@2x.png in Resources */,
 				E78BCE3318EC558A008EFB36 /* tizhong.gif in Resources */,
 				BD94599C19A9ECF500852A2F /* parent_98.json in Resources */,
@@ -2787,6 +2796,7 @@
 				E7C79B11188F76B000C1DFBD /* UIViewAdditions.m in Sources */,
 				BD9459E519A9ECF500852A2F /* HRFriendsCell.m in Sources */,
 				BD9459A719A9ECF500852A2F /* MBFundMapViewController.m in Sources */,
+				BDA7BE5E19AF6C5E00257150 /* RepoertViewController.m in Sources */,
 				E7CB7BA218E1AE8D00387538 /* BlockTextPromptAlertView.m in Sources */,
 				BD94598619A9ECF500852A2F /* ChartTableViewCell.m in Sources */,
 				E7C79B0C188F76B000C1DFBD /* NSStringAdditions.m in Sources */,
@@ -3037,7 +3047,7 @@
 					"\"$(SRCROOT)/Demo/vender/weibo\"",
 					"\"$(SRCROOT)/Demo/vender/baiduMapSDK/libs/\"",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "87D6FD6B-8096-41D9-BBBD-8D2E72D5DA95";
 				VALID_ARCHS = armv7;
