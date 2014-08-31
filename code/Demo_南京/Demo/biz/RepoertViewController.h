@@ -11,5 +11,7 @@
 @interface RepoertViewController : UIViewController<UITextFieldDelegate>
 {
     MBTextField *_bianhaoTF;
+    UIView *BgView;
+    NSString *_usrlStr;
 }
 @end

@@ -175,7 +175,7 @@
 {
     if (alertView.tag==9999) {
         if (buttonIndex==0) {
-            NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com"];
+            NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/cn/app/zhang-shang-jian-kang-guan-jia/id890737559?mt=8"];
             
             [[UIApplication sharedApplication]openURL:url];
             

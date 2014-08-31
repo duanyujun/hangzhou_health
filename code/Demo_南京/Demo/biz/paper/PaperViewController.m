@@ -147,7 +147,7 @@
                                     @"<5支",@"5-15支",@"15-25支",@"25-40支",@">=40支",
                                     @"<5年",@"5-15年",@"15-25年",@"25-40年",@">=40年",
                                     @"没有",@"1-2天",@"3-4天",@"5-6天",@"7天",
-                                    @"从不",@"偶尔",@"戒烟",@"吸烟",@"",
+                                    @"从不",@"偶尔",@"戒酒",@"吸酒",@"",
                                     @"白酒",@"黄酒",@"红酒",@"啤酒",@"其他",
                                     @"<2两",@"2-4两",@"4-6两",@"6-8两",@">=8两",
                                     @"<5年",@"5-15年",@"15-25年",@"25-40年",@">=40年",
@@ -1678,7 +1678,7 @@
                                 @"您容易精神紧张、焦虑不安吗？",@"您容易感到害怕或受到惊吓吗？",@"您两肋部或乳房胀痛吗？",@"您感到胸闷或腹部胀满吗？",@"您无缘无故叹气吗？",@"您感到身体沉重不轻松或不爽快吗？",@"您感到手脚心发热吗？",@"您手脚发凉吗？",@"您胃脘部、背部或腰膝部怕冷吗？",@"您感到怕冷、衣服比别人穿得多吗？",
                                 @"您感觉身体、脸上发热吗？",@"您比一般人耐受不了寒冷（冬天的寒冷或夏天的冷空调、电扇等）吗？",@"您比别人容易患感冒吗？",@"您不感冒时也会打喷嚏吗？",@"您不感冒时也会鼻塞、流鼻涕吗？",@"您有因季节变化、温度变化或异味等原因而咳喘的现象吗？",@"您活动量稍大就容易出虚汗吗？",@"您有额部油脂分泌多的现象吗？",@"您皮肤或口唇干吗？",@"您容易过敏（对药物、食物、气味、花粉或在季节交替、气候变化时）吗？",
                                 @"您的皮肤容易起荨麻疹（风团、风疹块、风疙瘩）吗？",@"您的皮肤因过敏出现过紫癜（紫红色瘀点、瘀斑）吗？",@"您的皮肤在不知不觉中会出现乌青或青紫瘀斑（皮下出血）吗？",@"您的皮肤一抓就红，并出现抓痕吗？",@"您口唇的颜色比一般人红吗？",@"您两颧部有细微红丝吗？",@"您身体上有哪里疼痛吗？",@"您面部两颧潮红或偏红吗？",@"您面部或鼻部有油腻感或者油亮发光吗？",@"您面色晦暗或容易出现褐斑吗？",
-                                @"您容易生痤疮或疮疖吗？",@"您上眼睑比别人肿（上眼睑有轻微隆起的现象）吗？",@"您会出现黑眼圈吗？",@"您感到眼睛干涩吗？",@"您口唇颜色偏黯吗？",@"您感到口干咽燥、总想喝水吗？",@"您咽喉部有异物感，且吐之不出、咽之不下吗？",@"您感到口苦或嘴里有异味吗？",@"您嘴里有黏黏的感觉吗？",@"您舌苔厚腻或有舌苔厚厚的感觉吗？",
+                                @"您容易生痤疮或疮疖吗？",@"您上眼睑比别人肿（上眼睑有轻微隆起的现象）吗？",@"您会出现黑眼圈吗？",@"您感到眼睛干涩吗？",@"您口唇颜色偏黯",@"您感到口干咽燥、总想喝水吗？",@"您咽喉部有异物感，且吐之不出、咽之不下吗？",@"您感到口苦或嘴里有异味吗？",@"您嘴里有黏黏的感觉吗？",@"您舌苔厚腻或有舌苔厚厚的感觉吗？",
                                 @"您平时痰多，特别是咽喉部总感到有痰堵着吗？",@"您吃（喝）凉的东西会感到不舒服或者怕吃（喝）凉东西吗？",@"您能适应外界自然和社会环境的变化吗？",@"您容易失眠吗？",@"您受凉或吃（喝）凉的东西后，容易腹泻（拉肚子）吗？",@"您大便黏滞不爽、有解不尽的感觉吗？",@"您容易便秘或大便干燥吗？",@"您腹部肥满松软吗？",@"您小便时尿道有发热感、尿色浓（深）吗？",@"您带下色黄（白带颜",
                                 @"您的阴囊部位潮湿吗？（限男性回答）"];
     
@@ -1710,19 +1710,24 @@
         
         NSString*answerCode = @"";
     
+        if (i==44) {
+            NSLog(@"3333333333=======%@",questionCode,questinName);
+            
+        }
         for (int k=0; k<5; k++) {
             
-            for (int j=5*i+k; j<5*i+5; j++) {
+//            for (int j=5*i+k; j<5*i+5; j++) {
                 int imageIndex = 5*i+k;
                 UIImageView*iamgeView = _threeScrollAnserBtn[imageIndex];
                 if (iamgeView.hidden==NO) {
                     answerCode = [NSString stringWithFormat:@"%d",k+1];
+                    break;
                 }else
                 {
                     answerCode = [NSString stringWithFormat:@"%d",1];
                     
                 }
-            }
+//            }
         }
         questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,answerCode];
         
@@ -1769,7 +1774,7 @@
     NSDictionary *xmlDoc =[NSDictionary dictionaryWithXMLString:string];
     if ([xmlDoc[@"soap:Body"][@"AddQuestionInfoResponse"][@"AddQuestionInfoResult"] isEqualToString:@"1"]) {
         
-        MBAlertWithDelegate(@"提交成功，请联系健康管理师获取分析及建议！", self);
+      //  MBAlertWithDelegate(@"提交成功，请联系健康管理师获取分析及建议！", self);
         
         
     }else{
@@ -1794,15 +1799,15 @@
                                 @"过分担忧",@"对事物不感兴趣",@"感到害怕",@"你的感情容易受到伤害",@"旁人能知道你的私下想法",@"感到别人不理解你不同情你",@"感到人们对你不友好，不喜欢你",@"做事情必须做得很慢以保证做正确",@"心跳得厉害",@"恶心或胃不舒服",
                                 @"感到比不上别人",@"肌肉酸痛",@"感到有人在监视你谈论你",@"难以入睡",@"做事必须反复检查",@"难以做出决定",@"怕乘电车、公共汽车、地铁或火车",@"呼吸困难",@"一阵阵发冷或发热",@"因为感到害怕而避开某些东西、场合或活动",
                                 @"脑子变空了",@"身体发麻或刺痛",@"喉咙有梗塞感",@"感到前途没有希望",@"不能集中注意力",@"感到身体的某一部分软弱无力",@"感到紧张或容易紧张",@"感到手或脚发重",@"感到死亡的事",@"吃得太多",
-                                @"当别人看着你或谈论你时感到不自在",@"有一些不属于你自己的看法",@"有想打人或伤害他人的冲动",@"醒得太早",@"必须反复洗手、点数目或触摸某些东西必须反复洗手、点数目或触摸某些东西",@"睡得不稳不深",@"有想摔坏或破坏东西的冲动",@"有一些别人没有的想法或念头",@"感到对别人神经过敏",@"在商场或电影院等人多的地方感到不自在",
+                                @"当别人看着你或谈论你时感到不自在",@"自己的看法",@"有想打人或伤害他人的冲动",@"醒得太早",@"必须反复洗手、点数目或触摸某些东西",@"睡得不稳不深",@"有想摔坏或破坏东西的冲动",@"有一些别人没有的想法或念头",@"感到对别人神经过敏",@"在商场或电影院等人多的地方感到不自在",
                                 @"感到任何事情都很困难",@"一阵阵恐惧或惊恐",@"感到在公共场合吃东西很不舒服",@"经常与人争论",@"单独一个人时神经很紧张",@"别人对你的成绩没有做出恰当的评论",@"即使和别人在一起也感到孤独",@"感到坐立不安心神不定",@"感到自己没有什么价值",@"感到熟悉的东西变陌生或不象真的",
-                                @"大叫或摔东西",@"害怕会在公共场合昏倒",@"感到别人想占你便宜",@"为一些有关“性”的想法而苦恼",@"你认为应该因为自己的过错而受惩罚",@"86、 感到要赶快把事情做完",@"感到自己的身体有严重问题",@"从未感到和其他人亲近",@"感到自己有罪",@"感到自己的脑子有毛病"];
+                                @"大叫或摔东西",@"害怕会在公共场合昏倒",@"感到别人想占你便宜",@"为一些有关“性”的想法而苦恼",@"你认为应该因为自己的过错而受惩罚",@"感到要赶快把事情做完",@"感到自己的身体有严重问题",@"从未感到和其他人亲近",@"感到自己有罪",@"感到自己的脑子有毛病"];
     
     DBHelper *helper=[[DBHelper alloc]init];
     
     NSString *questinNameSendData = @"";
     
-    for ( int i=0; i<oneLabeQuertin.count-1; i++) {
+    for ( int i=0; i<oneLabeQuertin.count; i++) {
         
         NSString *questinName = @"";
         
@@ -1816,17 +1821,18 @@
         
         for (int k=0; k<5; k++) {
             
-            for (int j=5*i+k; j<5*i+5; j++) {
+//            for (int j=5*i+k; j<5*i+5; j++) {
                 int imageIndex = 5*i+k;
                 UIImageView*iamgeView = _twoScrollAnserBtn[imageIndex];
                 if (iamgeView.hidden==NO) {
                     answerCode = [NSString stringWithFormat:@"%d",k+1];
+                    break;
                 }else
                 {
                     answerCode = [NSString stringWithFormat:@"%d",1];
                     
                 }
-            }
+//            }
         }
         questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,answerCode];
         
@@ -1893,7 +1899,7 @@
             if (i==3) { itemKind = @"祖父母";}
             if (i==4) { itemKind = @"外祖父母";}
             
-            NSString*question = [NSString stringWithFormat:@"%@%@",itemKind,allbingArray[j%13]];
+            NSString*question = [NSString stringWithFormat:@"%@%@",itemKind,allbingArray[j%15]];
             
             NSString *questionCode = [helper returnQuestionCodeWithQuestionName:question];
             if ([anserwer isEqualToString:@"NO"]) {
@@ -1909,6 +1915,8 @@
         }
     }
     
+    NSLog(@"%@",questinNameSendData);
+    
     NSArray *oneLabeQuertin = @[@"米、面、薯类平均日摄入量",@"肉类平均日",@"水产类",@"蛋类平均",@"奶制品平均日",@"豆制品平均",@"新鲜蔬菜平均日摄",@"新鲜水果平均",@"平均日饮"];
         
     for (int i=0; i<oneLabeQuertin.count; i++) {
@@ -1920,20 +1928,25 @@
 
             for (int k=0; k<5; k++) {
                 
-                for (int j=5*i+k; j<5*i+5; j++) {
-                    int imageIndex = 5*i+k;
-                    UIImageView*iamgeView = _oneScrollAnserImageVewi[imageIndex];
+//                for (int j=5*i+k; j<5*i+5; j++) {
+//                    int imageIndex = 5*i+k;
+                    UIImageView*iamgeView = _oneScrollAnserImageVewi[5*i+k];
                     if (iamgeView.hidden==NO) {
                         answerCode = [NSString stringWithFormat:@"%d",k+1];
+                        break;
+
+                        NSLog(@"1111111=======%@,2222===========",answerCode);
+
                     }else
                     {
                         answerCode = [NSString stringWithFormat:@"%d",1];
                         
                     }
-                }
+//                }
             }
-            
+        
             questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,answerCode];
+        NSLog(@"%@",questinNameSendData);
 
         }
         
@@ -1942,24 +1955,27 @@
         
     for (int i=0; i<oneLabeQuertinTwoAbout.count; i++) {
             
-            NSString*question = oneLabeQuertin[i];
+            NSString*question = oneLabeQuertinTwoAbout[i];
             NSString *questionCode = [helper returnQuestionCodeWithQuestionName:question];
             
             NSString *answerCode = @"";
             
             for (int k=0; k<5; k++) {
                 
-                for (int j=5*i+k; j<5*i+5; j++) {
+//                for (int j=5*i+k; j<5*i+5; j++) {
                     int imageIndex = 5*i+k;
                     UIImageView*iamgeView = _oneScrollAnserImageVewiThree[imageIndex];
+                    NSLog(@"%@",iamgeView);
                     if (iamgeView.hidden==NO) {
                         answerCode = [NSString stringWithFormat:@"%d",k+1];
+                        break;
+
                     }else
                     {
                         answerCode = [NSString stringWithFormat:@"%d",1];
                         
                     }
-                }
+//                }
             }
             
             questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,answerCode];
@@ -1987,6 +2003,8 @@
                 questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,@"1"];
                 
             }
+        
+
 
     }
 
@@ -2027,22 +2045,23 @@
         
         for (int k=0; k<5; k++) {
             
-            for (int j=5*i+k; j<5*i+5; j++) {
+//            for (int j=5*i+k; j<5*i+5; j++) {
                 int imageIndex = 5*i+k;
 
                 UIImageView*iamgeView = _oneScrollAnserImageVewiFour[imageIndex];
                 if (iamgeView.hidden==NO) {
                     answerCode = [NSString stringWithFormat:@"%d",k+1];
+                    break;
                 }else
                 {
                     answerCode = [NSString stringWithFormat:@"%d",1];
                     
                 }
-            }
+//            }
         }
         
         questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,answerCode];
-        
+
     }
     
     
@@ -2070,17 +2089,19 @@
         
         for (int k=0; k<4; k++) {
             
-            for (int j=4*i+k; j<4*i+5; j++) {
+//            for (int j=4*i+k; j<4*i+5; j++) {
                 int imageIndex = 4*i+k;
                 UIImageView*iamgeView = _oneScrollAnserImageVewiLastAll[imageIndex];
                 if (iamgeView.hidden==NO) {
                     answerCode = [NSString stringWithFormat:@"%d",k+1];
+                    break;
+
                 }else
                 {
                     answerCode = [NSString stringWithFormat:@"%d",1];
                     
                 }
-            }
+//            }
         }
         
         questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,answerCode];
@@ -2091,17 +2112,48 @@
     
     NSString*questionLastLastTwo = @"您的糖皮质激素服";
     NSString *questionCodeLastTwo = [helper returnQuestionCodeWithQuestionName:questionLastLastTwo];
+    NSString *anseCo=@"";
     
-    UIImageView *imageViewLastStr =(UIImageView*)_oneScrollAnserImageVewiLastOnlyTwo[0];
-    if (imageViewLastStr.hidden == YES) {
+    for (int k=0; k<5; k++) {
         
-        questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCodeLastTwo,@"2"];
-        
-    }else
-    {
-        questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCodeLastTwo,@"1"];
-        
+        UIImageView*iamgeView = _oneScrollAnserImageVewiLastOnlyTwo[k];
+        if (iamgeView.hidden==NO) {
+            anseCo = [NSString stringWithFormat:@"%d",k+1];
+            break;
+            
+        }else
+        {
+            anseCo = [NSString stringWithFormat:@"%d",1];
+            
+        }
     }
+    questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCodeLastTwo,anseCo];
+
+    
+    
+    
+    
+        NSString *anserwer = @"您经常接触到有害因素";
+        NSLog(@"222==========%@",anserwer);
+        NSString*question = [NSString stringWithFormat:@"%@",anserwer];
+        
+        NSString *questionCode = [helper returnQuestionCodeWithQuestionName:question];
+        
+        if ([anserwer isEqualToString:@"NO"]) {
+            
+            questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,@"2"];
+            
+        }else
+        {
+            questinNameSendData =[NSString stringWithFormat:@"%@<QuestionInfo><QuestionNo>%@</QuestionNo><AnswerNo>%@</AnswerNo></QuestionInfo>",questinNameSendData,questionCode,@"1"];
+            
+        }
+        
+    
+    
+
+    
+
 
 //最后一个没有答案
     
@@ -2126,6 +2178,8 @@
     
     
     NSString *soapMsg=[SoapHelper arrayToDefaultSoapMessage:arr methodName:@"AddQuestionInfo"];
+    
+    NSLog(@"%@",soapMsg);
     
     __block PaperViewController *blockSelf = self;
     

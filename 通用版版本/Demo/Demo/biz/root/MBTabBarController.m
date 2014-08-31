@@ -325,7 +325,7 @@
         
     }
     
-    NSArray *itemArray = @[@"资料",@"评估",@"预约记录",@"问卷",@"膳食推荐"];
+    NSArray *itemArray = @[@"资料",@"收藏",@"预约记录",@"问卷",@"膳食推荐"];
     NSArray *itemAImagerray = @[@"information_normal.png",@"star_pressed.png",@"disease_gif_normal.png",@"disease_icon.png",@"risk_normal.png"];
     
     if (!_isMenuShow) {
@@ -454,17 +454,17 @@
     BOOL isLogin =[[[NSUserDefaults standardUserDefaults]valueForKey:LOGINSTATUS] boolValue];
     if (!isLogin) {
 
-        if ([currentAddedButton.url isEqualToString:itemAImagerray[1]])  {
-            
-            //收藏
-            RepoertViewController*person=[[RepoertViewController alloc]init];
-            UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:person];
-            //            [rootViewController pushViewController:person animated:YES];
-            [rootViewController presentViewController:nav animated:YES completion:nil];
-            
-        }else{
+//        if ([currentAddedButton.url isEqualToString:itemAImagerray[1]])  {
+//            
+//            //收藏
+//            RepoertViewController*person=[[RepoertViewController alloc]init];
+//            UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:person];
+//            //            [rootViewController pushViewController:person animated:YES];
+//            [rootViewController presentViewController:nav animated:YES completion:nil];
+//            
+//        }else{
             [self goToLoginViewAbout];
-        }
+//        }
         
     }else{
         
@@ -476,14 +476,14 @@
         if ([currentAddedButton.url isEqualToString:itemAImagerray[1]])  {
             
             //收藏
-            RepoertViewController*person=[[RepoertViewController alloc]init];
-            UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:person];
+//            RepoertViewController*person=[[RepoertViewController alloc]init];
+//            UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:person];
             //            [rootViewController pushViewController:person animated:YES];
-            [rootViewController presentViewController:nav animated:YES completion:nil];
+//            [rootViewController presentViewController:nav animated:YES completion:nil];
             
             //收藏
-//            shoucangViewController*person=[[shoucangViewController alloc]init];
-//            [rootViewController pushViewController:person animated:YES];
+            shoucangViewController*person=[[shoucangViewController alloc]init];
+            [rootViewController pushViewController:person animated:YES];
         }
         if ([currentAddedButton.url isEqualToString:itemAImagerray[3]])  {
             //问卷

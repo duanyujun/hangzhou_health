@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Demo/biz/RepoertViewController.m"
-            timestampString = "430928788.729433"
+            filePath = "Demo/biz/paper/PaperViewController.m"
+            timestampString = "431063829.369711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "-GetNewHealthDataAndResultSuccess:"
+            startingLineNumber = "2155"
+            endingLineNumber = "2155"
+            landmarkName = "-submitRightBtnPressed"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

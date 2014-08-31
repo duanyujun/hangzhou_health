@@ -170,6 +170,7 @@
 		BDA411D019274EB2009FB9B1 /* sendMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA411CF19274EB2009FB9B1 /* sendMessage@2x.png */; };
 		BDA7BE5E19AF6C5E00257150 /* RepoertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA7BE5D19AF6C5E00257150 /* RepoertViewController.m */; };
 		BDA7BE6019AF728700257150 /* fengmian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDA7BE5F19AF728700257150 /* fengmian.jpg */; };
+		BDA7BE6D19B1639E00257150 /* MBSafetyIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA7BE6C19B1639E00257150 /* MBSafetyIntroViewController.m */; };
 		BDA95228192E3AD90029233E /* gouxuan_no.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA95224192E3AD90029233E /* gouxuan_no.png */; };
 		BDA95229192E3AD90029233E /* gouxuan_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA95225192E3AD90029233E /* gouxuan_no@2x.png */; };
 		BDA9522A192E3AD90029233E /* gouxuan_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = BDA95226192E3AD90029233E /* gouxuan_yes.png */; };
@@ -728,6 +729,8 @@
 		BDA7BE5C19AF6C5E00257150 /* RepoertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoertViewController.h; sourceTree = "<group>"; };
 		BDA7BE5D19AF6C5E00257150 /* RepoertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoertViewController.m; sourceTree = "<group>"; };
 		BDA7BE5F19AF728700257150 /* fengmian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fengmian.jpg; sourceTree = "<group>"; };
+		BDA7BE6B19B1639E00257150 /* MBSafetyIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSafetyIntroViewController.h; sourceTree = "<group>"; };
+		BDA7BE6C19B1639E00257150 /* MBSafetyIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSafetyIntroViewController.m; sourceTree = "<group>"; };
 		BDA95224192E3AD90029233E /* gouxuan_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gouxuan_no.png; sourceTree = "<group>"; };
 		BDA95225192E3AD90029233E /* gouxuan_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gouxuan_no@2x.png"; sourceTree = "<group>"; };
 		BDA95226192E3AD90029233E /* gouxuan_yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gouxuan_yes.png; sourceTree = "<group>"; };
@@ -1193,6 +1196,8 @@
 		BD9458AC19A9ECF500852A2F /* biz */ = {
 			isa = PBXGroup;
 			children = (
+				BDA7BE6B19B1639E00257150 /* MBSafetyIntroViewController.h */,
+				BDA7BE6C19B1639E00257150 /* MBSafetyIntroViewController.m */,
 				BD9458AD19A9ECF500852A2F /* AdminChartTableViewCell.h */,
 				BD9458AE19A9ECF500852A2F /* AdminChartTableViewCell.m */,
 				BD9458AF19A9ECF500852A2F /* ChartTableViewCell.h */,
@@ -2848,6 +2853,7 @@
 				E70BBB06190BC19300BE7C85 /* PCLineChartView.m in Sources */,
 				BD9459C819A9ECF500852A2F /* PersonInfoHeadCell.m in Sources */,
 				E77E10B118EB096A007DE0ED /* FMDatabaseQueue.m in Sources */,
+				BDA7BE6D19B1639E00257150 /* MBSafetyIntroViewController.m in Sources */,
 				E7C79B0E188F76B000C1DFBD /* UIColorAdditions.m in Sources */,
 				E7C79AD6188F70FB00C1DFBD /* AFHTTPClient.m in Sources */,
 				E77E10AF18EB096A007DE0ED /* FMDatabaseAdditions.m in Sources */,

@@ -396,7 +396,7 @@
         
     }
     
-    NSArray *itemArray = @[@"资料",@"收藏",@"预约记录",@"问卷",@"膳食推荐"];
+    NSArray *itemArray = @[@"资料",@"评估",@"预约记录",@"问卷",@"膳食推荐"];
     NSArray *itemAImagerray = @[@"information_normal.png",@"star_pressed.png",@"disease_gif_normal.png",@"disease_icon.png",@"risk_normal.png"];
     
     if (!_isMenuShow) {
