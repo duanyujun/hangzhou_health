@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBTextField.h"
-@interface RepoertViewController : UIViewController<UITextFieldDelegate>
+@interface RepoertViewController : UIViewController
 {
-    MBTextField *_bianhaoTF;
-    UIView *BgView;
-    NSString *_usrlStr;
+    NSArray*_allPdf;
 }
 @end
