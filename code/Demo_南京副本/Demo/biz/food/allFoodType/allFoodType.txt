@@ -1,0 +1,122 @@
+[
+  {
+    "foodTypeName" : "谷类及制品",
+    "ftid" : "1",
+    "foodTypeCode" : "01",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "薯类、淀粉及制品",
+    "ftid" : "8",
+    "foodTypeCode" : "02",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "干豆类及制品",
+    "ftid" : "11",
+    "foodTypeCode" : "03",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "蔬菜类及制品",
+    "ftid" : "18",
+    "foodTypeCode" : "04",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "菌藻类",
+    "ftid" : "27",
+    "foodTypeCode" : "05",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "水果类及制品",
+    "ftid" : "30",
+    "foodTypeCode" : "06",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "坚果、种子类",
+    "ftid" : "37",
+    "foodTypeCode" : "07",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "畜肉类及制品",
+    "ftid" : "40",
+    "foodTypeCode" : "08",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "禽肉类及制品",
+    "ftid" : "47",
+    "foodTypeCode" : "09",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "乳类及制品",
+    "ftid" : "53",
+    "foodTypeCode" : "10",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "蛋类及制品",
+    "ftid" : "60",
+    "foodTypeCode" : "11",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "鱼虾蟹贝类",
+    "ftid" : "65",
+    "foodTypeCode" : "12",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "婴幼儿食品",
+    "ftid" : "71",
+    "foodTypeCode" : "13",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "小吃、甜饼",
+    "ftid" : "75",
+    "foodTypeCode" : "14",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "速食食品",
+    "ftid" : "78",
+    "foodTypeCode" : "15",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "饮料类",
+    "ftid" : "82",
+    "foodTypeCode" : "16",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "含酒精饮料",
+    "ftid" : "92",
+    "foodTypeCode" : "17",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "糖、蜜饯类",
+    "ftid" : "96",
+    "foodTypeCode" : "18",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "油脂类",
+    "ftid" : "100",
+    "foodTypeCode" : "19",
+    "parentID" : "0"
+  },
+  {
+    "foodTypeName" : "调味品类",
+    "ftid" : "103",
+    "foodTypeCode" : "20",
+    "parentID" : "0"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "foodTypeName" : "菌类",
+    "ftid" : "28",
+    "foodTypeCode" : "05-1",
+    "parentID" : "27"
+  },
+  {
+    "foodTypeName" : "藻类",
+    "ftid" : "29",
+    "foodTypeCode" : "05-2",
+    "parentID" : "27"
+  }
+]

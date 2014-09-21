@@ -1,0 +1,20 @@
+[
+  {
+    "foodTypeName" : "发酵酒",
+    "ftid" : "93",
+    "foodTypeCode" : "17-1",
+    "parentID" : "92"
+  },
+  {
+    "foodTypeName" : "蒸馏酒",
+    "ftid" : "94",
+    "foodTypeCode" : "17-2",
+    "parentID" : "92"
+  },
+  {
+    "foodTypeName" : "露酒（配制酒）",
+    "ftid" : "95",
+    "foodTypeCode" : "17-3",
+    "parentID" : "92"
+  }
+]
