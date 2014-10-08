@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "834"
             endingLineNumber = "834"
-            landmarkName = "-canGoNextoneScrollAnserImageVewiFourABout:"
+            landmarkName = "-canGoNexttwoScrollAnserBtn:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "923"
             endingLineNumber = "923"
-            landmarkName = "-scrollViewDidScroll:"
+            landmarkName = "-canGoNexttwoScrollAnserBtn:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "741"
             endingLineNumber = "741"
-            landmarkName = "-canGoNextoneScrollAnserImageVewiLastAllOnlyFince:"
+            landmarkName = "-canGoNexttwoScrollAnserBtn:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

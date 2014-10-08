@@ -10,29 +10,29 @@
 	<string>Demo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>46D4BA6B-699F-4351-838C-DD8FCF920F04</key>
+		<key>F37EE8B6F51EB855688F8CA9BD2BAC028275FF22</key>
 		<string>https://github.com/wghwang/hangzhou_health.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>通用版版本/Demo/Demo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>46D4BA6B-699F-4351-838C-DD8FCF920F04</key>
+		<key>F37EE8B6F51EB855688F8CA9BD2BAC028275FF22</key>
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/wghwang/hangzhou_health.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>46D4BA6B-699F-4351-838C-DD8FCF920F04</string>
+	<string>F37EE8B6F51EB855688F8CA9BD2BAC028275FF22</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>46D4BA6B-699F-4351-838C-DD8FCF920F04</string>
+			<string>F37EE8B6F51EB855688F8CA9BD2BAC028275FF22</string>
 			<key>IDESourceControlWCCName</key>
 			<string>hangzhou_health</string>
 		</dict>

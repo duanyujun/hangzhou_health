@@ -475,24 +475,24 @@
         }
         if ([currentAddedButton.url isEqualToString:itemAImagerray[1]])  {
             
-            //收藏
-//            RepoertViewController*person=[[RepoertViewController alloc]init];
-//            UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:person];
-            //            [rootViewController pushViewController:person animated:YES];
-//            [rootViewController presentViewController:nav animated:YES completion:nil];
+//            收藏
+            RepoertViewController*person=[[RepoertViewController alloc]init];
+            UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:person];
+                        [rootViewController pushViewController:person animated:YES];
+            [rootViewController presentViewController:nav animated:YES completion:nil];
             
-            //收藏
-            shoucangViewController*person=[[shoucangViewController alloc]init];
-            [rootViewController pushViewController:person animated:YES];
+//            收藏
+//            shoucangViewController*person=[[shoucangViewController alloc]init];
+//            [rootViewController pushViewController:person animated:YES];
         }
         if ([currentAddedButton.url isEqualToString:itemAImagerray[3]])  {
             //问卷
-            MBAlert(@"本功能暂未开通");
-            //        PaperViewController*person=[[PaperViewController alloc]init];
-            //        UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:person];
-            //        [rootViewController presentViewController:nav animated:YES completion:^{
-            //
-            //        }];
+//            MBAlert(@"本功能暂未开通");
+            PaperViewController*person=[[PaperViewController alloc]init];
+            UINavigationController *nav =[[UINavigationController alloc]initWithRootViewController:person];
+            [rootViewController presentViewController:nav animated:YES completion:^{
+            
+                }];
             
         }
         
