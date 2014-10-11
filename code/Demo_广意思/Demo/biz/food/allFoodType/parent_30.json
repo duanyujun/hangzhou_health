@@ -1,0 +1,38 @@
+[
+  {
+    "foodTypeName" : "仁果类",
+    "ftid" : "31",
+    "foodTypeCode" : "06-1",
+    "parentID" : "30"
+  },
+  {
+    "foodTypeName" : "核果类",
+    "ftid" : "32",
+    "foodTypeCode" : "06-2",
+    "parentID" : "30"
+  },
+  {
+    "foodTypeName" : "浆果类",
+    "ftid" : "33",
+    "foodTypeCode" : "06-3",
+    "parentID" : "30"
+  },
+  {
+    "foodTypeName" : "柑橘类",
+    "ftid" : "34",
+    "foodTypeCode" : "06-4",
+    "parentID" : "30"
+  },
+  {
+    "foodTypeName" : "热带、亚热带水果",
+    "ftid" : "35",
+    "foodTypeCode" : "06-5",
+    "parentID" : "30"
+  },
+  {
+    "foodTypeName" : "瓜果类",
+    "ftid" : "36",
+    "foodTypeCode" : "06-6",
+    "parentID" : "30"
+  }
+]

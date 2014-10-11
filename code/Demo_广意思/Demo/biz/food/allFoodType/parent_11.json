@@ -1,0 +1,38 @@
+[
+  {
+    "foodTypeName" : "大豆",
+    "ftid" : "12",
+    "foodTypeCode" : "03-1",
+    "parentID" : "11"
+  },
+  {
+    "foodTypeName" : "绿豆",
+    "ftid" : "13",
+    "foodTypeCode" : "03-2",
+    "parentID" : "11"
+  },
+  {
+    "foodTypeName" : "赤豆",
+    "ftid" : "14",
+    "foodTypeCode" : "03-3",
+    "parentID" : "11"
+  },
+  {
+    "foodTypeName" : "芸豆",
+    "ftid" : "15",
+    "foodTypeCode" : "03-4",
+    "parentID" : "11"
+  },
+  {
+    "foodTypeName" : "蚕豆",
+    "ftid" : "16",
+    "foodTypeCode" : "03-5",
+    "parentID" : "11"
+  },
+  {
+    "foodTypeName" : "其它",
+    "ftid" : "17",
+    "foodTypeCode" : "03-9",
+    "parentID" : "11"
+  }
+]

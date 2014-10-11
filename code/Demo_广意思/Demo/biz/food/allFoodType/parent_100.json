@@ -1,0 +1,14 @@
+[
+  {
+    "foodTypeName" : "动物油脂",
+    "ftid" : "101",
+    "foodTypeCode" : "19-1",
+    "parentID" : "100"
+  },
+  {
+    "foodTypeName" : "植物油",
+    "ftid" : "102",
+    "foodTypeCode" : "19-2",
+    "parentID" : "100"
+  }
+]

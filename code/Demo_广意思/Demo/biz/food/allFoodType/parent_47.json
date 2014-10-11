@@ -1,0 +1,32 @@
+[
+  {
+    "foodTypeName" : "鸡",
+    "ftid" : "48",
+    "foodTypeCode" : "09-1",
+    "parentID" : "47"
+  },
+  {
+    "foodTypeName" : "鸭",
+    "ftid" : "49",
+    "foodTypeCode" : "09-2",
+    "parentID" : "47"
+  },
+  {
+    "foodTypeName" : "鹅",
+    "ftid" : "50",
+    "foodTypeCode" : "09-3",
+    "parentID" : "47"
+  },
+  {
+    "foodTypeName" : "火鸡",
+    "ftid" : "51",
+    "foodTypeCode" : "09-4",
+    "parentID" : "47"
+  },
+  {
+    "foodTypeName" : "其它",
+    "ftid" : "52",
+    "foodTypeCode" : "09-9",
+    "parentID" : "47"
+  }
+]

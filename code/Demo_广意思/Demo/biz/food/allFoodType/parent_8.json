@@ -1,0 +1,14 @@
+[
+  {
+    "foodTypeName" : "薯类",
+    "ftid" : "9",
+    "foodTypeCode" : "02-1",
+    "parentID" : "8"
+  },
+  {
+    "foodTypeName" : "淀粉类",
+    "ftid" : "10",
+    "foodTypeCode" : "02-2",
+    "parentID" : "8"
+  }
+]

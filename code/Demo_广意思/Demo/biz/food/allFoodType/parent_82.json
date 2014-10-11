@@ -1,0 +1,56 @@
+[
+  {
+    "foodTypeName" : "碳酸饮料",
+    "ftid" : "83",
+    "foodTypeCode" : "16-1",
+    "parentID" : "82"
+  },
+  {
+    "foodTypeName" : "果汁及果汁饮料",
+    "ftid" : "84",
+    "foodTypeCode" : "16-2",
+    "parentID" : "82"
+  },
+  {
+    "foodTypeName" : "蔬菜汁饮料",
+    "ftid" : "85",
+    "foodTypeCode" : "16-3",
+    "parentID" : "82"
+  },
+  {
+    "foodTypeName" : "含乳饮料",
+    "ftid" : "86",
+    "foodTypeCode" : "16-4",
+    "parentID" : "82"
+  },
+  {
+    "foodTypeName" : "植物蛋白饮料",
+    "ftid" : "87",
+    "foodTypeCode" : "16-5",
+    "parentID" : "82"
+  },
+  {
+    "foodTypeName" : "茶叶及茶饮料",
+    "ftid" : "88",
+    "foodTypeCode" : "16-6",
+    "parentID" : "82"
+  },
+  {
+    "foodTypeName" : "固体饮料",
+    "ftid" : "89",
+    "foodTypeCode" : "16-7",
+    "parentID" : "82"
+  },
+  {
+    "foodTypeName" : "棒冰、冰激凌类",
+    "ftid" : "90",
+    "foodTypeCode" : "16-8",
+    "parentID" : "82"
+  },
+  {
+    "foodTypeName" : "其它",
+    "ftid" : "91",
+    "foodTypeCode" : "16-9",
+    "parentID" : "82"
+  }
+]
